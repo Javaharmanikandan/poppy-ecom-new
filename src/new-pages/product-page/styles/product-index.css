@@ -1,0 +1,505 @@
+/* @media screen and (max-width: 767px) { */
+
+
+    @media screen and (min-width: 767px) {
+    .coupon-section a{
+         position: initial !important; 
+        right: 100px;
+        background: #982876;
+        border-radius: 10px;
+        /* font-family: "Calibri"; */
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+        color: #fff;
+        width: 80px;
+        height: 43px;
+        padding-top: 9px;
+    }
+    }
+
+    p{
+        margin-bottom: 0 !important;
+    }
+
+    .product-contain{
+        margin-top: 60px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+
+    .mattress-img .slick-slide div {
+        display: grid;
+        place-items: center;
+        align-items: center;
+        justify-content: center;
+        margin-top: 50px;
+        margin: auto;
+      }
+
+
+    .product-path ol{
+        display: flex;
+        flex-direction: row;
+        gap: 5px;
+        /* justify-content: center; */
+    }
+
+    .product-path ol a{
+        font-size: 14px;
+        font-weight: bold;
+        color: #7B7B7B;
+    }
+
+    .mattress-img ul.slick-dots {
+        padding-top: 0.8rem;
+        bottom: 30px;
+    }
+    .mattress-img .slick-dots li button:before {
+        font-size: 10px;
+    }
+    .mattress-img .slick-slide img {
+        max-width: 350px;
+        height: 350px;
+        border-radius: 21px;
+    }
+
+    .product-info{
+        display: flex;
+        flex-direction: column;
+        /* margin-top: 37px; */
+    }
+
+    .product-content{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 36px;
+    }
+
+    .product-name{
+        font-size: 20px;
+        color: #000000;
+    }
+    .product-dcp{
+        color: #AEAEAE;
+        font-size: 14px;
+    }
+
+
+    /*Product-price starts */
+
+    .pr-price{
+        display: flex;
+        flex-direction: row;
+        gap: 84px;
+        align-items: center;
+    }
+
+    .price-info{
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+
+    .price-info .mrp-price .mrp-rate{
+        /* font-family: "Calibri"; */
+        font-size: 14px;
+        font-weight: bold;
+    }
+    .price-info .mrp-price .offer-percentage{
+        /* font-family: "Calibri"; */
+        font-size: 14px;
+        font-weight: bold;
+        color: #982876;
+        padding-left: 10px;
+        font-family: system-ui;
+        /* padding-top: 5px; */
+    }
+
+    .bg-btn{
+        position: relative;
+        background-color: #982876;
+        /* width: 152px; */
+        height: 35px;
+        border-radius: 10px;
+        margin-top: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .bg-btn a{
+        position: absolute;
+        /* font-family: "Calibri"; */
+        font-weight: bold;
+        font-size: 18px;
+        color: #fff;
+        padding: 3px 15px;
+        font-family: system-ui;
+    }
+
+    .bg-btn span{
+        font-size: 15px;
+    }
+
+    .current-amt a{
+        /* font-family: "Calibri"; */
+        font-size: 30px;
+        font-weight: bold;
+        color: #982876;
+        font-family: system-ui;
+    }
+
+    .current-amt i{
+        /* font-family: "Calibri"; */
+        font-size: 24px;
+        /* font-weight: bold;
+        color: #982876;
+        font-family: system-ui; */
+    }
+
+    .current-amt{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .current-amt p{
+        /* font-family: "Calibri"; */
+        font-size: 9px;
+    }
+
+    /*Product-Height and Category */
+    
+    .pr-height{
+        display: flex;
+        flex-direction: column;
+        margin-top: 21px;
+    }
+
+    .product-info label{
+        /* font-family: "Calibri"; */
+        font-size: 14px;
+        font-weight: bold;
+        color: #7B7B7B;
+    }
+
+    .selection-btns{
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        padding-top: 10px;
+    }
+
+    .selection-btns .active-btn{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 77px;
+        height: 36px;
+        font-size: 16px;
+        font-weight: bold;
+        background-color: #982876;
+        border-radius: 10px;
+        color: #fff;
+    }
+
+    .selection-btns .inactive-btn{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 77px;
+        height: 36px;
+        font-size: 16px;
+        font-weight: bold;
+        background-color: #fff;
+        border: 1px solid #982876;
+        border-radius: 10px;
+        color: #982876;
+    }
+
+    .pr-dimention{
+        padding-top: 21px;
+    }
+
+    .pr-dimention select{
+        padding-top: 10px;
+        border-radius: 10px;
+        border: none;
+        width: 94px;
+        height: 36px;
+        background: #D9D9D9;
+        /* font-family: "Calibri"; */
+        font-weight: bold;
+        color: #000000;
+        font-size: 16px;
+        text-align: center;
+        padding-top: 0px;
+    }
+
+    .pr-dimention option{
+        font-size: 16px;
+        /* font-family: "Calibri"; */
+        font-weight: bold;
+        color: #000000;
+    }
+
+    .pr-dimention .inactive-btn{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 175px;
+        height: 36px;
+        font-size: 16px;
+        font-weight: bold;
+        background-color: #fff;
+        border: 1px solid #982876;
+        border-radius: 10px;
+        color: #982876;
+    }
+
+    .pr-dimention .note{
+        font-size: 11px;
+        /* font-family: "Calibri"; */
+        color: #AEAEAE;
+        padding-top: 13px;
+    }
+
+    .pr-dimention .selection-btns{
+        gap: 26px
+    } 
+
+    .pr-color{
+        padding-top: 21px;
+    }
+
+    .pr-color .selection-btns{
+        display: flex;
+        flex-direction: row;
+        gap: 15px;
+    }
+
+
+    .pr-color-img{
+        border-radius: 50%;
+        width: 60px;
+        height: 59px;   
+    }
+
+    .pr-coupon{
+        margin-top: 21px;
+    }
+
+    .coupon-section{
+        padding-top: 12px;
+        gap: 5px;
+    }
+
+   
+    .coupon-section textarea{
+        position: relative;
+        width: 213px;
+        height: 43px;
+        border: 1px solid #982876;
+        background: #ffff;
+        border-radius: 10px;
+        text-align: left;
+        padding: 5px 20px;
+        /* font-family: "Calibri"; */
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    .coupon-section a{
+        position: absolute;
+        right: 100px;
+        background: #982876;
+        border-radius: 10px;
+        /* font-family: "Calibri"; */
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+        color: #fff;
+        width: 80px;
+        height: 43px;
+        padding-top: 9px;
+    }
+
+    .buy-section{
+        display: flex;
+        flex-direction: row;
+        margin-top: 21px;
+        gap: 8px;
+        justify-content: center;
+    }
+
+
+    .buy-section .add-cart{
+        width: 176px;
+        height: 61px;
+        background: #982876;
+        border-radius: 10px;
+        /* font-family: "Calibri"; */
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .buy-section .buy-now{
+        width: 176px;
+        height: 61px;
+        background: #000000;
+        border-radius: 10px;
+        /* font-family: "Calibri"; */
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /*descripton and review*/
+
+    .desc-review{
+        display: flex;
+        flex-direction: column;
+        max-width: 358px;
+        margin-top: 44px;
+        margin-left: 30px;
+    }
+
+    .tab-content{
+        display: flex;
+        flex-direction: column;
+    }
+
+    #desc-content{
+        padding: 0;
+    }
+
+    .desc-review .desc-title:active{
+        color: #000000;
+        font-size: 15px;
+
+    }
+    
+    .desc-img .pr-desc-img{
+        margin-top: 21px;
+        max-width: 333px;
+        height: 229px;
+        border-radius: 21px;
+        
+    }
+
+    .desc-review h3{
+        margin-top: 26px;
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+        color: #982876;
+    }
+
+    .desc-review .desc-text{
+        text-align: center;
+        margin-top: 18px;
+        color: #AEAEAE;
+        font-size: 16px;
+    }
+
+
+    .desc-review .small-desc{
+        text-align: center;
+        color: #AEAEAE;
+        font-size: 16px;
+        margin-top: 21px;
+    }
+
+    .desc-review .nav {
+        display: flex;
+        flex-wrap: wrap;
+        padding-left: 0;
+        list-style: none;
+        gap: 46px;
+    }
+
+    .desc-review li a{
+        font-size: 15px;
+        color: #AEAEAE;
+    }
+
+    .desc-review li a:hover{
+        color: #000000;
+    }
+
+    /*Add to cart Footer */
+/* 
+    .product-contain footer{
+        position: fixed;
+        top: 600px;
+        width: 100%;
+        left: 0;
+        z-index: 300;
+    } */
+
+    .add-to-cart-section{
+        display: flex;
+        flex-direction: row;
+        z-index: 100;
+    }
+
+    .add-to-cart-section .price-view{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 214px;
+        height: 80px;
+        background-color: #fff;
+    }
+
+    .add-to-cart-section .price-view .mrp-rate{
+     font-family: "system-ui"; 
+        font-size: 14px;
+        font-weight: bold;
+        color: #000000;
+    }
+
+    
+
+    .add-to-cart-section .price-view a i{
+        /* font-family: "Calibri"; */
+         font-size: 24px; 
+        font-weight: bold;
+        color: #982876;
+    }
+
+    
+    .add-to-cart-section .price-view a {
+        font-family: "system-ui";
+         font-size: 30px; 
+        font-weight: bold;
+        color: #982876;
+    }
+
+    .add-to-cart-section .add-to-cart-btn{
+        display: flex;
+        width: 214px;
+        height: 80px;
+        background-color: #982876;
+        font-size: 20px;
+        color: #fff;
+        justify-content: center;
+        align-items: center;
+    }
+
+   
+/* } */

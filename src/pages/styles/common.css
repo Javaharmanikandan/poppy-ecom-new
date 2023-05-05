@@ -1,0 +1,309 @@
+@media screen and (min-width: 767px){
+    .product-image{
+        width: 230px;
+        height: 230px;
+        border-radius:21px;
+        object-fit: contain;
+    }
+    .product-cart{
+        margin-top: 20px;
+        margin-left: 18px;
+        position: relative;
+        /* width:100% ; */
+    }
+    
+    .product-cart h3{
+        font-size: 20px;
+        color: #982876;
+        text-align: center;
+        line-height: 22px;
+        font-weight: bold;
+    }
+
+    .product_card{
+        margin-top: 31px;
+        width: 230px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .product-img{
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+    .product-img i{
+        position: absolute;
+        font-size: 18px;
+        color: #982876;
+        bottom: 5px;
+        right: 25px;
+    }
+
+    .product-title{
+        margin-top: 13px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .product-title h2{
+        font-size: 16px;
+        color: #000000;
+        /* padding-left: 14px; */
+    }
+
+    .product-title i{
+        color: #982876;
+        font-size: 20px;
+        padding-right: 15px;
+    }
+    .product-description{
+        text-align: left;
+        padding-left: 14px;
+        font-size: 13px;
+        color: #AEAEAE;
+    }
+    .price-details{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        /* padding-left: 14px; */
+    }
+
+    .Current-price{
+        display: flex;
+        flex-direction: column;
+    }
+    .Current-price p{
+        font-size: 10px;
+        color: #982876;
+    }
+    .Current-price a{
+        /* position: absolute; */
+        padding-top: 13px;
+        color: #982876;
+        font-size: 26px;
+        font-weight: bold;
+    }
+
+    .Current-price i{
+        font-size: 18px;
+        font-weight: normal;
+    }
+    .mrp-price{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-top: 22px;
+        gap: 4px;
+        margin-right: 10px;
+    }
+    .mrp-price .mrp-rate{
+        font-size: 10px;
+        font-weight: bold;
+        color: #000000;
+    }
+    .mrp-rate s{
+        font-size: 14px;
+        font-weight: bold;
+    }
+    .mrp-price .offer-percentage{
+        font-size: 15px;
+        font-weight: bold;
+        padding-bottom: 5px;
+        color: #992876;
+    }
+    
+
+}
+
+
+
+
+@media screen and (max-width: 767px){
+    .product-image{
+        width: 230px;
+        height: 230px;
+        border-radius:21px;
+        object-fit: contain;
+    }
+    .product-cart{
+        margin-top: 20px;
+        margin-left: 18px;
+        position: relative;
+        /* width:100% ; */
+    }
+    
+    .product-cart h3{
+        font-size: 20px;
+        color: #982876;
+        text-align: center;
+        line-height: 22px;
+        font-weight: bold;
+    }
+
+    .product_card{
+        margin-top: 31px;
+        width: 230px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .product-img{
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+    .product-img i{
+        position: absolute;
+        font-size: 18px;
+        color: #982876;
+        bottom: 5px;
+        right: 25px;
+    }
+
+    .product-title{
+        margin-top: 13px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .product-title h2{
+        font-size: 20px;
+        color: #000000;
+        padding-left: 14px;
+    }
+
+    .product-title i{
+        color: #982876;
+        font-size: 20px;
+        padding-right: 15px;
+    }
+    .product-description{
+        text-align: left;
+        padding-left: 14px;
+        font-size: 13px;
+        color: #AEAEAE;
+    }
+    .price-details{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        /* padding-left: 14px; */
+    }
+
+    .Current-price{
+        display: flex;
+        flex-direction: column;
+    }
+    .Current-price p{
+        font-size: 10px;
+        color: #982876;
+    }
+    .Current-price a{
+        /* position: absolute; */
+        padding-top: 13px;
+        color: #982876;
+        font-size: 26px;
+        font-weight: bold;
+    }
+
+    .Current-price i{
+        font-size: 18px;
+        font-weight: normal;
+    }
+    .mrp-price{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-top: 22px;
+        gap: 4px;
+        margin-right: 10px;
+    }
+    .mrp-price .mrp-rate{
+        font-size: 10px;
+        font-weight: bold;
+        color: #000000;
+    }
+    .mrp-rate s{
+        font-size: 14px;
+        font-weight: bold;
+    }
+    .mrp-price .offer-percentage{
+        font-size: 15px;
+        font-weight: bold;
+        padding-bottom: 5px;
+        color: #992876;
+    }
+    
+
+}
+
+.swiper-3d .swiper-slide-shadow-left{
+background: none !important;
+}
+
+.swiper-3d .swiper-slide-shadow-right{
+    background: none !important;
+
+}
+
+
+
+.As-Main-Container{
+
+}
+.As-Main-Container h5{
+    color: #982876;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 24px;
+
+}
+.As-item{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.As-content{
+    background: #d9d9d95e;
+    width: 60%;
+    /* padding: 14px; */
+    padding: 16px 10px;
+    text-align: center;
+    border-radius: 21px;
+    color: #747474;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.As-Item_IMG_CONTENT{
+    padding: 16px 10px;
+}
+.As-item img{
+    width: 45px;
+    height: auto;
+
+}
+.As-Main-Container i{
+    color: rgb(153, 40, 118);
+    font-size: 22px;
+    margin-right: 4px;
+    margin-left: 20px;
+    margin-top: 25px;
+}
+
+.As-Main-Container b{
+    color: rgb(153, 40, 118);
+    font-size: 20px;
+    margin-top: 25px;
+    text-decoration: underline;
+}
+
+

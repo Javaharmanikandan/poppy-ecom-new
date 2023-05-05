@@ -1,0 +1,162 @@
+.cus-file-btn::-webkit-file-upload-button {
+    background-color: purple;
+    border: none;
+    color: white;
+    border-radius: 12px;
+    padding: 10px 10px;
+    font-weight: 600;
+}
+
+
+
+.cus-fil-btn-wraper {
+    position: relative;
+}
+
+.cus-fil-btn-wraper span {
+    position: absolute;
+    top: 19px;
+    left: 115px;
+    background: #ffffff;
+}
+
+
+
+
+
+.tab_ul {
+    margin-bottom: 20px;
+}
+
+.tab_li {
+
+    margin-left: 0px;
+    margin-right: 20px;
+    background: white;
+    padding: 10px;
+    border: 1.5px solid;
+    border-color: #a42877;
+    color: black;
+    font-weight: 600;
+    border-radius: 25px;
+}
+
+.tab-borderui {
+    border: 1px solid #bfbbbbe0;
+
+}
+
+.tab-pane {
+    padding: 20px;
+}
+
+.titlewar {
+    font-size: 1rem;
+    color: rgb(128 45 119);
+    font-weight: 600;
+
+}
+
+.margin_left {
+    margin-left: 10px !important;
+    margin-bottom: 15px;
+}
+
+.fcolor {
+    margin: 8px;
+    color: #8a2b77;
+}
+
+.down {
+    margin-bottom: 12px;
+}
+
+.th_back {
+    background: #842c77;
+    color: white;
+}
+
+.activeli {
+    background-color: black;
+}
+
+.table td,
+.table th {
+    padding: 0.75rem;
+    vertical-align: top;
+
+    border-right: 1px solid #dee2e6;
+}
+
+table {
+    border: 2px solid #dee2e6;
+}
+
+
+@media (max-width:641px) {
+    .tab-pane {
+        overflow-x: scroll;
+
+    }
+    .tab_ul {
+        margin-bottom: 20px;
+        margin-bottom: 20px;
+        /* display: grid; */
+        /* grid-auto-columns: auto auto; */
+        display: grid;
+        grid-template-columns: auto auto;
+        /* background-color: #2196F3; */
+        padding: 10px;
+    }
+
+
+    .active_liscr {
+
+        margin-left: 0px;
+        margin-right: 20px;
+        margin-bottom: 20px;
+        background: #dee2e6;
+        padding: 10px;
+        border: 1.5px solid;
+        border-color: #9d9d9d;
+        color: white;
+        font-weight: 600;
+        border-radius: 25px;
+    }
+
+    .tab_li {
+
+        margin-left: 0px;
+        margin-right: 20px;
+        margin-bottom: 20px;
+        background: white;
+        padding: 10px;
+        border: 1.5px solid;
+        border-color: #a42877;
+        color: black;
+        font-weight: 600;
+        border-radius: 25px;
+    }
+   
+}
+
+
+.spancolor {
+    background: #842c77;
+    color: white;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+.active_liscr {
+
+    margin-left: 0px;
+    margin-right: 20px;
+    background: #dee2e6;
+    padding: 10px;
+    border: 1.5px solid;
+    border-color: #9d9d9d;
+    color: white;
+    font-weight: 600;
+    border-radius: 25px;
+}

@@ -1,0 +1,119 @@
+@media screen and (max-width: 767px) {
+
+    .tiva-content-lookbook .img-responsive {
+        height: 60vh;
+        object-fit: cover;
+    }
+
+    .item-lookbook {
+        /* display: none !important; */
+    }
+
+    .cus-sli-container {
+        display: block !important;
+    }
+
+}
+
+
+.extra-slid .content-lookbook {
+    width: 100% !important;
+    position: static;
+    z-index: 1;
+    padding: 0;
+    font-size: 12px;
+    opacity: 1;
+    visibility: visible;
+
+    background: rgba(255, 255, 255, 0.1);
+    border: 8px solid rgba(238, 238, 238, 0.15);
+    box-shadow: 0 0 10px 0 rgb(0 0 0 / 25%);
+
+}
+
+.extra-slid .item-thumb {
+    width: 40%;
+    padding: 6px 0;
+}
+
+.cus-sli-container {
+    margin-right: 15px;
+    margin-left: 15px;
+    margin-bottom: 20px;
+    display: none !important;
+    overflow-x: auto;
+
+}
+
+.cus-sli-wrapper {
+    width: 90vw;
+    background: rgb(255, 255, 255);
+    height: fit-content;
+    padding: 15px 10px;
+    border-radius: 6px;
+    box-shadow: -1px 0px 13px 0px #88888885;
+    display: flex;
+    flex-direction: row;
+    margin: 10px 5px;
+}
+
+.cus-sli-chk {
+    width: fit-content;
+    overflow: hidden;
+    display: flex;
+
+}
+
+.cus-sli-wrapper img {
+    width: 40%;
+}
+
+.cus-sli-wrapper .content-bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-left: 15px;
+    align-items: flex-start;
+}
+
+.cus-sli-wrapper .readmore a {
+    border-radius: 50px;
+    background: #343434;
+    padding: 7px 15px;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.cus-sli-wrapper .item-price {
+    font-weight: 600;
+}
+
+.cus-sli-wrapper .readmore a:hover {
+    background-color: #6d2f77;
+}
+
+.cus-sli-wrapper .readmore a:active {
+
+    background-color: #6d2f77;
+
+}
+
+
+.colorheart {
+    animation: color-change 1s infinite;
+}
+
+@keyframes color-change {
+    0% {
+        background: #6d2f77;
+    }
+
+    50% {
+        background: #88888885;
+    }
+
+    100% {
+        background: #6d2f77;
+    }
+}

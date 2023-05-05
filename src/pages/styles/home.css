@@ -1,0 +1,90 @@
+@media screen and (max-width: 767px) {
+
+    .banner-title {
+        left: 20px !important;
+    }
+
+    .tiva-row-wrap {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 767px) {
+
+    .desktop-responisve {
+        display: none !important;
+    }
+    .highlight-banner-container{
+        display: none !important;
+    }
+}
+
+@media screen and (min-width: 767px) {
+
+    .mobile-responisve {
+        display: none !important;
+    }
+}
+@media screen and (max-width: 767px) {
+
+    #login-signup {
+
+        background: #261f89 !important;
+        position: relative;
+        width: 100%;
+        /* background-color: #fff; */
+        min-height: 100vh;
+        overflow: hidden;
+        margin: 0;
+        /* font-family: "Poppins",
+            sans-serif; */
+        /* background: linear-gradient(0deg, rgb(0 0 0 / 30%), rgb(0 0 0 / 41%)), url(http://localhost:3000/static/media/bg.467d93b….jpg); */
+        background-size: cover;
+
+    }
+
+}
+
+.highlight-banner-container {
+    padding: 3% 5% 3% 5%;
+    /* background: #e5e5e5; */
+}
+
+.highlight-banner {
+    display: flex;
+    justify-content: space-between;
+    overflow-x: auto;
+}
+
+.highlight-banner-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 50px;
+}
+
+.highlight-banner-icon {
+    margin-right: 12px;
+    font-size: 30px;
+}
+
+.highlight-banner-text {
+    min-width: 100px;
+    max-width: 150px;
+    font-weight: 700;
+}
+
+.highlight-banner-icon img {
+    height: 50px;
+}
+
+.banner-title {
+    position: absolute;
+    bottom: 20px;
+    left: 10px;
+    background: purple;
+    color: white;
+    padding: 6px 10px 6px 10px;
+    z-index: 1;
+    border-radius: 15px;
+}

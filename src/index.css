@@ -1,0 +1,17 @@
+
+@font-face {
+  font-family: "BAHNSCHRIFT";   /*Can be any text*/
+  src: local("BAHNSCHRIFT"),
+    url("./fonts/BAHNSCHRIFT.TTF") format("truetype");
+}
+
+body {
+  margin: 0;
+   font-family: 'BAHNSCHRIFT';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

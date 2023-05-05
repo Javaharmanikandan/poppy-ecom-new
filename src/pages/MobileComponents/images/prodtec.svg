@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW X8 -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="37.0911mm" height="22.6928mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 2817 1723"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .fil0 {fill:black}
+   ]]>
+  </style>
+ </defs>
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <path id="Shape_83_" class="fil0" d="M2723 1113l-94 0 0 -376c0,-103 -84,-187 -188,-187l-170 0c27,-97 24,-200 -8,-295 -38,-109 -122,-196 -231,-237 -181,-60 -331,43 -463,134 -51,37 -104,70 -161,99 -88,41 -184,63 -281,64l-1033 0c-52,0 -94,42 -94,94l0 1220c0,52 42,94 94,94l2629 0c52,0 94,-42 94,-94l0 -422c0,-52 -42,-94 -94,-94l0 0zm-188 -376l0 376 -1055 0c145,-118 228,-322 271,-469l690 0c52,0 94,42 94,93l0 0zm-1408 -328c111,-1 220,-26 321,-73 61,-31 119,-66 174,-107 126,-86 244,-167 381,-122 81,31 144,97 172,179 28,86 27,178 -1,264l-399 0c3,-14 6,-27 8,-38 6,-53 33,-101 75,-133 31,-18 67,-25 103,-18 25,6 50,-10 56,-35 6,-25 -9,-50 -34,-56 -60,-13 -122,-2 -174,29 -65,46 -108,116 -118,194 -28,138 -137,573 -423,616 0,-31 0,186 0,98l1455 0 0 422 0 0 -2629 0 0 -422 141 0 0 47c0,26 21,47 47,47 26,0 47,-21 47,-47l0 -47 94 0 0 47c0,26 21,47 46,47 26,0 47,-21 47,-47l0 -47 752 0 0 -94 -752 0 0 -47c0,-26 -21,-47 -47,-47 -25,0 -46,21 -46,47l0 47 -94 0 0 -47c0,-26 -21,-47 -47,-47 -26,0 -47,21 -47,47l0 47 -141 0 0 -704 1033 0z"/>
+  <circle id="Oval_225_" class="fil0" cx="2206" cy="784" r="47"/>
+  <circle id="Oval_224_" class="fil0" cx="2206" cy="972" r="47"/>
+  <circle id="Oval_223_" class="fil0" cx="2394" cy="784" r="47"/>
+  <circle id="Oval_222_" class="fil0" cx="2394" cy="972" r="47"/>
+  <circle id="Oval_221_" class="fil0" cx="2019" cy="784" r="47"/>
+  <circle id="Oval_220_" class="fil0" cx="2019" cy="972" r="47"/>
+  <circle id="Oval_219_" class="fil0" cx="1831" cy="784" r="47"/>
+  <circle id="Oval_218_" class="fil0" cx="1831" cy="972" r="47"/>
+  <circle id="Oval_217_" class="fil0" cx="845" cy="1160" r="47"/>
+ </g>
+</svg>

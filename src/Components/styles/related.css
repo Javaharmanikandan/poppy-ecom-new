@@ -1,0 +1,115 @@
+@media screen and (max-width: 767px) {
+
+    .tiva-content-lookbook1 .img-responsive1 {
+        height: 60vh;
+        object-fit: cover;
+    }
+
+    /* .item-lookbook{
+    display: none !important;
+}
+.cus-sli-container{
+    display: block !important;
+} */
+    .cus-sli-wrapper1 {
+        width: 90vw !important;
+
+    }
+
+    
+}
+
+
+.extra-slid1 .content-lookbook1 {
+    width: 100% !important;
+    position: static;
+    z-index: 1;
+    padding: 0;
+    font-size: 12px;
+    opacity: 1;
+    visibility: visible;
+
+    background: rgba(255, 255, 255, 0.1);
+    border: 8px solid rgba(238, 238, 238, 0.15);
+    box-shadow: 0 0 10px 0 rgb(0 0 0 / 25%);
+
+}
+
+.extra-slid1 .item-thumb1 {
+    width: 40%;
+    padding: 6px 0;
+}
+
+.cus-sli-container1 {
+    margin-right: 15px;
+    margin-left: 15px;
+        margin-bottom: 20px;
+    /* display: none; */
+    overflow-x: auto;
+
+}
+
+.cus-sli-wrapper1 {
+width: 25vw;
+    background: rgb(255, 255, 255);
+    height: fit-content;
+    padding: 15px 10px;
+    border-radius: 6px;
+    box-shadow: -1px 0px 13px 0px #88888885;
+    display: flex;
+    flex-direction: row;
+    margin: 10px 5px;
+}
+
+.cus-sli-chk1 {
+    width: fit-content;
+    overflow: hidden;
+    display: flex;
+
+}
+
+.cus-sli-wrapper1 img {
+    width: 40%;
+}
+
+.cus-sli-wrapper1 .content-bottom1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-left: 15px;
+    align-items: flex-start;
+}
+
+.cus-sli-wrapper1 .readmore1 a {
+    border-radius: 50px;
+    background: #343434;
+    padding: 7px 15px;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.cus-sli-wrapper1 .item-price1 {
+    font-weight: 600;
+}
+
+.cus-sli-wrapper1 .readmore1 a:hover {
+    background-color: #6d2f77;
+}
+
+.cus-sli-wrapper1 .readmore1 a:active {
+
+    background-color: #6d2f77;
+
+}
+
+.title_rel
+{
+    color: #443e3e;
+        font-size: 1.5rem;
+        font-weight: 600;
+      
+        margin-top: 5%;
+        margin-left: 3%;
+        margin-bottom: 2%;
+}

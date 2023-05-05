@@ -1,0 +1,103 @@
+@media screen and (max-width: 767px){
+
+
+    .product-miniature:hover{
+        box-shadow: none;
+    }
+    
+    .MainProductContainer{
+    background: #F9F9F9;
+    padding: 17px;
+    border-radius: 30px;
+    }
+   .ProductDetailsContainer{
+    display: flex;
+    flex-direction: row;
+   }
+   .imageContainer img{
+    width: 140px;
+    height: 143px;
+    border-radius: 20px;
+   }
+   .basicDetailsContainer{
+    margin-left: 20px;
+   }
+   .basicDetailsContainer h2 {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: bold;
+    color: black;
+    margin-top:5px;
+    margin-bottom:3px;
+    text-align: left;
+   }
+   .mrp-price-mobile{
+    display: flex;
+    flex-direction: row;
+    /* margin-left:5px */
+   }
+   .mrp-price-mobile s{
+    font-weight: bold;
+    font-size: 15px;
+   }
+
+   .mrp-rate-mobile{
+    font-size: 12px;
+    font-weight: bold;
+    color: rgb(25, 20, 20);
+   }
+   .discountTag{
+    color:#982876;
+    font-weight: bold;
+    margin-left: 10px;
+   }
+   
+
+   .descriptionMarketting{
+    font-size: 12px;
+    margin-top: 10px;
+   }
+
+
+   .shopNowContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 10px;
+    margin-right: 15px;
+   }
+
+   .startText{
+    color: #982876;
+    font-size: 10px;
+    margin-top: 4px;
+    font-weight: 600;
+    /* margin-right: 30px; */
+    display: flex;
+    /* margin-left: 5px; */
+   }
+   .YouHaveSaved{
+    background: #982876;
+    color: white;
+    font-size: 14px;
+    padding: 6px;
+    margin-top: 5px;
+    border-radius: 10px;
+    font-weight: bold;
+   }
+   .Current-Prices{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+   }
+ .spanText{
+    font-size: 10px;
+   display: flex;
+   /* margin-left: 5px; */
+
+ }
+   
+
+}
