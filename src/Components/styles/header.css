@@ -1,5 +1,21 @@
 @media screen and (max-width: 767px){
 
+
+    .topCartCount{
+        position: absolute;
+        /* bottom: 15px; */
+        font-size: 12px;
+        background: #992876;
+        color: #fff;
+        padding: 1px 7px;
+        vertical-align: top;
+        border-radius: 50%;
+        bottom: top;
+        top: 15px;
+        /* right: 56px; */
+    }
+    
+
     .top-third{
         display: none;
     }

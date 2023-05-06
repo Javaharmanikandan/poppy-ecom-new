@@ -266,19 +266,19 @@ var userData =  JSON.parse(localStorage.getItem('userInfo'));
             {/* <div class="mobile-menutop" data-target="#mobile-pagemenu"> */}
             <div className="nav-items">
               
-            <i class="fa fa-search fa-lg" aria-hidden="true"></i>
+            <Link to="/productlist/all" ><i class="fa fa-search fa-lg" aria-hidden="true"></i></Link>
         
             <div class="header-cart tiva-toggle-btn">
                     {/* <span class="cart-products-count">{cart_count !== 0 ? cart_count: 0}</span> */}
-                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                    <Link to="/cart"> <i class="fa fa-shopping-cart" aria-hidden="true"></i></Link>
 
-                    {cart.length !== 0 && (
-                      <span class="cart-products-count" style={{position:"absolute",bottom:15}}>{cart.length}</span>
+                    {cart.length !== 0 && ( 
+                      <span class="cart-products-count topCartCount" style={{position:"absolute"}}>{cart.length}</span>
                     )}
 
                     
                   </div>
-            <i class="fa fa-user fa-lg" aria-hidden="true"></i>
+                  <Link to="/profile"> <i class="fa fa-user fa-lg" aria-hidden="true"></i></Link>
 
           <a href="tel:+91 90548 48481" className="phone-icon">  <div class="">
              <i class="fa fa-phone" style={{fontSize: "20px"}}></i>
@@ -374,7 +374,7 @@ var userData =  JSON.parse(localStorage.getItem('userInfo'));
                       <a href="contact.html" class="parent">
                         Warranty
                       </a>
-                    </li>
+                    </li>fa
                   </Link> */}
                   {/* <Link to="/productlist/all">
                     <li>
@@ -598,8 +598,7 @@ var userData =  JSON.parse(localStorage.getItem('userInfo'));
                                </tr>
                             ))}
                            
-                           
-
+                          
                             <tr class="total">
                               <td colspan="2">Total:</td>
                               <td>₹ {total}</td>
@@ -614,10 +613,9 @@ var userData =  JSON.parse(localStorage.getItem('userInfo'));
                                 <Link to="/cart">
                                     View Cart
                                  </Link>  
-                                   <a
-                      href="/checkout">  
+                                   <Link to="/checkout">  
                                     Checkout
-                                  </a>
+                                  </Link>
                                 </div>
                               </td>
                             </tr>
