@@ -34,7 +34,7 @@ toast.configure();
 
       toast.error("Please Login");
       
-      navigate('/');
+      navigate('/login');
 
     }
     else {
