@@ -16,6 +16,8 @@ export default function Header() {
   let navigate = useNavigate();
   const [category, setCategory] = useState([]);
   const [category_ass, setCategoryass] = useState([]);
+
+  const [searchVisble,setSerachvisible] =useState(false)
   
   const [slogans, setslogan] = useState();
   const [pid, set_product_id] = useState({});
@@ -266,7 +268,8 @@ var userData =  JSON.parse(localStorage.getItem('userInfo'));
             {/* <div class="mobile-menutop" data-target="#mobile-pagemenu"> */}
             <div className="nav-items">
               
-            <Link to="/productlist/all" ><i class="fa fa-search fa-lg" aria-hidden="true"></i></Link>
+            <i class="fa fa-search fa-lg" aria-hidden="true" onClick={()=>{setSerachvisible(!searchVisble)}}></i>
+            
         
             <div class="header-cart tiva-toggle-btn">
                     {/* <span class="cart-products-count">{cart_count !== 0 ? cart_count: 0}</span> */}
@@ -286,10 +289,53 @@ var userData =  JSON.parse(localStorage.getItem('userInfo'));
             
             </div>
 
-
-            
           </div>
+
+
+          {searchVisble  && <div  
+             
+          id="search_widget"
+              style={{  right: "0" }}
+              class="d-flex  "
+              >
+          <form method="get" action="#" style={{width:"100%",background:"#ffffff",marginRight:"0px",marginTop:30}}>
+                <span
+                  role="status"
+                  aria-live="polite"
+                  class="ui-helper-hidden-accessible"
+                ></span>
+                <input
+                  type="text"
+                  name="s"                 
+                  placeholder="Search"
+                  class="ui-autocomplete-input"
+                  autocomplete="off"
+                  list="data"
+                  onChange={(event)=>{filter_cat(event.target.value)}} 
+                  style={{background:"#ffffff"}}
+                />
+                <button type="submit">
+                  <i class="fa fa-search"></i>
+                </button>
+
+                <datalist id="data">
+    
+                {product_name.map(items_cat =>(
+      <option value={items_cat.product_name} > </option>
+                ))}
+      
+  
+  </datalist>
+
+
+              </form>
+          </div>}
+
+          
         </div>
+
+
+        
 
         <div class="header-top d-xs-none">
           <div class="row margin-0">
@@ -415,7 +461,7 @@ var userData =  JSON.parse(localStorage.getItem('userInfo'));
                   type="text"
                   name="s"
                  
-                  placeholder="Search"
+                  placeholder="Search "
                   class="ui-autocomplete-input"
                   autocomplete="off"
                   list="data"
@@ -660,7 +706,7 @@ var userData =  JSON.parse(localStorage.getItem('userInfo'));
                               <datalist id="data">
     
                 {product_name.map(items_cat =>(
-      <option value={items_cat.product_name} > </option>
+                 <option value={items_cat.product_name} > </option>
                 ))}
       
   
