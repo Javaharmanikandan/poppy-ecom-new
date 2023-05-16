@@ -495,9 +495,11 @@ color: black;
 .product-price-container{
     display: flex;
     flex-direction: row;
-    justify-content: space-between !important;
-    padding: 10px;
+    /* justify-content: space-between !important; */
+    padding: 10px 0px;
     margin-bottom: 20px;
+
+    
 }
 
 

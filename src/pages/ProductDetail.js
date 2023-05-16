@@ -821,6 +821,65 @@ export default function ProductDetail() {
                                       </p>
                                     </div>
 
+                                    <div className="has-borders desktop-responisve">
+                                      <p className="product-title-style">
+                                        {Product_Details.product_name}{" "}
+                                      </p>
+                                      <p className="product-dcp">
+                                         * Price of { local +" " + Dimen +" X "+ height}
+                                         
+                                      </p>
+                                     
+                                    </div>
+
+                                    <div className="product-price-container desktop-responisve">
+                                   
+                                      <div>
+                                        <div class="price-info">
+                                          <div
+                                            class="mrp-price"
+                                            style={{ marginTop: 0 }}
+                                          >
+                                            <p class="mrp-rate">
+                                              M.R.P
+                                              <s style={{ marginLeft: 8 }}>
+                                                <i
+                                                  class="fa fa-inr"
+                                                  aria-hidden="true"
+                                                >
+                                                  {" "}
+                                                </i>{" "}
+                                                {price}
+                                              </s>
+                                            </p>
+                                            <p class="offer-percentage">
+                                              {discount}% off
+                                            </p>
+                                          </div>
+                                          <div class="bg-btn">
+                                            <a href="#">
+                                              <span>You Save</span>{" "}
+                                              <i
+                                                class="fa fa-inr"
+                                                aria-hidden="true"
+                                              ></i>{" "}
+                                              {discount_less + default_discount}
+                                            </a>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="current-amt" style={{marginLeft:50}}>
+                                        <a href="#">
+                                          <i
+                                            class="fa fa-inr"
+                                            aria-hidden="true"
+                                          ></i>{" "}
+                                          {share - coupenDis}
+                                        </a>
+                                        <p>( inclusive of all taxes )</p>
+                                      </div>
+                                    </div>
+
                                     <div className="product-price-container mobile-responisve">
                                       <div>
                                         <div class="price-info">
@@ -939,7 +998,7 @@ export default function ProductDetail() {
                                     </div>
 
                                     <div class="has-border ">
-                                      <label>CATEGORY</label>
+                                      <label>SIZE ( DIMENTION IN INCHES )</label>
                                       <div className="height-sec-container">
                                         {bed_Data.length > 0
                                           ? bed_Data.map((element, index) => (
@@ -968,7 +1027,7 @@ export default function ProductDetail() {
                                     </div>
 
                                     <div class="has-border ">
-                                      <label>DIMENTION IN INCHES</label>
+                                      
                                       <div
                                         style={{
                                           display: "flex",
@@ -978,6 +1037,7 @@ export default function ProductDetail() {
                                         }}
                                       >
                                         <select
+                                        style={{fontSize:"16 !important"}}
                                           onChange={(event) =>
                                             diment_click(event.target.value)
                                           }
@@ -1360,59 +1420,13 @@ export default function ProductDetail() {
                                     </div>
                             
 
-                                    <div className="product-price-container desktop-responisve">
-                                      <div>
-                                        <div class="price-info">
-                                          <div
-                                            class="mrp-price"
-                                            style={{ marginTop: 0 }}
-                                          >
-                                            <p class="mrp-rate">
-                                              M.R.P
-                                              <s style={{ marginLeft: 8 }}>
-                                                <i
-                                                  class="fa fa-inr"
-                                                  aria-hidden="true"
-                                                >
-                                                  {" "}
-                                                </i>{" "}
-                                                {price}
-                                              </s>
-                                            </p>
-                                            <p class="offer-percentage">
-                                              {discount}% off
-                                            </p>
-                                          </div>
-                                          <div class="bg-btn">
-                                            <a href="#">
-                                              <span>You Save</span>{" "}
-                                              <i
-                                                class="fa fa-inr"
-                                                aria-hidden="true"
-                                              ></i>{" "}
-                                              {discount_less + default_discount}
-                                            </a>
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <div class="current-amt">
-                                        <a href="#">
-                                          <i
-                                            class="fa fa-inr"
-                                            aria-hidden="true"
-                                          ></i>{" "}
-                                          {share - coupenDis}
-                                        </a>
-                                        <p>( inclusive of all taxes )</p>
-                                      </div>
-                                    </div>
 
                                     
 
                                
 
 
-                                    <div class="product-quantity  desktop-responisve">
+                                    <div class="product-quantity  desktop-responisve" style={{marginTop:30}}>
                                         <div class="qty">
                                           <div class="input-group input-group-cus">
                                             <span class="add">
