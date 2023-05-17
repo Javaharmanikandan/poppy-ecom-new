@@ -243,7 +243,7 @@ var userData =  JSON.parse(localStorage.getItem('userInfo'));
           </div>
         </div>
 
-        <div class="header-mobile d-md-none">
+        <div className={topSec ? "top_active" : " header-mobile d-md-none"} >
           <div class="mobile hidden-md-up text-xs-center d-flex align-items-center justify-content-around">
             <div id="mobile_mainmenu" class="item-mobile-top">
               <i class="fa fa-bars" aria-hidden="true"></i>

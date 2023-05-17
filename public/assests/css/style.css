@@ -14876,6 +14876,7 @@ footer [class~="title-block"],
 
 [class~="breadcrumb-bg"] [class~="breadcrumb"] {
   background-color: #eceeef;
+  display: none;
 }
 
 #search_widget form button {
