@@ -1291,7 +1291,7 @@ export default function ProductDetail() {
                                     isStopped={false}
                                     isPaused={false}
                                   />
-                                  <div> <div style={{textAlign:"center",marginBottom:10}}><span>Hurray, Free sleep accessories !</span></div> 
+                                  <div> <div style={{textAlign:"center",marginBottom:10}}><span>Hurray ! Free sleep accessories !</span></div> 
                                   <p>  {free_content}</p></div>
 
                                 </div>

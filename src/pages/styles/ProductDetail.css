@@ -3,36 +3,41 @@
 
     .cus-bt-container {
         margin: 20px;
-        padding-left: 50px; 
-         padding-right: 50px
+        padding-left: 50px;
+        padding-right: 50px
     }
 
 
-    .free-area-style{
+    .free-area-style {
         display: flex;
         align-items: center;
-        }
-        .free-area-style p{
-            padding: 10px;
-            padding-left: 20px;
-            padding-right: 20px;
-            margin:5px;
-        
-            background-color: #f4f4f4;
-            border-radius: 10px;
-        }
-        .free-area-style span{
-            padding: 10px;
-            padding-left: 20px;
-            margin:5px;
-            font-size:11px;
-            color: #982876;
-            font-weight: 500;
-            line-height: 24px;
-        }
-        
+    }
 
-    .height-sec-container_big  { grid-template-columns: repeat(3, 1fr); }
+    .free-area-style p {
+        padding: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+        margin: 5px;
+
+        background-color: #f4f4f4;
+        border-radius: 10px;
+    }
+
+    .free-area-style span {
+        padding: 10px;
+        padding-left: 20px;
+        margin: 5px;
+        font-size: 11px;
+        color: #982876;
+        font-weight: 500;
+        line-height: 24px;
+    }
+
+
+    .height-sec-container_big {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
     .heigh-div-wraper button {
         width: 10vw;
         max-width: 150px;
@@ -44,12 +49,12 @@
         font-weight: 600;
         cursor: pointer;
         margin-right: 12px;
-        font-size:12px;
+        font-size: 12px;
         line-height: 22px;
     }
-    
+
     .heigh-div-wraper-active button {
-    
+
         width: 10vw;
         max-width: 150px;
         min-width: fit-content;
@@ -61,11 +66,11 @@
         font-weight: 700;
         cursor: pointer;
         margin-right: 12px;
-        
+
     }
 
-    .heigh-div-wraper-color-active  {
-    
+    .heigh-div-wraper-color-active {
+
         width: 5vw;
         height: 5vw;
         display: flex;
@@ -74,10 +79,11 @@
         border-radius: 50%;
         border: 1px solid #982876;
         margin-left: 10px;
-        
+
     }
-    .heigh-div-wraper-color  {
-    
+
+    .heigh-div-wraper-color {
+
         width: 5vw;
         height: 5vw;
         display: flex;
@@ -85,16 +91,16 @@
         justify-content: center;
         border-radius: 50%;
         margin-left: 10px;
-        
+
     }
 
-    .heigh-div-wraper-color  img {
-    width: 4.5vw;
-    height: 4.5vw;
-    border-radius: 50%;
-    object-fit: contain;
-    
-}
+    .heigh-div-wraper-color img {
+        width: 4.5vw;
+        height: 4.5vw;
+        border-radius: 50%;
+        object-fit: contain;
+
+    }
 }
 
 .heigh-div-wraper-color-active img {
@@ -102,7 +108,7 @@
     height: 4.5vw;
     border-radius: 50%;
     object-fit: contain;
-    
+
 }
 
 .heigh-div-wraper:last-child button {
@@ -112,6 +118,7 @@
 .addition-free-content img {
     max-width: 50vw;
 }
+
 /* 
 .cus-bt-container {
     margin: 20px;
@@ -145,7 +152,7 @@
     font-size: 14px;
     /* font-family: "Trebuchet MS", Tahoma, sans-serif; */
     font-style: italic;
-    font-family: Trebuchet MS,Helvetica,sans-serif;
+    font-family: Trebuchet MS, Helvetica, sans-serif;
     color: #666;
     line-height: 28px;
     width: 350px;
@@ -153,7 +160,7 @@
 
 .product-dt-bottom-cnt h3 {
     color: #982876;
-    font-family: Trebuchet MS,Helvetica,sans-serif;
+    font-family: Trebuchet MS, Helvetica, sans-serif;
     font-weight: bold;
     font-style: italic;
 }
@@ -188,10 +195,11 @@
 
 .height-sec-container_big {
     max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-gap: 1rem;
+    margin: 0 auto;
+    display: grid;
+    grid-gap: 1rem;
 }
+
 .heigh-div-wraper button:hover {
     /* width: 10vw; */
     padding: 10px 20px;
@@ -486,31 +494,34 @@
 
 .height-sec-container::-webkit-scrollbar {
     display: none;
-  }
-  
-  /* Hide scrollbar for IE, Edge and Firefox */
-  .height-sec-container {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-  }
+}
 
-  
+/* Hide scrollbar for IE, Edge and Firefox */
+.height-sec-container {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+
 
 .heart {
 
     animation: heartbeat 3s infinite;
 }
+
 .slectDimention {
     background: #D9D9D9 0% 0% no-repeat padding-box;
-border-radius: 10px !important;
-opacity: 1;
-border-width:1px !important;
-border-color: #D9D9D9 !important;
-font-weight: 600 !important;
-font-size: 0.9rem !important;
+    border-radius: 10px !important;
+    opacity: 1;
+    border-width: 1px !important;
+    border-color: #D9D9D9 !important;
+    font-weight: 600 !important;
+    font-size: 0.9rem !important;
 }
 
-.custom-Button{
+.custom-Button {
     min-width: fit-content;
     border: none;
     padding: 10px 40px;
@@ -525,131 +536,136 @@ font-size: 0.9rem !important;
     border-radius: 10px;
     opacity: 1;
     font-size: 14px;
-    margin-Left:20px;
+    margin-Left: 20px;
 }
-.product-title-style{
-font-size: 20px;
-font-weight: bold;
-color: black;
+
+.product-title-style {
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
 }
 
 
-.product-price-container{
+.product-price-container {
     display: flex;
     flex-direction: row;
     /* justify-content: space-between !important; */
     padding: 10px 0px;
     margin-bottom: 20px;
 
-    
+
 }
-.product-price-container-mobile{
+
+.product-price-container-mobile {
     display: flex;
     flex-direction: row;
     justify-content: space-between !important;
     padding: 10px 0px;
     margin-bottom: 20px;
 
-    
+
 }
 
 
- /*Add to cart Footer */
+/*Add to cart Footer */
 
-    .product-contain footer{
-        position: fixed;
-        bottom: 0 !important;
-        margin-bottom: 10px;
-        width: 100%;
-        left: 0;
-        z-index: 300;
-    }
+.product-contain footer {
+    position: fixed;
+    bottom: 0 !important;
+    margin-bottom: 10px;
+    width: 100%;
+    left: 0;
+    z-index: 300;
+}
 
-    .add-to-cart-section{
-        display: flex;
-        flex-direction: row;
-        z-index: 100;
-    }
+.add-to-cart-section {
+    display: flex;
+    flex-direction: row;
+    z-index: 100;
+}
 
-    .add-to-cart-section .price-view{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 214px;
-        height: 80px;
-        background-color: #fff;
-    }
+.add-to-cart-section .price-view {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 214px;
+    height: 80px;
+    background-color: #fff;
+}
 
-    .add-to-cart-section .price-view .mrp-rate{
-        /* font-family: "Calibri"; */
-        font-size: 14px;
-        font-weight: bold;
-        color: #000000;
-    }
+.add-to-cart-section .price-view .mrp-rate {
+    /* font-family: "Calibri"; */
+    font-size: 14px;
+    font-weight: bold;
+    color: #000000;
+}
 
-    .add-to-cart-section .price-view a{
-        /* font-family: "Calibri"; */
-        font-size: 30px;
-        font-weight: bold;
-        color: #982876;
-    }
+.add-to-cart-section .price-view a {
+    /* font-family: "Calibri"; */
+    font-size: 30px;
+    font-weight: bold;
+    color: #982876;
+}
 
-    .add-to-cart-section .add-to-cart-btn{
-        display: flex;
-        width: 214px;
-        height: 80px;
-        background-color: #982876;
-        font-size: 20px;
-        color: #fff;
-        justify-content: center;
-        align-items: center;
-    }
+.add-to-cart-section .add-to-cart-btn {
+    display: flex;
+    width: 214px;
+    height: 80px;
+    background-color: #982876;
+    font-size: 20px;
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+}
 
-   
+
 /* } */
 
 @media screen and (max-width: 767px) {
 
-    
+
 
     .cus-bt-container {
         margin: 20px;
-        
+
     }
-    .free-area-style{
+
+    .free-area-style {
         margin-top: 20px;
         display: flex;
         align-items: center;
-        }
-        .free-area-style p{
-            font-size:14px;
-            padding: 10px 20px;
-    width: 100%;
-    /* padding-left: 20px; */
-    /* padding-right: 20px; */
-    text-align: center;
-    /* margin: 5px; */
-    background-color: #f4f4f4;
-    border-radius: 10px;
-        }
-        .free-area-style span{
-            padding: 10px;
-            padding-left: 20px;
-            /* padding-right: 20px; */
-            margin:5px;
-            font-size:14px;
-            color: #982876;
-            font-weight: 500;
-            line-height: 24px;
-        }
+    }
 
-        
+    .free-area-style p {
+        font-size: 14px;
+        padding: 10px 10px;
+        width: 100%;
+        /* padding-left: 20px; */
+        /* padding-right: 20px; */
+        text-align: center;
+        /* margin: 5px; */
+        background-color: #f4f4f4;
+        border-radius: 10px;
+    }
+
+    .free-area-style span {
+        padding: 10px;
+        padding-left: 20px;
+        /* padding-right: 20px; */
+        margin: 5px;
+        font-size: 14px;
+        color: #982876;
+        font-weight: 500;
+        line-height: 24px;
+    }
 
 
 
-    .heigh-div-wraper-color-active  {
-    
+
+
+    .heigh-div-wraper-color-active {
+
         width: 15vw;
         height: 15vw;
         display: flex;
@@ -658,10 +674,11 @@ color: black;
         border-radius: 50%;
         border: 1px solid #982876;
         margin-left: 10px;
-        
+
     }
-    .heigh-div-wraper-color  {
-    
+
+    .heigh-div-wraper-color {
+
         width: 15vw;
         height: 15vw;
         display: flex;
@@ -669,23 +686,24 @@ color: black;
         justify-content: center;
         border-radius: 50%;
         margin-left: 10px;
-        
+
     }
 
-    .heigh-div-wraper-color  img {
-    width: 14.5vw;
-    height: 14.5vw;
-    border-radius: 50%;
-    object-fit: contain;
-    
-}
-.heigh-div-wraper-color-active img {
-    width: 14.5vw;
-    height: 14.5vw;
-    border-radius: 50%;
-    object-fit: contain;
-    
-}
+    .heigh-div-wraper-color img {
+        width: 14.5vw;
+        height: 14.5vw;
+        border-radius: 50%;
+        object-fit: contain;
+
+    }
+
+    .heigh-div-wraper-color-active img {
+        width: 14.5vw;
+        height: 14.5vw;
+        border-radius: 50%;
+        object-fit: contain;
+
+    }
 
 
     .heigh-div-wraper button {
@@ -699,15 +717,15 @@ color: black;
         font-weight: bold;
         cursor: pointer;
         margin-right: 12px;
-        font-size:12px;
+        font-size: 12px;
         line-height: 22px;
         color: #982876;
     }
 
 
-    
+
     .heigh-div-wraper-active button {
-    
+
         /* width: 10vw;
         max-width: 150px; */
         min-width: fit-content;
@@ -719,7 +737,7 @@ color: black;
         font-weight: 700;
         cursor: pointer;
         margin-right: 12px;
-        
+
     }
 
     .spl-pri-wraper {
@@ -742,11 +760,13 @@ color: black;
 
 
     .tab-pane {
-         padding: 1px !important;
+        padding: 1px !important;
     }
-    
-    
-    .height-sec-container_big { grid-template-columns: repeat(2, 1fr); }
+
+
+    .height-sec-container_big {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 
@@ -755,34 +775,40 @@ color: black;
 
 @keyframes customEnterOverlayAnimation {
     0% {
-      transform: scale(0);
+        transform: scale(0);
     }
+
     100% {
-      transform: scale(1);
+        transform: scale(1);
     }
-  }
-  @keyframes customLeaveOverlayAnimation {
+}
+
+@keyframes customLeaveOverlayAnimation {
     0% {
-      transform: scale(1);
+        transform: scale(1);
     }
+
     100% {
-      transform: scale(0);
+        transform: scale(0);
     }
-  }
-  
-  @keyframes customEnterModalAnimation {
+}
+
+@keyframes customEnterModalAnimation {
     0% {
-      transform: scale(0.2);
+        transform: scale(0.2);
     }
+
     100% {
-      transform: scale(1);
+        transform: scale(1);
     }
-  }
-  @keyframes customLeaveModalAnimation {
+}
+
+@keyframes customLeaveModalAnimation {
     0% {
-      transform: scale(1);
+        transform: scale(1);
     }
+
     100% {
-      transform: scale(0.2);
+        transform: scale(0.2);
     }
-  }
+}
