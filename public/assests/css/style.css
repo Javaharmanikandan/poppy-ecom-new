@@ -12303,7 +12303,7 @@ footer [class~="title-block"],
 }
 
 #product-detail .content .main-product-detail .product-single {
-  margin-top: 2rem;
+  margin-top: 0rem;
 }
 
 [class~="menu-banner"] [class~="verticalmenu"] [class~="menu"] li [class~="dropdown-submenu"] [class~="menu-items"] [class~="item"] [class~="menu-content"] [class~="tags"] ul [class~="list-inline-item"] {
@@ -15474,7 +15474,7 @@ footer [class~="title-block"],
 }
 
 #product-detail [class~="content"] {
-  margin-top: 5rem;
+  margin-top: 0rem;
 }
 
 [class~="menu-banner"] [class~="verticalmenu"] li[class~="more"] {

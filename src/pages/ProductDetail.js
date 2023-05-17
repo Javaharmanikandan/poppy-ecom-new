@@ -558,7 +558,7 @@ export default function ProductDetail() {
                         <div class="row">
                           <div class="col-sm-12 col-lg-12 col-md-12">
                             <div class="main-product-detail">
-                              <div className="product-path">
+                              {/* <div className="product-path">
                                 <ol>
                                   <li>
                                     <a href="/">
@@ -579,7 +579,7 @@ export default function ProductDetail() {
                                     </a>
                                   </li>
                                 </ol>
-                              </div>
+                              </div> */}
                               <div class="product-single row">
                                 <div class="product-detail col-xs-12 col-md-5 col-sm-5">
                                   <div class="page-content" id="content">

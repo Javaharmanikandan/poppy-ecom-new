@@ -106,7 +106,7 @@ navigate('/blogdetails/'+id);
                             </div>
                         </nav>
                         <div class="container container1">
-                            <div class="content">
+                            <div class="content1">
                                 <div class="row">
                                     <div class="col main-blogs">
                                         <h2 class="text-center col">Recent Blogs</h2>
