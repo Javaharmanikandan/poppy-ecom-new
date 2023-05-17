@@ -610,13 +610,14 @@ color: black;
         align-items: center;
         }
         .free-area-style p{
-            padding: 10px;
-            padding-left: 20px;
-            padding-right: 20px;
-            margin:5px;
-        
-            background-color: #f4f4f4;
-            border-radius: 10px;
+            padding: 10px 20px;
+    width: 100%;
+    /* padding-left: 20px; */
+    /* padding-right: 20px; */
+    text-align: center;
+    /* margin: 5px; */
+    background-color: #f4f4f4;
+    border-radius: 10px;
         }
         .free-area-style span{
             padding: 10px;

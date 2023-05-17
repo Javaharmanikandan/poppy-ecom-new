@@ -855,9 +855,9 @@ export default function ProductDetail() {
                                       <p className="product-title-style">
                                         {Product_Details.product_name}{" "}
                                       </p>
-                                      <p className="product-dcp">
+                                      {/* <p className="product-dcp">
                                         {Product_Details.marketing_description}
-                                      </p>
+                                      </p> */}
                                       <p
                                         className="product-dcp"
                                         style={{ color: "#982876" }}
