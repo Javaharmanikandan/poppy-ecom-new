@@ -337,7 +337,7 @@ var userData =  JSON.parse(localStorage.getItem('userInfo'));
 
         
 
-        <div class="header-top d-xs-none">
+        <div  className={topSec ? "top_active" : " header-top d-xs-none"}>
           <div class="row margin-0">
             <div class="d-flex icon-menu align-items-center justify-content-center">
               <i class="fa fa-bars" aria-hidden="true" id="icon-menu"></i>
