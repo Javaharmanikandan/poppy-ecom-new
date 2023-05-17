@@ -1286,12 +1286,12 @@ export default function ProductDetail() {
                                   
                                   <Lottie
                                     options={defaultOptions}
-                                    height={80}
+                                    height={100}
                                     width={150}
                                     isStopped={false}
                                     isPaused={false}
                                   />
-                                  <div> <div><span>Hurray, Complementary sleep accessories !</span></div> 
+                                  <div> <div style={{textAlign:"center",marginBottom:10}}><span>Hurray, Free sleep accessories !</span></div> 
                                   <p>  {free_content}</p></div>
 
                                 </div>
