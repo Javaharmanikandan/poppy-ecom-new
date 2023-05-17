@@ -1,6 +1,13 @@
 @media screen and (min-width: 767px) {
 
 
+    .cus-bt-container {
+        margin: 20px;
+        padding-left: 50px; 
+         padding-right: 50px
+    }
+
+
     .free-area-style{
         display: flex;
         align-items: center;
@@ -105,12 +112,12 @@
 .addition-free-content img {
     max-width: 50vw;
 }
-
+/* 
 .cus-bt-container {
     margin: 20px;
     padding-left: 50px;
     padding-right: 50px;
-}
+} */
 
 .product-dt-bottom img {
     max-width: 100%;
@@ -604,6 +611,12 @@ color: black;
 
 @media screen and (max-width: 767px) {
 
+    
+
+    .cus-bt-container {
+        margin: 20px;
+        
+    }
     .free-area-style{
         margin-top: 20px;
         display: flex;
