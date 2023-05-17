@@ -140,11 +140,11 @@
 }
 
 header{
-    position: sticky;
+    /* position: sticky;
     top: -60px;
     width: 100%;
     left: 0;
-    z-index: 15;
+    z-index: 15; */
 }
 
 .top_active{

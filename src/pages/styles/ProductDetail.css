@@ -81,9 +81,10 @@
     max-width: 50vw;
 }
 
-
 .cus-bt-container {
     margin: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 
 .product-dt-bottom img {
@@ -105,15 +106,24 @@
 }
 
 .product-dt-bottom-cnt p {
-    font-weight: 650;
+
+    font-weight: 400;
     margin-top: 15px;
-    font-size: 1rem;
+    /* font-size: 1rem; */
+    font-size: 14px;
+    /* font-family: "Trebuchet MS", Tahoma, sans-serif; */
+    font-style: italic;
+    font-family: Trebuchet MS,Helvetica,sans-serif;
+    color: #666;
+    line-height: 28px;
+    width: 350px;
 }
 
 .product-dt-bottom-cnt h3 {
     color: #982876;
-
+    font-family: Trebuchet MS,Helvetica,sans-serif;
     font-weight: bold;
+    font-style: italic;
 }
 
 
@@ -496,6 +506,15 @@ color: black;
     display: flex;
     flex-direction: row;
     /* justify-content: space-between !important; */
+    padding: 10px 0px;
+    margin-bottom: 20px;
+
+    
+}
+.product-price-container-mobile{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between !important;
     padding: 10px 0px;
     margin-bottom: 20px;
 

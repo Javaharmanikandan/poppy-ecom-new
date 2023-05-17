@@ -100,7 +100,8 @@
   } */
   
   hr {
-    border: 1px solid lightgrey;
+    border: 1px solid #ececec;
+    
   }
   
   span.price {

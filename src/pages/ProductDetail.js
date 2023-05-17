@@ -15,7 +15,7 @@ import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 import { addtoWishlist } from "../Helper/Wishlist";
 
-
+import CoupenPng from "./MobileComponents/images/badge.png"
 
 const imgurl = process.env.REACT_APP_IMG_URL;
 const baseurl = process.env.REACT_APP_BASE_URL;
@@ -444,7 +444,7 @@ export default function ProductDetail() {
   };
 
   const toggleCouponButton = () => {
-    var element = document.getElementById("coupon-section");
+    var element = document.getElementById("coupon-section1");
 
     if (element.hasAttribute("hidden")) {
       element.removeAttribute("hidden");
@@ -453,6 +453,16 @@ export default function ProductDetail() {
     }
   };
 
+
+  const toggleCouponButtonMobile = () => {
+    var element = document.getElementById("coupon-section");
+
+    if (element.hasAttribute("hidden")) {
+      element.removeAttribute("hidden");
+    } else {
+      element.setAttribute("hidden", true);
+    }
+  };
   const addTocart = (id, amt, title, image, bed_type, dimension, thickness) => {
     //TODO METHOD ACTION FOR ADD
     toast.success("product Added Successfully ");
@@ -597,7 +607,7 @@ export default function ProductDetail() {
                                           />
                                         </div>
                                         <div
-                                          class="layer hidden-sm-down"
+                                          class="layer hidden-sm-down desktop-responisve"
                                           data-toggle="modal"
                                           data-target="#product-modal"
                                         >
@@ -610,7 +620,7 @@ export default function ProductDetail() {
                                             href="#item1"
                                             data-toggle="tab"
                                             aria-expanded="true"
-                                            class="active "
+                                            className="active "
                                           >
                                             <img
                                               src={imgurl + image1}
@@ -819,6 +829,10 @@ export default function ProductDetail() {
                                       <p className="product-dcp">
                                         {Product_Details.marketing_description}
                                       </p>
+                                      <p className="product-dcp" style={{color:"#982876"}}>
+                                         * Price of { local +" " + Dimen +" X "+ height}
+                                         
+                                      </p>
                                     </div>
 
                                     <div className="has-borders desktop-responisve">
@@ -880,7 +894,7 @@ export default function ProductDetail() {
                                       </div>
                                     </div>
 
-                                    <div className="product-price-container mobile-responisve">
+                                    <div className="product-price-container-mobile mobile-responisve">
                                       <div>
                                         <div class="price-info">
                                           <div
@@ -997,7 +1011,7 @@ export default function ProductDetail() {
                                       </div>
                                     </div>
 
-                                    <div class="has-border ">
+                                    <div class="has-border " style={{paddingBottom: 0}}>
                                       <label>SIZE ( DIMENTION IN INCHES )</label>
                                       <div className="height-sec-container">
                                         {bed_Data.length > 0
@@ -1025,6 +1039,7 @@ export default function ProductDetail() {
                                           : ""}
                                       </div>
                                     </div>
+                                    <hr />
 
                                     <div class="has-border ">
                                       
@@ -1185,8 +1200,13 @@ export default function ProductDetail() {
                                     </div>
 
                                     <div className="pr-coupon mobile-responisve">
-                                      <label>APPLY COUPON CODE</label>
-                                      <div className="coupon-section">
+                                    <div style={{display:"flex",cursor:"pointer"}}  onClick={() => toggleCouponButtonMobile()}>
+                        <img src={CoupenPng} alt={"Coupen"} width={20} height={20}/>
+
+                        <label  style={{cursor:"pointer",marginLeft:10}}>APPLY COUPON CODE</label>
+
+                        </div>
+                                      <div  id="coupon-section" className="coupon-section" hidden>
                                         <textarea
                                           onChange={(event) =>
                                             set_newcoupen(event.target.value)
@@ -1363,6 +1383,7 @@ export default function ProductDetail() {
                                           id="coupon-section"
                                           className="coupon-section"
                                           hidden
+                                          
                                         >
                                           <input
                                             type="text"
@@ -1403,8 +1424,13 @@ export default function ProductDetail() {
 
 
                        <div className="pr-coupon desktop-responisve">
-                                      <label>APPLY COUPON CODE</label>
-                                      <div className="coupon-section" >
+                        <div style={{display:"flex",cursor:"pointer"}}  onClick={() => toggleCouponButton()}>
+                        <img src={CoupenPng} alt={"Coupen"} width={20} height={20}/>
+
+                        <label  style={{cursor:"pointer",marginLeft:10}}>APPLY COUPON CODE</label>
+
+                        </div>
+                                      <div  id="coupon-section1" className="coupon-section" hidden>
                                         <textarea
                                           onChange={(event) =>
                                             set_newcoupen(event.target.value)

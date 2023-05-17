@@ -15450,7 +15450,7 @@ footer [class~="title-block"],
 }
 
 #product-detail [class~="content"] {
-  margin-bottom: 5rem;
+  /* margin-bottom: 5rem; */
 }
 
 #wrapper-site #content-wrapper #main [class~="groupbanner-special"] [class~="tiva-lookbook"] [class~="items"] [class~="tiva-content-lookbook"] [class~="item-lookbook"] [class~="content-lookbook"] {
@@ -17101,7 +17101,7 @@ footer [class~="title-block"],
 }
 
 #product-detail [class~="content"] [class~="main-product-detail"] [class~="product-info"] [class~="detail-description"] [class~="has-border"] select {
-  margin-left: 10px;
+  /* margin-left: 10px; */
 }
 
 [class~="menu-banner"] [class~="verticalmenu"] [class~="menu"] li [class~="dropdown-menu"] [class~="menu-items"] [class~="item"] [class~="menu-content"] [class~="tags"] [class~="title"] {
