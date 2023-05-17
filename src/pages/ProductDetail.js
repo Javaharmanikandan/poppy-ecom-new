@@ -11,25 +11,32 @@ import axios from "axios";
 import cartSection from "../Helper/Cart";
 import { toast } from "react-toastify";
 import ProductSlider from "./MobileComponents/Home/BestSellers";
-import 'react-responsive-modal/styles.css';
-import { Modal } from 'react-responsive-modal';
+import "react-responsive-modal/styles.css";
+import { Modal } from "react-responsive-modal";
 import { addtoWishlist } from "../Helper/Wishlist";
-
-import CoupenPng from "./MobileComponents/images/badge.png"
+import Lottie from "react-lottie";
+import CoupenPng from "./MobileComponents/images/badge.png";
+import * as animationData from "./gift.json";
 
 const imgurl = process.env.REACT_APP_IMG_URL;
 const baseurl = process.env.REACT_APP_BASE_URL;
 
+const defaultOptions = {
+  loop: true,
+  autoplay: true,
+  animationData: animationData,
+  rendererSettings: {
+    preserveAspectRatio: "xMidYMid slice",
+  },
+};
+
 const userData = JSON.parse(localStorage.getItem("userInfo"));
 
 export default function ProductDetail() {
-
-
   const [open, setOpen] = useState(false);
 
   const onOpenModal = () => setOpen(true);
   const onCloseModal = () => setOpen(false);
-
 
   //Image variables
   let navigate = useNavigate();
@@ -453,7 +460,6 @@ export default function ProductDetail() {
     }
   };
 
-
   const toggleCouponButtonMobile = () => {
     var element = document.getElementById("coupon-section");
 
@@ -518,7 +524,15 @@ export default function ProductDetail() {
     product_dimen,
     product_height
   ) => {
-    await addtoWishlist( p_id,total_amount,product_name, product_image,product_size,product_dimen, product_height)
+    await addtoWishlist(
+      p_id,
+      total_amount,
+      product_name,
+      product_image,
+      product_size,
+      product_dimen,
+      product_height
+    );
   };
 
   const related = () => {
@@ -800,6 +814,21 @@ export default function ProductDetail() {
                                       </div>
                                     </div>
                                   </div>
+                            
+                                 <div className="desktop-responisve"><hr /></div> 
+                                  <div className="free-area-style desktop-responisve">
+                                  
+                                    <Lottie
+                                      options={defaultOptions}
+                                      height={80}
+                                      width={150}
+                                      isStopped={false}
+                                      isPaused={false}
+                                    />
+                                    <div> <span>Hurray, you’ve unlocked the complementary sleep accessories !</span> 
+                                    <p>  {free_content}</p></div>
+
+                                  </div>
                                 </div>
                                 <div class="product-info col-xs-12 col-md-7 col-sm-7">
                                   <div class="detail-description">
@@ -829,9 +858,12 @@ export default function ProductDetail() {
                                       <p className="product-dcp">
                                         {Product_Details.marketing_description}
                                       </p>
-                                      <p className="product-dcp" style={{color:"#982876"}}>
-                                         * Price of { local +" " + Dimen +" X "+ height}
-                                         
+                                      <p
+                                        className="product-dcp"
+                                        style={{ color: "#982876" }}
+                                      >
+                                        * Price of{" "}
+                                        {local + " " + Dimen + " X " + height}
                                       </p>
                                     </div>
 
@@ -840,14 +872,12 @@ export default function ProductDetail() {
                                         {Product_Details.product_name}{" "}
                                       </p>
                                       <p className="product-dcp">
-                                         * Price of { local +" " + Dimen +" X "+ height}
-                                         
+                                        * Price of{" "}
+                                        {local + " " + Dimen + " X " + height}
                                       </p>
-                                     
                                     </div>
 
                                     <div className="product-price-container desktop-responisve">
-                                   
                                       <div>
                                         <div class="price-info">
                                           <div
@@ -882,7 +912,10 @@ export default function ProductDetail() {
                                           </div>
                                         </div>
                                       </div>
-                                      <div class="current-amt" style={{marginLeft:50}}>
+                                      <div
+                                        class="current-amt"
+                                        style={{ marginLeft: 50 }}
+                                      >
                                         <a href="#">
                                           <i
                                             class="fa fa-inr"
@@ -1011,8 +1044,13 @@ export default function ProductDetail() {
                                       </div>
                                     </div>
 
-                                    <div class="has-border " style={{paddingBottom: 0}}>
-                                      <label>SIZE ( DIMENTION IN INCHES )</label>
+                                    <div
+                                      class="has-border "
+                                      style={{ paddingBottom: 0 }}
+                                    >
+                                      <label>
+                                        SIZE ( DIMENTION IN INCHES )
+                                      </label>
                                       <div className="height-sec-container">
                                         {bed_Data.length > 0
                                           ? bed_Data.map((element, index) => (
@@ -1042,7 +1080,6 @@ export default function ProductDetail() {
                                     <hr />
 
                                     <div class="has-border ">
-                                      
                                       <div
                                         style={{
                                           display: "flex",
@@ -1052,7 +1089,7 @@ export default function ProductDetail() {
                                         }}
                                       >
                                         <select
-                                        style={{fontSize:"16 !important"}}
+                                          style={{ fontSize: "16 !important" }}
                                           onChange={(event) =>
                                             diment_click(event.target.value)
                                           }
@@ -1186,7 +1223,7 @@ export default function ProductDetail() {
                                                   onClick={onOpenModal}
                                                 >
                                                   <img
-                                                   onClick={onOpenModal}
+                                                    onClick={onOpenModal}
                                                     src={imgurl + image1}
                                                     alt={
                                                       Product_Details.product_imageurl_alt
@@ -1200,13 +1237,36 @@ export default function ProductDetail() {
                                     </div>
 
                                     <div className="pr-coupon mobile-responisve">
-                                    <div style={{display:"flex",cursor:"pointer"}}  onClick={() => toggleCouponButtonMobile()}>
-                        <img src={CoupenPng} alt={"Coupen"} width={20} height={20}/>
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          cursor: "pointer",
+                                        }}
+                                        onClick={() =>
+                                          toggleCouponButtonMobile()
+                                        }
+                                      >
+                                        <img
+                                          src={CoupenPng}
+                                          alt={"Coupen"}
+                                          width={20}
+                                          height={20}
+                                        />
 
-                        <label  style={{cursor:"pointer",marginLeft:10}}>APPLY COUPON CODE</label>
-
-                        </div>
-                                      <div  id="coupon-section" className="coupon-section" hidden>
+                                        <label
+                                          style={{
+                                            cursor: "pointer",
+                                            marginLeft: 10,
+                                          }}
+                                        >
+                                          APPLY COUPON CODE
+                                        </label>
+                                      </div>
+                                      <div
+                                        id="coupon-section"
+                                        className="coupon-section"
+                                        hidden
+                                      >
                                         <textarea
                                           onChange={(event) =>
                                             set_newcoupen(event.target.value)
@@ -1220,6 +1280,21 @@ export default function ProductDetail() {
                                         </a>
                                       </div>
                                     </div>
+
+                                    <div className="mobile-responisve"><hr /></div> 
+                                    <div className="free-area-style mobile-responisve">
+                                  
+                                  <Lottie
+                                    options={defaultOptions}
+                                    height={80}
+                                    width={150}
+                                    isStopped={false}
+                                    isPaused={false}
+                                  />
+                                  <div> <div><span>Hurray, Complementary sleep accessories !</span></div> 
+                                  <p>  {free_content}</p></div>
+
+                                </div>
 
                                     <div className="buy-section mobile-responisve">
                                       <a
@@ -1259,7 +1334,10 @@ export default function ProductDetail() {
                                       </a>
                                     </div>
 
-                                    <div style={{display:"none"}}  class="has-border cart-area desktop-responisve">
+                                    <div
+                                      style={{ display: "none" }}
+                                      class="has-border cart-area desktop-responisve"
+                                    >
                                       {/* <div className="cus-coupon-apply-container">
                             <div className="custom-coupon-apply-button">
                             <button onClick={()=>toggleCouponButton()}> Apply Coupon</button>
@@ -1383,7 +1461,6 @@ export default function ProductDetail() {
                                           id="coupon-section"
                                           className="coupon-section"
                                           hidden
-                                          
                                         >
                                           <input
                                             type="text"
@@ -1421,16 +1498,35 @@ export default function ProductDetail() {
                             
                             </div> */}
 
+                                    <div className="pr-coupon desktop-responisve">
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          cursor: "pointer",
+                                        }}
+                                        onClick={() => toggleCouponButton()}
+                                      >
+                                        <img
+                                          src={CoupenPng}
+                                          alt={"Coupen"}
+                                          width={20}
+                                          height={20}
+                                        />
 
-
-                       <div className="pr-coupon desktop-responisve">
-                        <div style={{display:"flex",cursor:"pointer"}}  onClick={() => toggleCouponButton()}>
-                        <img src={CoupenPng} alt={"Coupen"} width={20} height={20}/>
-
-                        <label  style={{cursor:"pointer",marginLeft:10}}>APPLY COUPON CODE</label>
-
-                        </div>
-                                      <div  id="coupon-section1" className="coupon-section" hidden>
+                                        <label
+                                          style={{
+                                            cursor: "pointer",
+                                            marginLeft: 10,
+                                          }}
+                                        >
+                                          APPLY COUPON CODE
+                                        </label>
+                                      </div>
+                                      <div
+                                        id="coupon-section1"
+                                        className="coupon-section"
+                                        hidden
+                                      >
                                         <textarea
                                           onChange={(event) =>
                                             set_newcoupen(event.target.value)
@@ -1444,49 +1540,19 @@ export default function ProductDetail() {
                                         </a>
                                       </div>
                                     </div>
-                            
 
-
-                                    
-
-                               
-
-
-                                    <div class="product-quantity  desktop-responisve" style={{marginTop:30}}>
-                                        <div class="qty">
-                                          <div class="input-group input-group-cus">
-                                            <span class="add">
-                                              <button
-                                               className="buynow"
-                                             
-                                                data-button-action="add-to-cart"
-                                                type="submit"
-                                                onClick={() =>
-                                                  addTocart(
-                                                    id,
-                                                    share - coupenDis,
-                                                    Product_Details.product_name,
-                                                    Product_Details.product_imageurl,
-                                                    local,
-                                                    Dimen,
-                                                    height
-                                                  )
-                                                }
-                                              >
-                                                <i
-                                                  class="fa fa-shopping-cart"
-                                                  aria-hidden="true"
-                                                  style={{marginRight:10}}
-                                                ></i>
-                                                <span>Add to cart</span>
-                                              </button>
-                                         
-                                              
-                                            </span>
+                                    <div
+                                      class="product-quantity  desktop-responisve"
+                                      style={{ marginTop: 30 }}
+                                    >
+                                      <div class="qty">
+                                        <div class="input-group input-group-cus">
+                                          <span class="add">
                                             <button
                                               className="buynow"
-                                              style={{background:"black"}}
-                                              onClick={() => {
+                                              data-button-action="add-to-cart"
+                                              type="submit"
+                                              onClick={() =>
                                                 addTocart(
                                                   id,
                                                   share - coupenDis,
@@ -1495,22 +1561,38 @@ export default function ProductDetail() {
                                                   local,
                                                   Dimen,
                                                   height
-                                                );
-                                                buy_func();
-                                              }}
+                                                )
+                                              }
                                             >
-                                              Buy Now
+                                              <i
+                                                class="fa fa-shopping-cart"
+                                                aria-hidden="true"
+                                                style={{ marginRight: 10 }}
+                                              ></i>
+                                              <span>Add to cart</span>
                                             </button>
-                                          </div>
+                                          </span>
+                                          <button
+                                            className="buynow"
+                                            style={{ background: "black" }}
+                                            onClick={() => {
+                                              addTocart(
+                                                id,
+                                                share - coupenDis,
+                                                Product_Details.product_name,
+                                                Product_Details.product_imageurl,
+                                                local,
+                                                Dimen,
+                                                height
+                                              );
+                                              buy_func();
+                                            }}
+                                          >
+                                            Buy Now
+                                          </button>
                                         </div>
                                       </div>
-
-                                      
-                                    
-
-
-
-
+                                    </div>
                                   </div>
                                 </div>
                               </div>
@@ -1721,7 +1803,7 @@ export default function ProductDetail() {
           </div>
         </div>
 
-      {related()} 
+        {related()}
 
         {/* <ProductSlider detailsData={Product_Details} title="Related Products" />  */}
 
@@ -1758,17 +1840,23 @@ export default function ProductDetail() {
             </a>
           </div>
 
-          <Modal open={open} onClose={onCloseModal} center  classNames={{
-          overlayAnimationIn: 'customEnterOverlayAnimation',
-          overlayAnimationOut: 'customLeaveOverlayAnimation',
-          modalAnimationIn: 'customEnterModalAnimation',
-          modalAnimationOut: 'customLeaveModalAnimation',
-        }}
-        animationDuration={800}>
-        <img src={imgurl + image1} style={{width:"100%",height:"100%"}}/>
-      </Modal>
-
-
+          <Modal
+            open={open}
+            onClose={onCloseModal}
+            center
+            classNames={{
+              overlayAnimationIn: "customEnterOverlayAnimation",
+              overlayAnimationOut: "customLeaveOverlayAnimation",
+              modalAnimationIn: "customEnterModalAnimation",
+              modalAnimationOut: "customLeaveModalAnimation",
+            }}
+            animationDuration={800}
+          >
+            <img
+              src={imgurl + image1}
+              style={{ width: "100%", height: "100%" }}
+            />
+          </Modal>
         </footer>
       </div>
       <Loader />

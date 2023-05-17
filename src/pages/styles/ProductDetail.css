@@ -1,5 +1,30 @@
 @media screen and (min-width: 767px) {
 
+
+    .free-area-style{
+        display: flex;
+        align-items: center;
+        }
+        .free-area-style p{
+            padding: 10px;
+            padding-left: 20px;
+            padding-right: 20px;
+            margin:5px;
+        
+            background-color: #f4f4f4;
+            border-radius: 10px;
+        }
+        .free-area-style span{
+            padding: 10px;
+            padding-left: 20px;
+            margin:5px;
+            font-size:11px;
+            color: #982876;
+            font-weight: 500;
+            line-height: 24px;
+        }
+        
+
     .height-sec-container_big  { grid-template-columns: repeat(3, 1fr); }
     .heigh-div-wraper button {
         width: 10vw;
@@ -579,6 +604,33 @@ color: black;
 
 @media screen and (max-width: 767px) {
 
+    .free-area-style{
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        }
+        .free-area-style p{
+            padding: 10px;
+            padding-left: 20px;
+            padding-right: 20px;
+            margin:5px;
+        
+            background-color: #f4f4f4;
+            border-radius: 10px;
+        }
+        .free-area-style span{
+            padding: 10px;
+            padding-left: 20px;
+            padding-right: 20px;
+            margin:5px;
+            font-size:12px;
+            color: #982876;
+            font-weight: 500;
+            line-height: 24px;
+        }
+
+        
+
 
 
     .heigh-div-wraper-color-active  {
@@ -681,6 +733,7 @@ color: black;
     
     .height-sec-container_big { grid-template-columns: repeat(2, 1fr); }
 }
+
 
 
 /* examples/custom-animation.css */

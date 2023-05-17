@@ -12615,7 +12615,7 @@ footer [class~="title-block"],
 }
 
 #product-detail [class~="content"] [class~="main-product-detail"] [class~="product-detail"] {
-  margin-bottom: 5rem;
+  margin-bottom: 2rem;
 }
 
 [class~="blog"] #wrapper-site #content-wrapper #main [class~="content"] [class~="main-blogs"] [class~="page-list"] ul li:last-child a {
