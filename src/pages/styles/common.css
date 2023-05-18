@@ -36,8 +36,8 @@
         position: absolute;
         font-size: 18px;
         color: #982876;
-        bottom: 5px;
-        right: 25px;
+        bottom: 15px;
+        left: 15px;
     }
 
     .product-title{
@@ -307,3 +307,31 @@ background: none !important;
 }
 
 
+.blink {
+    animation: blink-animation 1s steps(5, start) infinite;
+    -webkit-animation: blink-animation 0.5s steps(5, start) infinite;
+  }
+  @keyframes blink-animation {
+    to {
+      visibility: hidden;
+    }
+  }
+  @-webkit-keyframes blink-animation {
+    to {
+      visibility: hidden;
+    }
+  }
+
+
+  .content_contact{
+    background: #992876;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 40px;
+    color: white;
+    border-radius: 50px;
+    width: 85%;
+    font-size: 16px;
+    line-height: 28px;
+  }

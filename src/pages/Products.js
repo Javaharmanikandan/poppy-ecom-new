@@ -12,7 +12,7 @@ import { p_data_list_api } from "../data/product_data";
 const baseurl = process.env.REACT_APP_BASE_URL;
 function Products() {
   const [category, setCategory] = useState([]);
-  const [isActive, setActive] = useState(true);
+  const [isActive, setActive] = useState(false);
 
   const toggleClass = () => {
     setActive(!isActive);
@@ -260,12 +260,12 @@ function Products() {
                                       <input
                                         type={"radio"}
                                         onClick={() => {
-                                          filter_cat("Firm");
+                                          filter_cat("Hard");
                                         }}
                                         name="radio_button"
-                                        value="Firm"
+                                        value="Hard"
                                       />{" "}
-                                      Firm
+                                      Hard
                                     </div>
                                   </div>
 
@@ -288,12 +288,25 @@ function Products() {
                                       <input
                                         type={"radio"}
                                         onClick={() => {
-                                          filter_cat("Medium Firm");
+                                          filter_cat("Medium Hard");
                                         }}
                                         name="radio_button"
-                                        value="Medium Firm"
+                                        value="Medium Hard"
                                       />{" "}
-                                      Medium Firm
+                                      Medium Hard
+                                    </div>
+                                  </div>
+                                  <div className="filters Grid-item">
+                                    <div>
+                                      <input
+                                        type={"radio"}
+                                        onClick={() => {
+                                          filter_cat("Dual Comfort");
+                                        }}
+                                        name="radio_button"
+                                        value="Dual Comfort"
+                                      />{" "}
+                                     Dual Comfort
                                     </div>
                                   </div>
                                 </div>
@@ -418,7 +431,8 @@ function Products() {
                               <a
                                 data-toggle="tab"
                                 href="#product-filter"
-                                className="edit-icon"
+                                className="edit-icon blink"
+
                               >
                                 <i class="fa fa-edit" onClick={toggleClass}></i>
                               </a>
@@ -507,12 +521,12 @@ function Products() {
                                       <input
                                         type={"radio"}
                                         onClick={() => {
-                                          filter_cat("Firm");
+                                          filter_cat("Hard");
                                         }}
                                         name="radio_button"
-                                        value="Firm"
+                                        value="Hard"
                                       />{" "}
-                                      Firm
+                                      Hard
                                     </div>
                                   </div>
 
@@ -535,14 +549,30 @@ function Products() {
                                       <input
                                         type={"radio"}
                                         onClick={() => {
-                                          filter_cat("Medium Firm");
+                                          filter_cat("Medium Hard");
                                         }}
                                         name="radio_button"
-                                        value="Medium Firm"
+                                        value="Medium Hard"
                                       />{" "}
-                                      Medium Firm
+                                      Medium Hard
                                     </div>
                                   </div>
+                                  <div className="filters Grid-item">
+                                    <div>
+                                      <input
+                                        type={"radio"}
+                                        onClick={() => {
+                                          filter_cat("Dual Comfort");
+                                        }}
+                                        name="radio_button"
+                                        value="Dual Comfort"
+                                      />{" "}
+                                      Dual Comfort
+                                    </div>
+                                  </div>
+
+
+                                  
                                 </div>
                               </div>
 

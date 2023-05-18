@@ -216,7 +216,7 @@ var userData =  JSON.parse(localStorage.getItem('userInfo'));
             <ul>
 
  
-              <li  style={{display: userData !="" || userData ==="undefined" ? 'none' : 'block'}}>
+              {/* <li  style={{display: userData !="" || userData ==="undefined" ? 'none' : 'block'}}>
                 <NavLink to="/login">
                   <button>
                     <i class="fa fa-user" aria-hidden="true"></i>Sign In
@@ -230,7 +230,7 @@ var userData =  JSON.parse(localStorage.getItem('userInfo'));
                     <i class="fa fa-user" aria-hidden="true"></i>Sign Up
                   </button>
                 </NavLink>
-              </li>
+              </li> */}
 
                 <li style={{display: userData === "" ? 'none' : 'block'}}>
                 

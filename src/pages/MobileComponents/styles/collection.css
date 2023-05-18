@@ -137,7 +137,7 @@
         align-items: center;
         width: 300px;
         height: auto;
-        background: #F9F9F9;
+        /* background: #F9F9F9; */
         border-radius: 21px;
         margin-top: 20px;
         cursor: pointer;

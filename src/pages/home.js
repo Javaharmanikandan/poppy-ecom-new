@@ -25,6 +25,7 @@ import BottomBannerNew from "./MobileComponents/Home/BottomBanner";
 import { ProductCardCommon } from "./Components/ProductCardCommon";
 import ProductSlider from "./MobileComponents/Home/BestSellers";
 import BlogCard from "./Components/BlogCard";
+import Contactus from "./Components/Contactus";
 
 const baseurl = process.env.REACT_APP_BASE_URL;
 
@@ -264,12 +265,6 @@ function Home() {
                   </iframe>
                 </div>
 
-
-                
-             
-
-                
-
               </section>
             </div>
           </div>
@@ -283,6 +278,10 @@ function Home() {
 
       <div style={{ marginBottom: "50px" }}>
         <BlogCard />
+      </div>
+
+      <div style={{ marginBottom: "50px" }}>
+        <Contactus />
       </div>
     </>
   );
