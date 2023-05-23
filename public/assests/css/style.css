@@ -2956,7 +2956,7 @@ footer [class~="title-block"] {
 }
 
 [class~="main-menu"] [class~="menu"] [class~="menu-top"] li:hover [class~="dropdown-menu"] {
-  width: 220px;
+   width: 220px; 
 }
 
 [class~="menu-banner"] [class~="verticalmenu"] [class~="menu"] li [class~="dropdown-submenu"] [class~="menu-items"] [class~="item"] [class~="menu-content"] [class~="tags"] [class~="title"] b {

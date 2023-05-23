@@ -28,7 +28,7 @@ console.log(newsmail)
   const category_list_fun = async () => {
 
     let response = await category_list();
-    setCategory(response.data.data);
+    response && setCategory(response.data.data);
    
   };
 

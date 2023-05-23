@@ -8,8 +8,8 @@
     max-width: 600px;
     padding: 4vh 0;
     box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    border-top: 3px solid rgb(152 40 118);
-    border-bottom: 3px solid rgb(152 40 118);
+    /* border-top: 3px solid rgb(152 40 118);
+    border-bottom: 3px solid rgb(152 40 118); */
     border-left: none;
     border-right: none
 }

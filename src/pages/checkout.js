@@ -305,12 +305,15 @@ export default function Checkout() {
 
   return (
     <>
-      <div className="headingContent">
+      {/* <div className="headingContent">
         <h4 style={{ color: "#992876" }}>Shipping details </h4>
-      </div>
+      </div> */}
 
       <div className="Check-row">
         <div className="col-75">
+          <h4 className="headingContent" style={{ color: "#992876" }}>
+            Shipping details{" "}
+          </h4>
           <div className="Check-container">
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="Check-row">
@@ -321,7 +324,7 @@ export default function Checkout() {
                       <span
                         style={{ color: "red", marginLeft: 20, fontSize: 10 }}
                       >
-                       Enter valid First Name
+                        Enter valid First Name
                       </span>
                     )}{" "}
                   </label>
@@ -345,7 +348,7 @@ export default function Checkout() {
                       <span
                         style={{ color: "red", marginLeft: 20, fontSize: 10 }}
                       >
-                       Enter valid Email Address{" "}
+                        Enter valid Email Address{" "}
                       </span>
                     )}
                   </label>
@@ -434,7 +437,7 @@ export default function Checkout() {
                   <label for="fname">State </label>
 
                   <select
-                  style={{height:47}}
+                    style={{ height: 47 }}
                     id="country-state"
                     name="country-state"
                     className="InputLayout"
@@ -454,7 +457,7 @@ export default function Checkout() {
                   <label for="fname">District </label>
 
                   <select
-                   style={{height:47}}
+                    style={{ height: 47 }}
                     className="InputLayout"
                     placeholder="City"
                     value={selectedCity}
@@ -501,7 +504,7 @@ export default function Checkout() {
                       <span
                         style={{ color: "red", marginLeft: 20, fontSize: 10 }}
                       >
-                       Enter valid Pin code
+                        Enter valid Pin code
                       </span>
                     )}{" "}
                   </label>
@@ -533,69 +536,94 @@ export default function Checkout() {
                 </div>
               </div>
 
-              <input
-                type="submit"
-                value={"PAY NOW"} 
-                className="btnChekcout"
-              />
+              <input type="submit" value={"PAY NOW"} className="btnChekcout" />
             </form>
           </div>
         </div>
         <div className="col-25">
+          <h4 className="headingContent" style={{ color: "#992876" }}>
+            Order summary{" "}
+          </h4>
           <div className="Check-containerRight">
-            <h5 style={{ color: "black" }}>Your's Cart Items</h5>
+            {/* <h5 style={{ color: "black" }}>Your's Cart Items</h5> */}
 
             {cart
               ? cart.map((ad) => (
                   <div className="Checkout-products ">
                     <div style={{ display: "flex" }}>
                       <img src={imgurl + ad.image} alt={ad.title} />
-                      <div style={{ marginLeft: 10, marginTop: 4 }}>
-                        <p style={{ fontSize: 14, color: "black" }}>
-                          {ad.title} X <span>{ad.product_count}</span>{" "}
+                      <div style={{ marginLeft: 20, marginTop: 4 }}>
+                        <p style={{ fontSize: 18, color: "black" }}>
+                          {ad.title} 
                         </p>
-                        <span style={{ fontSize: 11 }}>
+                        <span style={{ fontSize: 16, marginTop: 5 }}>
                           {ad.bed_type} | {ad.dimension} | {ad.thickness}{" "}
                         </span>
+                        <br />
+                        <span style={{ fontSize: 16, marginTop: 15 }}>
+                          Free gift: 1 Latex Plus Regular Pillow
+                        </span>
+
+                        <br />
+                        <span className="" style={{ marginTop: 15 }}>
+                        {" "}
+                       Qty - {ad.product_count}
+                      </span>
+
+                        <span className="price" style={{ marginTop: 10 }}>
+                        {" "}
+                        ₹ {ad.amount} /-
+                      </span>
                       </div>
                     </div>
-                    <div>
+                    {/* <div>
                       <span className="price" style={{ marginTop: 10 }}>
                         {" "}
                         ₹ {ad.amount} /-
                       </span>
-                    </div>
+                    </div> */}
                   </div>
                 ))
               : null}
 
             <hr />
-            <p>
+            {/* <p>
               Total{" "}
-              <span className="price" style={{ color: "black" ,fontSize:24,fontFamily:"system-ui"}}>
+              <span
+                className="price"
+                style={{
+                  color: "black",
+                  fontSize: 24,
+                  fontFamily: "system-ui",
+                }}
+              >
                 <b>₹ {total} /-</b>
               </span>
-            </p>
+            </p> */}
+
+            <div>
+              <div style={{display:'flex', justifyContent:"space-between"}}><p style={{fontSize:16}}> Total Price </p>
+              <b style={{fontSize:16}}>₹ {total} </b></div>
+            </div>
+            
+            
           </div>
 
-          <div className="CheckoutImgContainer">
-            <img
-              onClick={onOpenModal}
-              style={{ paddingTop: 20 }}
-              src={sec_img1}
-              width="100%"
-            />
-
-            <img
-              class="img-fluid"
-              src={sec_img}
-              alt="img"
-              style={{ padding: 30 }}
-            />
-          </div>
+      
         </div>
       </div>
 
+
+    <div className="CheckoutImgContainer">
+            <img
+              onClick={onOpenModal}
+              style={{ maxWidth:"100%",paddingTop: 20 ,marginBottom:20}}
+              src={sec_img1}
+              // width="100%"
+            />
+
+                
+          </div> 
       <Modal
         open={open}
         onClose={onCloseModal}
@@ -622,48 +650,68 @@ export default function Checkout() {
             src={"https://i.gifer.com/7efs.gif"}
             style={{ width: "50%", height: "50%" }}
           />
-          <h4  className="desktop-responisve"> Great news ! Your Order has been Placed !</h4>
-          <h4  align="center" className="mobile-responisve"> Great news !<br/> Your Order has been Placed !</h4>
-          <p align="center" style={{ width: "75%", fontSize: 14, lineHeight: "28px" }}>
-          Thank you For your Purchase! You will receive an Order confirmation email with tracking details of your order.
+          <h4 className="desktop-responisve">
+            {" "}
+            Great news ! Your Order has been Placed !
+          </h4>
+          <h4 align="center" className="mobile-responisve">
+            {" "}
+            Great news !<br /> Your Order has been Placed !
+          </h4>
+          <p
+            align="center"
+            style={{ width: "75%", fontSize: 14, lineHeight: "28px" }}
+          >
+            Thank you For your Purchase! You will receive an Order confirmation
+            email with tracking details of your order.
           </p>
-          
-          <div class="block m-top1" style={{marginTop:10}}>
-                    <div class="block-content">
-                      <div class="social-content">
-                        <h6 align="center">Follow us on</h6>
-                        <div id="social-block">
-                          <div class="social">
-                            <ul class="list-inline mb-0 justify-content-end">
-                              <li class="list-inline-item mb-0">
-                                <a href="https://m.facebook.com/poppymattressindia/" target="_blank">
-                                  <i class="fa fa-facebook"></i>
-                                </a>
-                              </li>
-                              
-                               <li class="list-inline-item mb-0">
-                                <a href="https://www.instagram.com/poppymattress" target="_blank">
-                                  <i class="fa fa-instagram"></i>
-                                </a>
-                              </li>
+          <div class="block m-top1" style={{ marginTop: 10 }}>
+            <div class="block-content">
+              <div class="social-content">
+                <h6 align="center">Follow us on</h6>
+                <div id="social-block">
+                  <div class="social">
+                    <ul class="list-inline mb-0 justify-content-end">
+                      <li class="list-inline-item mb-0">
+                        <a
+                          href="https://m.facebook.com/poppymattressindia/"
+                          target="_blank"
+                        >
+                          <i class="fa fa-facebook"></i>
+                        </a>
+                      </li>
 
-                              <li class="list-inline-item mb-0">
-                                <a href="https://in.linkedin.com/company/poppymattress" target="_blank">
-                                  <i class="fa fa-linkedin"></i>
-                                </a>
-                              </li>
-                              <li class="list-inline-item mb-0">
-                                <a href="https://www.youtube.com/@poppymattress" target="_blank">
-                                  <i class="fa fa-youtube"></i>
-                                </a>
-                              </li>
-                             
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                      <li class="list-inline-item mb-0">
+                        <a
+                          href="https://www.instagram.com/poppymattress"
+                          target="_blank"
+                        >
+                          <i class="fa fa-instagram"></i>
+                        </a>
+                      </li>
+
+                      <li class="list-inline-item mb-0">
+                        <a
+                          href="https://in.linkedin.com/company/poppymattress"
+                          target="_blank"
+                        >
+                          <i class="fa fa-linkedin"></i>
+                        </a>
+                      </li>
+                      <li class="list-inline-item mb-0">
+                        <a
+                          href="https://www.youtube.com/@poppymattress"
+                          target="_blank"
+                        >
+                          <i class="fa fa-youtube"></i>
+                        </a>
+                      </li>
+                    </ul>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </Modal>
     </>

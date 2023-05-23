@@ -89,6 +89,7 @@ export default function ProductDetail() {
   const [coupen_code, set_coupen] = useState(0);
 
   const [bed_Data, set_bed] = useState({});
+  
   const [dimension, set_dimention] = useState({});
   const [thickness, set_thickness] = useState({});
   const [Product_Details, set_product_Details] = useState({});
@@ -209,7 +210,7 @@ export default function ProductDetail() {
     //  const baseurl = 'http://localhost:8002/';
 
     //  const bed_localhost=localStorage.getItem('bed_type');
-
+// alert(id)
     const requestBody = {
       product_id: id,
       name: product_name_param.replace(/-/g, " "),
@@ -224,8 +225,9 @@ export default function ProductDetail() {
       .post(baseurl + "user/product_details/", requestBody)
 
       .then(function (response) {
-        const dataColor = response.data.product_data[0].colour_option;
-        setColoursOptions(dataColor.split(","));
+
+
+        // response &&  setColoursOptions(response.data.colours)
         // console.log(dataColor.split(","),"Coolors")
         //TO SET PRODUCT BED TYPE
 
@@ -266,16 +268,16 @@ export default function ProductDetail() {
         settop_img(response.data.product_data[0].description_top_image);
         setbot_img(response.data.product_data[0].description_bottom_image);
 
-        setdescriptionimage(
+        response && setdescriptionimage(
           response.data.product_data[0].description_main_image
         );
         //TO SET PRODUCT DETAILS
 
-        set_subdivision(response.data.product_sub);
+        response && set_subdivision(response.data.product_sub);
 
-        set_type_sub(response.data.product_sub[0].subdivision);
+        response && set_type_sub(response.data.product_sub[0].subdivision);
 
-        set_coupen(response.data.coupen_code[0].discount_percentage);
+        response && set_coupen(response.data.coupen_code[0].discount_percentage);
       });
   };
 
@@ -338,11 +340,11 @@ export default function ProductDetail() {
       .then(function (response) {
         //TO SET PRODUCT_DIMENSION BED TYPE
 
-        set_dimention(response.data.dimentions);
+        response && set_dimention(response.data.dimentions);
 
         // alert(response.data.dimensions[0].product_dimensions);
 
-        set_localdimen(response.data.dimentions[0].product_dimensions);
+        response && set_localdimen(response.data.dimentions[0].product_dimensions);
 
         getProduct_price();
       });
@@ -361,7 +363,7 @@ export default function ProductDetail() {
     const result_data = await axios
       .post(baseurl + "user/price_data/", requestBody)
       .then(function (response) {
-        set_price(response.data.data[0].product_price);
+        response && set_price(response.data.data[0].product_price);
       });
   };
 
@@ -1224,7 +1226,7 @@ export default function ProductDetail() {
                                                 >
                                                   <img
                                                     onClick={onOpenModal}
-                                                    src={imgurl + image1}
+                                                    src={imgurl + element.img}
                                                     alt={
                                                       Product_Details.product_imageurl_alt
                                                     }

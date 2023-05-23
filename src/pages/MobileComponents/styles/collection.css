@@ -27,7 +27,7 @@
         align-items: center;
         width: 167px;
         height: 205px;
-        background: #F9F9F9;
+        /* background: #F9F9F9; */
         border-radius: 21px;
         margin-top: 20px;
         cursor: pointer;
@@ -147,6 +147,7 @@
         width: 150px;
         height: 110px;
         object-fit: cover;
+        border-radius: 25px;
     
     }
     .collection-title{
@@ -181,13 +182,8 @@
     .fa {
         font-size: 12px;
     }
-
-   
-
-  
-  
-  
 }
+
 
 
 

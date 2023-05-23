@@ -159,3 +159,25 @@ header{
     display: none;
     
 }
+
+
+.mega-container{
+    background: #ffffff;
+    padding: 50px 20px 50px !important;
+    /* transition: ease all 0.3s; */
+    /* width: 100%; */
+    color: #0b0b0b;
+}
+
+
+.mega-area{
+    display: flex;
+    justify-content: space-around;
+}
+
+.mega-area p{
+    color: #982876;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 28px;
+}

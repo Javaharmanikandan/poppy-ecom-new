@@ -12,7 +12,7 @@ import { p_data_list_api } from "../data/product_data";
 const baseurl = process.env.REACT_APP_BASE_URL;
 function Products() {
   const [category, setCategory] = useState([]);
-  const [isActive, setActive] = useState(false);
+  const [isActive, setActive] = useState(true);
 
   const toggleClass = () => {
     setActive(!isActive);
@@ -68,19 +68,10 @@ function Products() {
       });
   };
   const filter_cat = async (category_name_pass) => {
-
-  
-
       isLoad(false);
       setTimeout(() => {
         navigate("/productlist/" + category_name_pass.replace(/ /g, "-"));
       }, 100);
-      
-
- 
-
-
-
   };
 
 
@@ -325,7 +316,7 @@ function Products() {
                                       name="radio_button"
                                       value="motion_disturbance"
                                     />{" "}
-                                    <lable>Motion Disturbance</lable>
+                                    <lable>Zero Motion Disturbance</lable>
                                   </div>
                                 </div>
 
@@ -589,7 +580,7 @@ function Products() {
                                       name="radio_button"
                                       value="motion_disturbance"
                                     />{" "}
-                                    <lable>Motion Disturbance</lable>
+                                    <lable>Zero Motion Disturbance</lable>
                                   </div>
                                 </div>
 

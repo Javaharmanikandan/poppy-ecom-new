@@ -5,111 +5,81 @@ import React, { useContext, useEffect, useState } from "react";
 import { category_list, name_list } from "../data/API";
 
 import { CartContext } from "../Context/Ecomcontext";
-import axios from 'axios';
+import axios from "axios";
 import cartSection from "../Helper/Cart";
 import logo from "../assets/img/logo.png";
 const imgurl = process.env.REACT_APP_IMG_URL;
-const  baseurl = process.env.REACT_APP_BASE_URL;
+const baseurl = process.env.REACT_APP_BASE_URL;
 export default function Header() {
-
-
   let navigate = useNavigate();
   const [category, setCategory] = useState([]);
   const [category_ass, setCategoryass] = useState([]);
 
-  const [searchVisble,setSerachvisible] =useState(false)
-  
+  const [searchVisble, setSerachvisible] = useState(false);
+
   const [slogans, setslogan] = useState();
   const [pid, set_product_id] = useState({});
   const [accCategoryPillow, setAccCategoryPillow] = useState([]);
   const [product_name, setproductNames] = useState([]);
 
   useEffect(() => {
- 
     category_list_fun();
     product_category_listacc();
     name_list_function();
-  
-
   }, []);
 
-
-const buy_func = ()=> {
-    window.location.href = "https://poppyindia.com/checkout"
+  const buy_func = () => {
+    window.location.href = "https://poppyindia.com/checkout";
   };
   const category_list_fun = async () => {
-
     let response = await category_list();
-    setCategory(response.data.data);
-    setCategoryass(response.data.data);
-  };
 
+   response && setCategory(response.data.data);
+   response && setCategoryass(response.data.data);
+  };
 
   const name_list_function = async () => {
-
     let response = await name_list();
-    setproductNames(response.data.data);
-
+    response && setproductNames(response.data.data);
   };
 
-
-   const product_category_listacc = async (id) => {
-
-
+  const product_category_listacc = async (id) => {
     let response = await axios
-    .get(baseurl + "user/acc_category")
-    .then( (result) => {
+      .get(baseurl + "user/acc_category")
+      .then((result) => {
+        result &&   setAccCategoryPillow(result.data.pillows);
+      });
+  };
 
-       setAccCategoryPillow(result.data.pillows);
-      
-
-    
-
-  });
-  }
-
-const signout = () =>{
-
-
+  const signout = () => {
     localStorage.removeItem("userInfo");
 
-navigate('/login');
+    navigate("/login");
+  };
 
+  const filter_cat = (val) => {
+    //  var element = document.getElementById('tiva-searchBox');
 
-  }
+    //   element.style.visibility = 'hidden';
+    //   element.style.opacity = 0;
 
-
-  const filter_cat=(val)=>{
-
-  //  var element = document.getElementById('tiva-searchBox');
-
-  //   element.style.visibility = 'hidden';
-  //   element.style.opacity = 0;
-  
-      
-    
-            var result = product_name.find(obj => {
-  return obj.product_name === val
-            })
-    var pid= result.product_id
-    var pname= result.product_name;
-    navigate('/productdetail/'+pname.replace(/ /g, "-"));
-       }
+    var result = product_name.find((obj) => {
+      return obj.product_name === val;
+    });
+    var pid = result.product_id;
+    var pname = result.product_name;
+    navigate("/productdetail/" + pname.replace(/ /g, "-"));
+  };
 
   const [topSec, setTopsec] = useState(false);
   var cart_data = sessionStorage.getItem("poppy-cart");
   const [cart, setCart] = useContext(CartContext);
 
   if (cart === "" || cart === null) {
-   
     total = 0;
-   
+  } else {
+    var total = cart.reduce((prev, next) => prev + next.amount, 0);
   }
-  else
-  {
-     var total = cart.reduce((prev, next) => prev + next.amount, 0);
-    
-    }
   const hideTopsection = (e) => {
     var threshold = 1;
 
@@ -118,7 +88,7 @@ navigate('/login');
       e.preventDefault();
     } else if (window.scrollY <= threshold) {
       setTopsec(false);
-      e.preventDefault(); 
+      e.preventDefault();
     }
   };
 
@@ -128,13 +98,10 @@ navigate('/login');
       if (cart != null) {
         setCart(JSON.parse(cart_data));
 
-         total = cart.reduce((prev,next) => prev + next.amount,0);
+        total = cart.reduce((prev, next) => prev + next.amount, 0);
       }
     }
   }, []);
-
-
-
 
   function MenuAction() {
     var element = document.getElementById("acount");
@@ -145,52 +112,34 @@ navigate('/login');
     }
   }
 
-  const removeProduct = (id) =>{
-    setCart( cartSection.removeCart(id));
+  const removeProduct = (id) => {
+    setCart(cartSection.removeCart(id));
+  };
+
+  if (localStorage.getItem("userInfo") != null) {
+    var userData = JSON.parse(localStorage.getItem("userInfo"));
+  } else {
+    var userData = "";
   }
-
-
-
-
-
-    if(localStorage.getItem('userInfo')!=null)
-    {
-        
-var userData =  JSON.parse(localStorage.getItem('userInfo'));
-    }
-    else
-    {
-      var  userData="";
-    }
 
   //HEADER SLOGANS
 
-   useEffect(() => {
-    
+  useEffect(() => {
     header_slogans();
-  },[]);
-  
-  
+  }, []);
+
   const header_slogans = async () => {
-    
-
     const result_data = await axios
-    
-    .get(baseurl + "user/slogans")
-    
-    .then(function (response) {
 
-     const dataReturn= response.data.data[0];
-      //TO SET PRODUCT BED TYPE 
-   
-      dataReturn ? setslogan(response.data.data[0].slogans):setslogan("");
-     
-   
-    })
-    
-  }
+      .get(baseurl + "user/slogans")
 
+      .then(function (response) {
+        const dataReturn = response.data.data[0];
+        //TO SET PRODUCT BED TYPE
 
+        dataReturn ? setslogan(response.data.data[0].slogans) : setslogan("");
+      });
+  };
 
   return (
     <React.Fragment>
@@ -207,15 +156,11 @@ var userData =  JSON.parse(localStorage.getItem('userInfo'));
           </div>
           <div class="top-second">
             <ul>
-              <li>
-                { slogans}
-              </li>
+              <li>{slogans}</li>
             </ul>
           </div>
           <div class="top-third">
             <ul>
-
- 
               {/* <li  style={{display: userData !="" || userData ==="undefined" ? 'none' : 'block'}}>
                 <NavLink to="/login">
                   <button>
@@ -232,18 +177,14 @@ var userData =  JSON.parse(localStorage.getItem('userInfo'));
                 </NavLink>
               </li> */}
 
-                <li style={{display: userData === "" ? 'none' : 'block'}}>
-                
-                   <b> Hello  {userData.uname}</b>
-                  
-                
+              <li style={{ display: userData === "" ? "none" : "block" }}>
+                <b> Hello {userData.uname}</b>
               </li>
-
             </ul>
           </div>
         </div>
 
-        <div className={topSec ? "top_active" : " header-mobile d-md-none"} >
+        <div className={topSec ? "top_active" : " header-mobile d-md-none"}>
           <div class="mobile hidden-md-up text-xs-center d-flex align-items-center justify-content-around">
             <div id="mobile_mainmenu" class="item-mobile-top">
               <i class="fa fa-bars" aria-hidden="true"></i>
@@ -251,54 +192,70 @@ var userData =  JSON.parse(localStorage.getItem('userInfo'));
 
             <div class="mobile-logo">
               <Link to="/">
-                
-                  <img
-                    class="logo-mobile"
-                    style={{ height: "40px" }}
-                    src={logo}
-                    alt="Poppy Mattress"
-                  />
-                
+                <img
+                  class="logo-mobile"
+                  style={{ height: "40px" }}
+                  src={logo}
+                  alt="Poppy Mattress"
+                />
               </Link>
             </div>
-             {/* <div class="">
+            {/* <div class="">
              <i class="fa fa-heart"></i>
             </div> */}
 
             {/* <div class="mobile-menutop" data-target="#mobile-pagemenu"> */}
             <div className="nav-items">
-              
-            <i class="fa fa-search fa-lg" aria-hidden="true" onClick={()=>{setSerachvisible(!searchVisble)}}></i>
-            
-        
-            <div class="header-cart tiva-toggle-btn">
-                    {/* <span class="cart-products-count">{cart_count !== 0 ? cart_count: 0}</span> */}
-                    <Link to="/cart"> <i class="fa fa-shopping-cart" aria-hidden="true"></i></Link>
+              <i
+                class="fa fa-search fa-lg"
+                aria-hidden="true"
+                onClick={() => {
+                  setSerachvisible(!searchVisble);
+                }}
+              ></i>
 
-                    {cart.length !== 0 && ( 
-                      <span class="cart-products-count topCartCount" style={{position:"absolute"}}>{cart.length}</span>
-                    )}
+              <div class="header-cart tiva-toggle-btn">
+                {/* <span class="cart-products-count">{cart_count !== 0 ? cart_count: 0}</span> */}
+                <Link to="/cart">
+                  {" "}
+                  <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                </Link>
 
-                    
-                  </div>
-                  <Link to="/profile"> <i class="fa fa-user fa-lg" aria-hidden="true"></i></Link>
+                {cart.length !== 0 && (
+                  <span
+                    class="cart-products-count topCartCount"
+                    style={{ position: "absolute" }}
+                  >
+                    {cart.length}
+                  </span>
+                )}
+              </div>
+              <Link to="/profile">
+                {" "}
+                <i class="fa fa-user fa-lg" aria-hidden="true"></i>
+              </Link>
 
-          <a href="tel:+91 90548 48481" className="phone-icon">  <div class="">
-             <i class="fa fa-phone" style={{fontSize: "20px"}}></i>
-            </div></a>
-            
+              <a href="tel:+91 90548 48481" className="phone-icon">
+                {" "}
+                <div class="">
+                  <i class="fa fa-phone" style={{ fontSize: "20px" }}></i>
+                </div>
+              </a>
             </div>
-
           </div>
 
-
-          {searchVisble  && <div  
-             
-          id="search_widget"
-              style={{  right: "0" }}
-              class="d-flex  "
+          {searchVisble && (
+            <div id="search_widget" style={{ right: "0" }} class="d-flex  ">
+              <form
+                method="get"
+                action="#"
+                style={{
+                  width: "100%",
+                  background: "#ffffff",
+                  marginRight: "0px",
+                  marginTop: 30,
+                }}
               >
-          <form method="get" action="#" style={{width:"100%",background:"#ffffff",marginRight:"0px",marginTop:30}}>
                 <span
                   role="status"
                   aria-live="polite"
@@ -306,38 +263,31 @@ var userData =  JSON.parse(localStorage.getItem('userInfo'));
                 ></span>
                 <input
                   type="text"
-                  name="s"                 
+                  name="s"
                   placeholder="Search"
                   class="ui-autocomplete-input"
                   autocomplete="off"
                   list="data"
-                  onChange={(event)=>{filter_cat(event.target.value)}} 
-                  style={{background:"#ffffff"}}
+                  onChange={(event) => {
+                    filter_cat(event.target.value);
+                  }}
+                  style={{ background: "#ffffff" }}
                 />
                 <button type="submit">
                   <i class="fa fa-search"></i>
                 </button>
 
                 <datalist id="data">
-    
-                {product_name.map(items_cat =>(
-      <option value={items_cat.product_name} > </option>
-                ))}
-      
-  
-  </datalist>
-
-
+                  {product_name.map((items_cat) => (
+                    <option value={items_cat.product_name}> </option>
+                  ))}
+                </datalist>
               </form>
-          </div>}
-
-          
+            </div>
+          )}
         </div>
 
-
-        
-
-        <div  className={topSec ? "top_active" : " header-top d-xs-none"}>
+        <div className={topSec ? "top_active" : " header-top d-xs-none"}>
           <div class="row margin-0">
             <div class="d-flex icon-menu align-items-center justify-content-center">
               <i class="fa fa-bars" aria-hidden="true" id="icon-menu"></i>
@@ -356,10 +306,9 @@ var userData =  JSON.parse(localStorage.getItem('userInfo'));
                     <a href="#" class="parent">
                       Mattress
                     </a>
-                    <div class="dropdown-menu">
-                      <ul>
+                    <div class="dropdown-menu mega-container" style={{width: "750px",borderRadius:25}}>
+                      {/* <ul>
 
-                     
                          {category.map(items_cat =>(
 
                        
@@ -374,46 +323,219 @@ var userData =  JSON.parse(localStorage.getItem('userInfo'));
 
                              ))}
                 
-                    </ul>
+                    </ul> */}
+
+                      <div className="mega-area">
+                        <div className="mega-mattress">
+                          <p>Shop by Mattress</p>
+                          <div className="mega-matreess-items">
+                            <ul>
+                              {category.map((items_cat) => (
+                                <li class="item">
+                                  
+                                  <Link
+                                    to={`/productlist/${items_cat.category_name.replace(
+                                      / /g,
+                                      "-"
+                                    )}`}
+                                  >
+                                    {items_cat.category_name}
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </div>
+                        <div className="mega-firms">
+                          <p>Shop by Firmness</p>
+                          <div className="mega-firms-items">
+                            <ul>
+                              <li class="item">
+                                <Link
+                                  to={`/productlist/${"Soft".replace(
+                                    / /g,
+                                    "-"
+                                  )}`}
+                                >
+                                  {"Soft"}
+                                </Link>
+                              </li>
+                              <li class="item">
+                                <Link
+                                  to={`/productlist/${"Medium Soft".replace(
+                                    / /g,
+                                    "-"
+                                  )}`}
+                                >
+                                  {"Medium Soft"}
+                                </Link>
+                              </li>
+                              <li class="item">
+                                <Link
+                                  to={`/productlist/${"Hard".replace(
+                                    / /g,
+                                    "-"
+                                  )}`}
+                                >
+                                  {"Hard"}
+                                </Link>
+                              </li>
+
+                              <li class="item">
+                                <Link
+                                  to={`/productlist/${"Medium Hard".replace(
+                                    / /g,
+                                    "-"
+                                  )}`}
+                                >
+                                  {"Medium Hard"}
+                                </Link>
+                              </li>
+
+                              <li class="item">
+                                <Link
+                                  to={`/productlist/${"Dual Comfort".replace(
+                                    / /g,
+                                    "-"
+                                  )}`}
+                                >
+                                  {"Dual Comfort"}
+                                </Link>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                        <div className="mega-Others">
+                          <p>Shop by Category</p>
+                          <div className="mega-others-items">
+                            <ul>
+                              <li class="item">
+                                <Link
+                                  to={`/productlist/${"motion_disturbance".replace(
+                                    / /g,
+                                    "-"
+                                  )}`}
+                                >
+                                  {"Zero Motion Disturbance"}
+                                </Link>
+                              </li>
+
+                              <li class="item">
+                                <Link
+                                  to={`/productlist/${"budget_friendly".replace(
+                                    / /g,
+                                    "-"
+                                  )}`}
+                                >
+                                  {"Budget Friendly"}
+                                </Link>
+                              </li>
+
+                              <li class="item">
+                                <Link
+                                  to={`/productlist/${"best_seller".replace(
+                                    / /g,
+                                    "-"
+                                  )}`}
+                                >
+                                  {"Best Sellers"}
+                                </Link>
+                              </li>
+
+                            
+
+                              <li class="item">
+                        
+                                <Link
+                                  to={`/productlist/${"Hard".replace(
+                                    / /g,
+                                    "-"
+                                  )}`}
+                                >
+                                  {"Age Above 45 Years"}
+                                </Link>
+                              </li>
+
+                                 <li class="item">
+                                <Link
+                                  to={`/productlist/${"Medium Soft".replace(
+                                    / /g,
+                                    "-"
+                                  )}`}
+                                >
+                                  {"Age Below 45 Years"}
+                                </Link>
+                              </li>
+                        
+                            </ul>
+
+                           
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </li>
-{/* <NavLink to="/accessories/all"> */}
-                      <li >
+                  {/* <NavLink to="/accessories/all"> */}
+                  <li>
                     <a href="#" class="parent">
                       Accessories
                     </a>
-                   <div class="dropdown-menu">
+                    <div class="dropdown-menu">
                       <ul>
-
-                     
-                      {accCategoryPillow.map((items_cat ,index)=>(
-
-                       
-                        
+                        {accCategoryPillow.map((items_cat, index) => (
                           <li class="item">
-                          <Link to={`/accessories/${items_cat.sub_serious}`} >  
-                             {items_cat.sub_serious}
-                         
-                           </Link>
-                     
+                            <Link to={`/accessories/${items_cat.sub_serious}`}>
+                              {items_cat.sub_serious}
+                            </Link>
                           </li>
+                        ))}
 
-                             ))}
-
-                               <li class="item">
-                          <Link to={`/accessories/0`} >  
-                             MATTRESS PROTECTER
-                         
-                           </Link>
-                     
-                          </li>
-                
-                    </ul>
+                        <li class="item">
+                          <Link to={`/accessories/0`}>MATTRESS PROTECTER</Link>
+                        </li>
+                      </ul>
                     </div>
-                  </li> 
-{/* </NavLink> */}
 
-                 
+
+                    <div class="dropdown-menu mega-container" style={{width: "500px",borderRadius:25}}>
+                   
+                      <div className="mega-area">
+                        <div className="mega-mattress">
+                          <p>Pillows</p>
+                          <div className="mega-matreess-items">
+                            <ul>
+                            {accCategoryPillow.map((items_cat, index) => (
+                          <li class="item">
+                            <Link to={`/accessories/${items_cat.sub_serious}`}>
+                              {items_cat.sub_serious}
+                            </Link>
+                          </li>
+                        ))}
+                            </ul>
+                          </div>
+                        </div>
+
+
+                        <div className="mega-mattress">
+                          <p>Protector</p>
+                          <div className="mega-matreess-items">
+                            <ul>
+                         
+                          <li class="item">
+                            <Link to={`/accessories/0`}>
+                            MATTRESS PROTECTER
+                            </Link>
+                          </li>
+                       
+                            </ul>
+                          </div>
+                        </div>
+                        
+                       
+                      </div>
+                    </div>
+                  </li>
+                  {/* </NavLink> */}
 
                   {/* <Link to="/waranty">
                     <li>
@@ -436,9 +558,11 @@ var userData =  JSON.parse(localStorage.getItem('userInfo'));
             <div class="flex-2 d-flex align-items-center justify-content-center">
               <div id="logo">
                 <Link to="/">
-                 
-                    <img style={{ height: "70px" }} src={logo} alt="Poppy Mattress" />
-                 
+                  <img
+                    style={{ height: "70px" }}
+                    src={logo}
+                    alt="Poppy Mattress"
+                  />
                 </Link>
               </div>
             </div>
@@ -460,29 +584,23 @@ var userData =  JSON.parse(localStorage.getItem('userInfo'));
                 <input
                   type="text"
                   name="s"
-                 
                   placeholder="Search "
                   class="ui-autocomplete-input"
                   autocomplete="off"
                   list="data"
-           
-
-                  onChange={(event)=>{filter_cat(event.target.value)}} 
+                  onChange={(event) => {
+                    filter_cat(event.target.value);
+                  }}
                 />
                 <button type="submit">
                   <i class="fa fa-search"></i>
                 </button>
 
                 <datalist id="data">
-    
-                {product_name.map(items_cat =>(
-      <option value={items_cat.product_name} > </option>
-                ))}
-      
-  
-  </datalist>
-
-
+                  {product_name.map((items_cat) => (
+                    <option value={items_cat.product_name}> </option>
+                  ))}
+                </datalist>
               </form>
 
               <div class="desktop_cart d-flex align-items-center">
@@ -553,16 +671,12 @@ var userData =  JSON.parse(localStorage.getItem('userInfo'));
                         </a>
                       </Link>
                     </div> */}
-                    <div style={{display: userData === "" ? 'none' : 'block'}}>
-                     
-                        <a
-                          onClick={signout}
-                          href="#"
-                          title="My Wishlists"
-                        >
-                          <i class="fa fa-sign-out"></i>Sign Out
-                        </a>
-                   
+                    <div
+                      style={{ display: userData === "" ? "none" : "block" }}
+                    >
+                      <a onClick={signout} href="#" title="My Wishlists">
+                        <i class="fa fa-sign-out"></i>Sign Out
+                      </a>
                     </div>
                     {/* <div>
                       <Link to="/blogdetails">
@@ -594,57 +708,62 @@ var userData =  JSON.parse(localStorage.getItem('userInfo'));
                       <div class="cart-content">
                         <table>
                           <tbody>
-                            {cart.map(cartval =>(
+                            {cart.map((cartval) => (
+                              //  {var base ="http://poppyindia.com/erp/assets/images/"}
 
+                              //  var original_image=base+Product_Details.product_imageurl;
 
-//  {var base ="http://poppyindia.com/erp/assets/images/"}
+                              <tr>
+                                <td class="product-image">
+                                  <a href="product-detail.html">
+                                    <img
+                                      src={imgurl + cartval.image}
+                                      alt="Product"
+                                    />
+                                  </a>
+                                </td>
+                                <td>
+                                  <div class="product-name">
+                                    <a href="product-detail.html">
+                                      {cartval.title}
+                                    </a>
+                                  </div>
+                                  <div>
+                                    {cartval.product_count} x{" "}
+                                    <span class="product-price">
+                                      ₹ {cartval.amount}
+                                    </span>
+                                  </div>
 
-//  var original_image=base+Product_Details.product_imageurl;
+                                  <div>
+                                    {cartval.bed_type +
+                                      " - " +
+                                      cartval.dimension +
+                                      " - " +
+                                      cartval.thickness}
+                                  </div>
 
-
-                                 <tr>
-                                 <td class="product-image">
-                                   <a href="product-detail.html">
-                                     <img
-                                       src={imgurl+cartval.image}
-                                       alt="Product"
-                                     />
-                                   </a>
-                                 </td>
-                                 <td>
-                                   <div class="product-name">
-                                     <a href="product-detail.html">
-                                       {cartval.title}
-                                     </a>
-                                   </div>
-                                   <div>
-                                     {cartval.product_count} x <span class="product-price">₹ {cartval.amount}</span>
-                                   </div>
-
-                                   <div>
-                                     {cartval.bed_type+" - "+cartval.dimension+" - "+cartval.thickness}
-                                   </div>
-
-                            
-
-
-                                   {/* <div>
+                                  {/* <div>
                                      {cartval.product_count} x <span class="product-price">₹ {cartval.amount}</span>
                                    </div> */}
-
-                                 </td>
-                                 <td class="action">
-                                   <a class="remove" style={{pointer:"cursor"}} onClick={()=>removeProduct(cartval.product_id)} >
-                                     <i
-                                       class="fa fa-trash-o"
-                                       aria-hidden="true"
-                                     ></i>
-                                   </a>
-                                 </td>
-                               </tr>
+                                </td>
+                                <td class="action">
+                                  <a
+                                    class="remove"
+                                    style={{ pointer: "cursor" }}
+                                    onClick={() =>
+                                      removeProduct(cartval.product_id)
+                                    }
+                                  >
+                                    <i
+                                      class="fa fa-trash-o"
+                                      aria-hidden="true"
+                                    ></i>
+                                  </a>
+                                </td>
+                              </tr>
                             ))}
-                           
-                          
+
                             <tr class="total">
                               <td colspan="2">Total:</td>
                               <td>₹ {total}</td>
@@ -656,12 +775,8 @@ var userData =  JSON.parse(localStorage.getItem('userInfo'));
                                 class="d-flex justify-content-center"
                               >
                                 <div class="cart-button">
-                                <Link to="/cart">
-                                    View Cart
-                                 </Link>  
-                                   <Link to="/checkout">  
-                                    Checkout
-                                  </Link>
+                                  <Link to="/cart">View Cart</Link>
+                                  <Link to="/checkout">Checkout</Link>
                                 </div>
                               </td>
                             </tr>
@@ -675,54 +790,60 @@ var userData =  JSON.parse(localStorage.getItem('userInfo'));
             </div>
           </div>
         </div>
-        
       </header>
 
-
-
-         <div id="tiva-searchBox" class="d-flex align-items-center text-center active">
+      <div
+        id="tiva-searchBox"
+        class="d-flex align-items-center text-center active"
+      >
         <div class="container">
-            <span class="tiva-seachBoxClose">
-                <i class="zmdi zmdi-close"></i>
-            </span>
-            <div class="tiva-seachBoxInner">
-                <div class="title-search">
-                    <i class="fa fa-search" aria-hidden="true"></i>
-                    <span>Search </span>
-                </div>
-                {/* <div class="description">
+          <span class="tiva-seachBoxClose">
+            <i class="zmdi zmdi-close"></i>
+          </span>
+          <div class="tiva-seachBoxInner">
+            <div class="title-search">
+              <i class="fa fa-search" aria-hidden="true"></i>
+              <span>Search </span>
+            </div>
+            {/* <div class="description">
                     Find your product with fast search. Enter some keyword such as dress, shirts, shoes etc. Or can search by product sku.
                 </div> */}
-                <div id="search" class="search-widget d-flex justify-content-center">
-                    <form method="get" action="#">
-                        <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
-                        <input type="text" name="s"  placeholder="Search" class="ui-autocomplete-input"   autocomplete="off"
+            <div
+              id="search"
+              class="search-widget d-flex justify-content-center"
+            >
+              <form method="get" action="#">
+                <span
+                  role="status"
+                  aria-live="polite"
+                  class="ui-helper-hidden-accessible"
+                ></span>
+                <input
+                  type="text"
+                  name="s"
+                  placeholder="Search"
+                  class="ui-autocomplete-input"
+                  autocomplete="off"
                   list="data"
-           
+                  onChange={(event) => {
+                    filter_cat(event.target.value);
+                  }}
+                />
 
-                  onChange={(event)=>{filter_cat(event.target.value)}} />
-
-
-                              <datalist id="data">
-    
-                {product_name.map(items_cat =>(
-                 <option value={items_cat.product_name} > </option>
-                ))}
-      
-  
+                <datalist id="data">
+                  {product_name.map((items_cat) => (
+                    <option value={items_cat.product_name}> </option>
+                  ))}
                 </datalist>
-                
 
-
-                        {/* <button type="button">
+                {/* <button type="button">
                             Search
                         </button> */}
-                    </form>
-                </div>
+              </form>
             </div>
+          </div>
         </div>
-    </div>
+      </div>
     </React.Fragment>
   );
 }
-

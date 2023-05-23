@@ -12,7 +12,6 @@ import axios from 'axios';
 
 const  baseurl = process.env.REACT_APP_BASE_URL;
 
-console.log(baseurl)
 
 const headers = {
   "Content-Type": "application/json",
@@ -50,7 +49,7 @@ export const name_list = async () => {
 
 export const testimonials = async () => {
 
-  console.log("Terst")
+
 
   return await axios.get(`${baseurl}user/testimonials`);
 }

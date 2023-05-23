@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import "./../styles/home.css";
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
@@ -13,9 +13,14 @@ import selector_img_3 from "./../images/prodtec.png";
 import selector_img_4 from "./../images/ask.png";
 
 import { useNavigate } from 'react-router-dom';
-
+import axios from 'axios';
+const imgurl = process.env.REACT_APP_IMG_URL;
+const baseurl = process.env.REACT_APP_BASE_URL;
 export default function Topslider() {
-const navigate=useNavigate()
+
+  const[Banners,setTopbanners] =useState(null);
+
+ const navigate=useNavigate()
   var settings = {
     dots: true,
     dotsClass: ' line-indicator banner-dot',
@@ -28,20 +33,37 @@ const navigate=useNavigate()
     autoplaySpeed: 2000
 
 
+
   };
 
+  useEffect(()=>{
+    getBannersData();
+
+  },[])
+
+
+  const getBannersData = async()=>{
+    let response = await axios
+      .get(baseurl + "user/top_banner_get")
+      .then((result) => {
+
+        console.log(result.data.data, "Banners Data Pop")
+        setTopbanners(result.data.data);
+      });
+  }
   return (
     <>
       <div className="slider-header" >
     <div className="image-slider">
       
       <Slider {...settings}>
+
+      {Banners && Banners.map((items) => (
       <div>
-        <img src={slide_img_1} class="slide-img" alt="slide_image" />
+        <img src={imgurl+items.img} class="slide-img" alt="slide_image" />
       </div>
-      <div>
-        <img src={slide_img_2} class="slide-img" alt="slide_image" />
-      </div>
+      ))}
+   
       {/* <div>
         <img src={slide_img_3} class="slide-img" alt="slide_image" />
       </div> */}

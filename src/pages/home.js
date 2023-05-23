@@ -40,7 +40,7 @@ function Home() {
   const [loader, isLoad] = useState(false);
   const category_list_fun = async () => {
     let response = await category_list();
-    setCategory(response.data.data);
+    response && setCategory(response.data.data);
   };
 
   const godetails = (id) => {
@@ -246,7 +246,9 @@ function Home() {
                   <Collections />{" "}
                 </div>
 
-
+                <div style={{ marginBottom: "50px" ,marginTop:"50px"}}>
+        <Contactus />
+      </div>
                 <div
                   className="demo-video desktop-responisve"
                   style={{
@@ -272,17 +274,21 @@ function Home() {
         <Loader />
       </div>
 
-      <div style={{ marginBottom: "50px" }}>
+
+     
+
+
+
+      <div style={{ marginBottom: "50px",marginTop:"50px" }}>
         <Testimonial />
       </div>
+     
 
       <div style={{ marginBottom: "50px" }}>
         <BlogCard />
       </div>
 
-      <div style={{ marginBottom: "50px" }}>
-        <Contactus />
-      </div>
+     
     </>
   );
 }

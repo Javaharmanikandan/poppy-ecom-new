@@ -8,14 +8,16 @@
     background: #fff !important;
     color: black;
     height: 100%;
+    
 }
 
-.carousel .slide img {
-    width: 125px !important;
-    height: 125px !important;
+.card-image img {
+    width: 100%;
 
-    border-radius: 50%;
+    position: relative;
 }
+
+
 
 .myCarousel {
     margin-top: -4%;
@@ -97,6 +99,14 @@
 }
 
 @media only screen and (max-width: 934px) {
+
+
+    
+
+   .product-section{
+      margin-top:20px
+
+    }
     .carousel-root {
         outline: 0;
         width: 93% !important;
@@ -150,6 +160,27 @@
     .axis-horizontal {
         margin-bottom: 70px !important;
     }
+
+    .happy-font{
+        font-size: 1.5rem;
+        font-size: 1.5rem;
+        margin-left: 10px;
+        margin-top: 10px;
+    }
+    .Font-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .gif-image-test{
+        width: 50px;
+        height: 50px;
+    }
+    .Paragrah-test{
+        text-align: center;
+    }
 }
 
 @media (min-width:700px) {
@@ -157,4 +188,87 @@
     .axis-horizontal {
         margin-bottom: 40px !important;
     }
+
+    .happy-font{
+        font-size: 3.5rem;
+    }
+
+    .gif-image-test{
+        width: 120px;
+       
+    }
+}
+
+.card-test {
+    /* margin: auto;
+    width: 40%;
+    max-width: 600px; */
+    /* box-shadow: 0 6px 20px 0 rgba(61, 61, 61, 0.19); */
+    /* border-top: 3px solid rgb(152 40 118);
+    border-bottom: 3px solid rgb(152 40 118); */
+    border-left: none;
+    border-right: none;
+
+    background: #f9f9f9;
+    display: inline-block;
+    overflow: hidden;
+    margin: 10px;
+    min-width: 230px;
+    max-width: 315px;
+    width: 100%;
+    border-radius: 25px;
+    /* color: #ffffff;
+    font-size: 16px;
+    text-align: left; */
+    
+
+
+}
+
+.card-test p{
+    text-align: justify;
+    padding: 20px;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.card-title {
+  font-weight: 300;
+  font-size: 2rem;
+}
+.product-card .card-test {
+  /* margin: 20px; */
+  overflow: hidden;
+}
+.product-card .card-test .card-content {
+  padding: 5px;
+}
+.product-card .card-test .price {
+  width: 70px;
+  height: 70px;
+  font-weight: 600;
+  font-size: 1.45rem;
+  line-height: 70px;
+  margin: 10px;
+  position: absolute;
+  top: 0;
+  letter-spacing: 0;
+}
+.product-card ul.card-action-buttons {
+  margin: -18px 7px 0 0;
+  text-align: right;
+}
+.product-card ul.card-action-buttons li {
+  display: inline-block;
+  padding-left: 7px;
+}
+.product {
+  width: 20%;
+  padding: 10px;
+}
+.product .card-test {
+  margin: 0;
+}
+.product .card-test .card-content {
+  padding: 5px 10px;
 }
