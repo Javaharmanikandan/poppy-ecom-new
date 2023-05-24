@@ -80,7 +80,7 @@ export default function ProductDetail() {
       set_comments("");
     }
   };
-  const [id, setId] = useState(1);
+  const [id, setId] = useState(null);
   const [cate_name, setcategory_name] = useState("");
 
   const [cart, setCart] = useContext(CartContext);
