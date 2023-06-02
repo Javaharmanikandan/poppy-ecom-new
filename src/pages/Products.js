@@ -12,7 +12,7 @@ import { p_data_list_api } from "../data/product_data";
 const baseurl = process.env.REACT_APP_BASE_URL;
 function Products() {
   const [category, setCategory] = useState([]);
-  const [isActive, setActive] = useState(true);
+  const [isActive, setActive] = useState(false);
 
   const toggleClass = () => {
     setActive(!isActive);
@@ -167,14 +167,31 @@ function Products() {
                          
                             <div className="desktop-responisve cardFilter">
                             <div className="filter-section">
+
+                            {/* <div className="pr-filter-name">
+                              <h4>
+                                Showing <span>All Mattress</span>
+                              </h4>
+                              <a
+                                data-toggle="tab"
+                                href="#product-filter"
+                                className="edit-icon blink"
+
+                              >
+                                <i class="fa fa-edit" onClick={toggleClass}></i>
+                              </a>
+                            </div> */}
+
                      
                             <div
-                              id={isActive ? "product-filter" : "displayNone"}
+                              id={"product-filter"}
                             >
                               <div className="all-mattress-section"></div>
 
                               <div className="Main-filterContainer">
                                 <div className="filters Grid-item">
+
+                                  
                                   <div>
                                     <input
                                       type={"radio"}
@@ -617,7 +634,7 @@ function Products() {
                         </div>
 
                         <div class="col-sm-8 col-lg-8 col-md-8 product-container">
-                          <h1>OUR MATTRESS</h1>
+                          {/* <h1>OUR MATTRESS</h1> */}
                           <div class="js-product-list-top firt nav-top">
                             <div class="d-flex justify-content-around row">
                               <div class="col col-xs-12">

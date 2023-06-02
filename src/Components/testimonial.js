@@ -46,12 +46,13 @@ function Testimonial() {
         }
       },
       {
-        breakpoint: 600,
+        breakpoint: 700,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
           initialSlide: 1,
           infinite: true,
+          centerMode: false,
         }
       },
       {
@@ -60,7 +61,8 @@ function Testimonial() {
           infinite: true,
           initialSlide: 1,
           slidesToShow: 1,
-          slidesToScroll: 1
+          slidesToScroll: 1,
+          centerMode: false,
         }
       }
     ]

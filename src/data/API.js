@@ -11,8 +11,6 @@
 import axios from 'axios';
 
 const  baseurl = process.env.REACT_APP_BASE_URL;
-
-
 const headers = {
   "Content-Type": "application/json",
   'Access-Control-Allow-Origin': '*',
@@ -71,7 +69,6 @@ export const festivebanner_settings = async () => {
 }
 
 export const bottom_list = async () => {
-
   console.log("bot")
   return await axios.get(`${baseurl}user/bottom_banner`);
 }

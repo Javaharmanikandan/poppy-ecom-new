@@ -14,6 +14,7 @@ export default function ProductSlider(props){
     dots: false,
     infinite: false,
     speed: 500,
+    centerPadding: '10px',
     // slidesToShow: 1.5,
     // slidesToScroll: 1,
     autoplay: true,
@@ -32,9 +33,9 @@ export default function ProductSlider(props){
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 1.5,
+          slidesToShow: 1,
           slidesToScroll: 1,
-          initialSlide: 1,
+          initialSlide: 1.5,
           infinite: true,
         }
       },
@@ -43,7 +44,7 @@ export default function ProductSlider(props){
         settings: {
           infinite: true,
           initialSlide: 1,
-          slidesToShow: 1.5,
+          slidesToShow: 1.25,
           slidesToScroll: 1
         }
       }

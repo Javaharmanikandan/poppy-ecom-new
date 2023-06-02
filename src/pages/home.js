@@ -27,6 +27,9 @@ import ProductSlider from "./MobileComponents/Home/BestSellers";
 import BlogCard from "./Components/BlogCard";
 import Contactus from "./Components/Contactus";
 
+
+
+
 const baseurl = process.env.REACT_APP_BASE_URL;
 
 const imgurl = process.env.REACT_APP_IMG_URL;
@@ -64,7 +67,6 @@ function Home() {
   const [product_li, setProduct] = useState([]);
   const [bestSellers, setBestProduct] = useState([]);
 
-  const [banner_bottom, setBottom] = useState({});
 
   useEffect(() => {
     category_list_fun().then(product_list_fun("Grand Series"));
@@ -101,16 +103,7 @@ function Home() {
       });
   };
 
-  const img1 =
-    banner_bottom.length > 0 ? banner_bottom[0].banner_image : "a.jpg";
-  const img2 =
-    banner_bottom.length > 0 ? banner_bottom[1].banner_image : "a.jpg";
-  const img3 =
-    banner_bottom.length > 0 ? banner_bottom[2].banner_image : "a.jpg";
-  const img4 =
-    banner_bottom.length > 0 ? banner_bottom[3].banner_image : "a.jpg";
-  const img5 =
-    banner_bottom.length > 0 ? banner_bottom[4].banner_image : "a.jpg";
+
 
   const navigation = async (url) => {
     navigate(url);
@@ -141,16 +134,7 @@ function Home() {
     }, 100);
   };
 
-  useEffect(() => {
-    bottom_banner();
-    // testimonials_get();
-  }, []);
 
-  const bottom_banner = async () => {
-    let response = await bottom_list();
-
-    setBottom(response.data.data);
-  };
 
   const mystyle = {
     display: "flex",
@@ -236,9 +220,9 @@ function Home() {
                     />
                   </center>
                 </div>
-                <div className="mobile-rsponisve">
+                <div className="mobile">
                   {" "}
-                  <BottomBannerNew data={banner_bottom && banner_bottom} />{" "}
+                   <BottomBannerNew />{" "}
                 </div>
 
                 <div style={{marginTop:50}}>

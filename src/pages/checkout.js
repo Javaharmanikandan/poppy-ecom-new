@@ -28,7 +28,11 @@ export default function Checkout() {
   } = useForm();
 
   const [cart, setCart] = useContext(CartContext);
-  var total = cart.reduce((prev, next) => prev + next.amount, 0);
+  var subtotal = cart.reduce((prev, next) => parseInt(prev) + parseInt(next.amount), 0);
+
+  var total = cart.reduce((prev, next) => parseInt(prev) + parseInt(next.price_original), 0);
+
+  var disAmount=0;
 
   const [selectedState, setSelectedState] = useState();
   const [selectedCity, setSelectedCity] = useState();
@@ -176,7 +180,9 @@ export default function Checkout() {
     var cart_data = sessionStorage.getItem("poppy-cart");
     console.log(cart_data);
     setCart(JSON.parse(cart_data));
-    total = cart.reduce((prev, next) => prev + next.amount, 0);
+    total = cart.reduce((prev, next) => parseInt(prev) + parseInt(next.price_original), 0);
+     subtotal = cart.reduce((prev, next) => parseInt(prev) + parseInt(next.amount), 0);
+
   }, []);
 
   const removeProduct = () => {
@@ -276,12 +282,12 @@ export default function Checkout() {
             )
             .then(function (response) {
               removeProduct();
-
+              onOpenModal()
               let url_redirect = "/order_track/" + o_id;
 
               // navigate(url_redirect);
-              window.location.href =
-                "https://poppyindia.com/order_track/" + o_id;
+              // window.location.href =
+              //   "https://poppyindia.com/order_track/" + o_id;
             });
           //  navigate('/');
         }
@@ -556,24 +562,33 @@ export default function Checkout() {
                         <p style={{ fontSize: 18, color: "black" }}>
                           {ad.title} 
                         </p>
-                        <span style={{ fontSize: 16, marginTop: 5 }}>
+                        <hr style={{marginTop:5,marginBottom:2}}/>
+                        <span style={{ fontSize: 14, marginTop: 5,display:"flex",gap:30 }}>
                           {ad.bed_type} | {ad.dimension} | {ad.thickness}{" "}
+                          <span> Qty - {ad.product_count}</span>
                         </span>
-                        <br />
-                        <span style={{ fontSize: 16, marginTop: 15 }}>
-                          Free gift: 1 Latex Plus Regular Pillow
-                        </span>
+                        {/*  */}
+                        {/* <div style={{display:"flex",gap:10,marginTop: 5}}>
+                        <img src={imgurl + ad.image} alt={ad.title} style={{width:30,height:30,borderRadius:50,border:'1px solid rgba(0, 0, 0, 0.15)'}} /> */}
+                        <span style={{display:"flex", fontSize: 12, marginTop: 5 }}>
+                        <b>Selected Color -  {ad.color}</b></span>
+                        {/* </div> */}
 
-                        <br />
-                        <span className="" style={{ marginTop: 15 }}>
-                        {" "}
-                       Qty - {ad.product_count}
-                      </span>
+                        <hr style={{marginTop:5,marginBottom:2}}/>
 
-                        <span className="price" style={{ marginTop: 10 }}>
+                        <p style={{fontSize:11}}>M.R.P <span style={{marginLeft:10,fontFamily:'system-ui',textDecoration:"line-through"}}>
                         {" "}
-                        ₹ {ad.amount} /-
-                      </span>
+                        ₹ {ad.price_original} /-
+                      </span> <span>{ad.percentage} %</span> <span style={{fontSize:16,marginLeft:20,fontFamily:'system-ui',fontWeight:500}}><b>₹ {parseInt(ad.amount)}</b>/-</span></p>
+                        
+                        <p style={{ fontSize: 10,fontStyle:"italic", marginTop: 10 ,border:'1px solid rgba(0, 0, 0, 0.15)',padding:10,borderRadius:10}}>
+                         Free Gift -  {ad.free}
+                        </p>
+
+                
+                      
+
+                  
                       </div>
                     </div>
                     {/* <div>
@@ -602,10 +617,24 @@ export default function Checkout() {
             </p> */}
 
             <div>
-              <div style={{display:'flex', justifyContent:"space-between"}}><p style={{fontSize:16}}> Total Price </p>
-              <b style={{fontSize:16}}>₹ {total} </b></div>
+              <div style={{display:'flex', justifyContent:"space-between"}}><p style={{fontSize:16}}> Price ({cart.length !== 0 && cart.length} Items) </p>
+              <b style={{fontSize:16}}>₹ {parseInt(total)} </b></div>
             </div>
-            
+
+            <div>
+              <div style={{display:'flex', justifyContent:"space-between",marginTop:15}}><p style={{fontSize:16}}> Discount </p>
+              <b style={{fontSize:16}}>₹ {parseInt(total)-parseInt(subtotal)} </b></div>
+            </div>
+
+            <div>
+              <div style={{display:'flex', justifyContent:"space-between",marginTop:15}}><p style={{fontSize:16}}> Shipping </p>
+              <b style={{fontSize:16}}>Free </b></div>
+            </div>
+            <hr />
+            <div>
+              <div style={{display:'flex', justifyContent:"space-between",marginTop:15}}><p style={{fontSize:16}}> Total Price<br /> <small>Inclusive of taxes</small> </p>
+              <b style={{fontSize:20}}>₹ {parseInt(subtotal)} </b></div>
+            </div>
             
           </div>
 
@@ -616,7 +645,7 @@ export default function Checkout() {
 
     <div className="CheckoutImgContainer">
             <img
-              onClick={onOpenModal}
+              // onClick={onOpenModal}
               style={{ maxWidth:"100%",paddingTop: 20 ,marginBottom:20}}
               src={sec_img1}
               // width="100%"

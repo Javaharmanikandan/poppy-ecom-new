@@ -33,14 +33,12 @@ const buy_func = ()=> {
       setCart(JSON.parse(cart_data));
     }
     if (cart !== '') {
-      total = cart.reduce((prev, next) => prev + next.amount, 0);
+      total = cart.reduce((prev, next) => parseInt(prev) + parseInt(next.amount), 0);
     } else {
       total = 0;
     }
   }, []);
   
-
-
 
   if (cart.length==0)
   {
@@ -81,12 +79,7 @@ const buy_func = ()=> {
                     <div class="cart-container">
                       <div class="cart-overview js-cart">
                         <ul class="cart-items">
-
-
                              <li><center>< img src={"https://mehrallies.co.tz/shop/img/core-img/no_products_found.png"} /></center></li>
-
-
-
                         </ul>
                       </div>
                     </div>
@@ -188,11 +181,11 @@ const buy_func = ()=> {
 
 
 
-    setCart(cartSection.addCart_update(id, amt, type));
+    setCart(cartSection.addCart_update(id, parseInt(amt), type));
 
   }
   if (cart !== null) {
-    var total = cart.reduce((prev, next) => prev + next.amount, 0);
+    var total = cart.reduce((prev, next) => parseInt(prev) +  parseInt(next.amount), 0);
   } else {
     total = 0;
   }
@@ -316,7 +309,7 @@ const buy_func = ()=> {
                                   <div class="col-md-5 col price">
                                     <div class="label">Total:</div>
                                     <div class="product-price total">
-                                      ₹ { ad.amount }
+                                      ₹ { parseInt(ad.amount) }
                                     </div>
                                   </div>
                                   <div class="col-md-2 col text-xs-right align-self-end">
@@ -382,7 +375,7 @@ const buy_func = ()=> {
                         </div>
                         <div class="cart-summary-line cart-total">
                           <span class="label">Total : </span>
-                          <span class="value"> ₹ {total}</span>
+                          <span class="value"> ₹ {parseInt(total)}</span>
                         </div>
                       </div>
                     </div>

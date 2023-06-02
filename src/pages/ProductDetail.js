@@ -34,9 +34,19 @@ const userData = JSON.parse(localStorage.getItem("userInfo"));
 
 export default function ProductDetail() {
   const [open, setOpen] = useState(false);
+  const[pickedColorImg,setPickedColorImg]=useState("")
+   const[pickedColorId,setPicketColorId]=useState("")
+  const[pickedColor,setPickedColor]=useState("Stock Color")
 
-  const onOpenModal = () => setOpen(true);
+  const onOpenModal = async (data) => {
+    setOpen(true)
+   setPickedColorImg(data.img)
+    setPickedColor(data.colour_name)
+    setPicketColorId(data.id)
+  };
   const onCloseModal = () => setOpen(false);
+
+
 
   //Image variables
   let navigate = useNavigate();
@@ -67,14 +77,10 @@ export default function ProductDetail() {
         product_id: id,
       };
       const result_data = axios
-
         .post(baseurl + "user/product_review/", requestBody)
-
         .then(customer_review_list_func());
-
       toast.success("Thanks For Your Review!");
       document.getElementById("review-form").reset();
-
       set_name("");
       set_email("");
       set_comments("");
@@ -227,16 +233,15 @@ export default function ProductDetail() {
       .then(function (response) {
 
 
-        // response &&  setColoursOptions(response.data.colours)
+         response &&  setColoursOptions(response.data.colours)
+
+        // console.log(response && response.data.colours,"Colors")
         // console.log(dataColor.split(","),"Coolors")
         //TO SET PRODUCT BED TYPE
-
         set_bed(response.data.bed_type);
-
         set_localbed(response.data.bed_type[0].bed_type);
 
         //TO SET PRODUCT_DIMENSION BED TYPE
-
         set_dimention(response.data.dimentions);
 
         set_localdimen(response.data.dimentions[0].product_dimensions);
@@ -351,6 +356,8 @@ export default function ProductDetail() {
   };
 
   const getProduct_price = async () => {
+
+    // alert(id);
     const requestBody = {
       product_id: id,
       bed_type: local,
@@ -471,12 +478,16 @@ export default function ProductDetail() {
       element.setAttribute("hidden", true);
     }
   };
-  const addTocart = (id, amt, title, image, bed_type, dimension, thickness) => {
+  const addTocart = (id, amt, title, image, bed_type, dimension, thickness, freeSection,color,dis,pri) => {
+
+
+    // alert(freeSection)
+    // return 0;
     //TODO METHOD ACTION FOR ADD
-    toast.success("product Added Successfully ");
+    toast.success("Product Added Successfully ");
 
     setCart(
-      cartSection.addCart(id, amt, title, image, bed_type, dimension, thickness)
+      cartSection.addCart(id, parseInt(amt), title, image, bed_type, dimension, thickness,freeSection,color,dis,pri)
     );
   };
 
@@ -1211,21 +1222,21 @@ export default function ProductDetail() {
                                     </div>
 
                                     <div class="has-border ">
-                                      <label>COLOUR</label>
+                                      <label>SELECTED COLOR - {pickedColor}</label>
                                       <div className="height-sec-container">
                                         {coloursOptions.length > 0
                                           ? coloursOptions.map(
                                               (element, index) => (
                                                 <div
                                                   className={
-                                                    index === heightmenu3
+                                                    element.id === pickedColorId
                                                       ? "heigh-div-wraper-color-active"
                                                       : "heigh-div-wraper-color"
                                                   }
-                                                  onClick={onOpenModal}
+                                                  onClick={()=>{onOpenModal(element)}}
                                                 >
                                                   <img
-                                                    onClick={onOpenModal}
+                                                   onClick={()=>{onOpenModal(element)}}
                                                     src={imgurl + element.img}
                                                     alt={
                                                       Product_Details.product_imageurl_alt
@@ -1308,7 +1319,13 @@ export default function ProductDetail() {
                                             Product_Details.product_imageurl,
                                             local,
                                             Dimen,
-                                            height
+                                            height,
+                                            Product_Details.free_content,
+                                            pickedColor,
+                                            discount,
+                                            price
+
+
                                           )
                                         }
                                         style={{ color: "white" }}
@@ -1327,7 +1344,8 @@ export default function ProductDetail() {
                                             Product_Details.product_imageurl,
                                             local,
                                             Dimen,
-                                            height
+                                            height,
+                                            Product_Details.free_content
                                           );
                                           buy_func();
                                         }}
@@ -1397,7 +1415,12 @@ export default function ProductDetail() {
                                                     Product_Details.product_imageurl,
                                                     local,
                                                     Dimen,
-                                                    height
+                                                    height,
+                                                    Product_Details.free_content,
+                                                    pickedColor,
+                                            discount,
+                                            price
+
                                                   )
                                                 }
                                               >
@@ -1437,7 +1460,13 @@ export default function ProductDetail() {
                                                   Product_Details.product_imageurl,
                                                   local,
                                                   Dimen,
-                                                  height
+                                                  height,
+                                                  Product_Details.free_content,
+                                                  pickedColor,
+                                            discount,
+                                            price
+
+
                                                 );
                                                 buy_func();
                                               }}
@@ -1562,7 +1591,12 @@ export default function ProductDetail() {
                                                   Product_Details.product_imageurl,
                                                   local,
                                                   Dimen,
-                                                  height
+                                                  height,
+                                                  Product_Details.free_content,
+                                                  pickedColor,
+                                            discount,
+                                            price
+
                                                 )
                                               }
                                             >
@@ -1585,7 +1619,12 @@ export default function ProductDetail() {
                                                 Product_Details.product_imageurl,
                                                 local,
                                                 Dimen,
-                                                height
+                                                height,
+                                                Product_Details.free_content,
+                                                pickedColor,
+                                            discount,
+                                            price
+
                                               );
                                               buy_func();
                                             }}
@@ -1831,7 +1870,12 @@ export default function ProductDetail() {
                   Product_Details.product_imageurl,
                   local,
                   Dimen,
-                  height
+                  height,
+                  Product_Details.free_content,
+                  pickedColor,
+                                            discount,
+                                            price
+
                 )
               }
               className="add-to-cart-btn"
@@ -1855,9 +1899,9 @@ export default function ProductDetail() {
             animationDuration={800}
           >
             <img
-              src={imgurl + image1}
-              style={{ width: "100%", height: "100%" }}
-            />
+              src={imgurl + pickedColorImg}
+              style={{ width: "75%", height: "75%" }}
+            /> 
           </Modal>
         </footer>
       </div>

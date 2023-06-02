@@ -93,7 +93,7 @@ if(mailcheck)
                       <p class="logo-footer">
                         <img src={logo} style={{height:"50px"}} alt="img" />
                       </p>
-                      <p class="content-logo">
+                      <p class="content-logo" style={{marginTop:20}}>
                       Buy Mattress Online - India's Best Mattress Brand.
                       </p>
                     </div>

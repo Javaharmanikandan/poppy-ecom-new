@@ -22,6 +22,7 @@ export default function Header() {
   const [accCategoryPillow, setAccCategoryPillow] = useState([]);
   const [product_name, setproductNames] = useState([]);
 
+ 
   useEffect(() => {
     category_list_fun();
     product_category_listacc();
@@ -58,14 +59,15 @@ export default function Header() {
   };
 
   const filter_cat = (val) => {
-    //  var element = document.getElementById('tiva-searchBox');
 
+    //  var element = document.getElementById('tiva-searchBox');
     //   element.style.visibility = 'hidden';
     //   element.style.opacity = 0;
 
     var result = product_name.find((obj) => {
       return obj.product_name === val;
     });
+    
     var pid = result.product_id;
     var pname = result.product_name;
     navigate("/productdetail/" + pname.replace(/ /g, "-"));
@@ -706,7 +708,7 @@ export default function Header() {
                   {cart.length !== 0 && (
                     <div class="dropdown-content">
                       <div class="cart-content">
-                        <table>
+                        <table style={{border:"none"}}>
                           <tbody>
                             {cart.map((cartval) => (
                               //  {var base ="http://poppyindia.com/erp/assets/images/"}
@@ -714,8 +716,8 @@ export default function Header() {
                               //  var original_image=base+Product_Details.product_imageurl;
 
                               <tr>
-                                <td class="product-image">
-                                  <a href="product-detail.html">
+                                <td class="product-image" style={{height:"auto"}}>
+                                  <a >
                                     <img
                                       src={imgurl + cartval.image}
                                       alt="Product"
@@ -724,28 +726,40 @@ export default function Header() {
                                 </td>
                                 <td>
                                   <div class="product-name">
-                                    <a href="product-detail.html">
+                                    <a >
                                       {cartval.title}
                                     </a>
-                                  </div>
-                                  <div>
-                                    {cartval.product_count} x{" "}
-                                    <span class="product-price">
-                                      ₹ {cartval.amount}
-                                    </span>
-                                  </div>
 
-                                  <div>
+                                   
+                                  </div>
+                                   <div>
+                             
+                                    <span class="product-price" style={{display:"flex",gap:15}}>
+                                     Qty {cartval.product_count} x <b style={{fontFamily:'system-ui',fontWeight:600}}>₹ { cartval.amount/cartval.product_count}</b> 
+                                    </span>
+                                  </div> 
+
+                                  <div style={{marginTop:5}}>
                                     {cartval.bed_type +
-                                      " - " +
+                                      " | " +
                                       cartval.dimension +
-                                      " - " +
+                                      " | " +
                                       cartval.thickness}
                                   </div>
 
-                                  {/* <div>
-                                     {cartval.product_count} x <span class="product-price">₹ {cartval.amount}</span>
-                                   </div> */}
+                                 
+
+                                  <div style={{marginTop:5,fontSize:10,color:"#959595",fontStyle:"italic"}}>
+                                  <b>Free Gift  - </b>{cartval.free}
+                                    
+                                  </div>
+
+                                  <div style={{marginTop:5,fontSize:10,}}>
+                                    Selected Color : <b>{cartval.color}</b>
+                                    
+                                  </div>
+
+                                  
                                 </td>
                                 <td class="action">
                                   <a
@@ -760,14 +774,43 @@ export default function Header() {
                                       aria-hidden="true"
                                     ></i>
                                   </a>
+
+                                  <a
+                                    class="remove"
+                                    style={{ pointer: "cursor", paddingTop:10 }}
+                                    onClick={()=>{ navigate("/cart")}}
+                                  >
+                                    <i
+                                    style={{ pointer: "cursor", paddingTop:10 }}
+                                      class="fa fa-edit"
+                                      aria-hidden="true"
+                                    ></i>
+                                  </a>
+
+                                  
                                 </td>
                               </tr>
                             ))}
 
-                            <tr class="total">
-                              <td colspan="2">Total:</td>
-                              <td>₹ {total}</td>
+                            {/* <tr class="total">
+                              <td colspan="2">Price ( {cart.length !== 0 ? cart.length+" Items" :0 +" Items"} )</td>
+                              <td>₹ {parseInt(total)}</td>
                             </tr>
+                            <tr class="total">
+                              <td colspan="2">Discount </td>
+                              <td>₹ {"0"}</td>
+                            </tr>
+
+                            <tr class="total">
+                              <td colspan="2">Shipping </td>
+                              <td>{"Free"}</td>
+                            </tr>
+
+                            <tr class="total">
+                              <td colspan="2">Total</td>
+                              <td>₹ {parseInt(total)}</td>
+                            </tr> */}
+                            
 
                             <tr>
                               <td

@@ -1,9 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import "./../styles/common.css";
 import "./MobileCard.css";
 import { useHistory, useNavigate, useParams } from 'react-router-dom';
+
+import { CartContext } from '../../Context/Ecomcontext';
+import { toast } from "react-toastify";
+import cartSection from "../../Helper/Cart";
+
+
 const imgurl = process.env.REACT_APP_IMG_URL;
 export const MobileProductCard = (props) => {
+  const [cart, setCart] = useContext(CartContext);
 
    //console.log(props.dataDetails)
 
@@ -16,13 +23,23 @@ export const MobileProductCard = (props) => {
   }
   
 
+  const addTocart = (id, amt, title, image, bed_type, dimension, thickness,free_content,discount_per,product_price) => {
+    //TODO METHOD ACTION FOR ADD
+    toast.success("product Added Successfully ");
+
+    setCart(
+      cartSection.addCart(id, amt, title, image, bed_type, dimension, thickness,free_content,"Stock Color",discount_per,product_price)
+    );
+  };
+
+
 // console.log("hi")
 
   return (
 
     //Whole Div
     <>
-    <div className='MainProductContainer'  onClick={() =>{movepage(props.dataDetails.product_name)}}>
+    <div className='MainProductContainer'  >
         <div className='ProductDetailsContainer'>
             <div className='imageContainer'>
             <img  onClick={() =>{movepage(props.dataDetails.product_name)}} src={imgurl+props.dataDetails.product_imageurl} alt={props.dataDetails.product_name} />
@@ -40,7 +57,17 @@ export const MobileProductCard = (props) => {
            <p className='startText'>Price Starts from</p>
            <div className='Current-Prices'>
   <a  style={{fontSize:16,fontWeight:'bold',color:'black',fontFamily:'system-ui'}}><i class="fa fa-inr"></i> {props.dataDetails.DiscountedPrice.toFixed(0)}</a>
-      <a href="#"><i style={{color:"#982876" ,fontWeight:'bold',fontSize:18}} class='fa fa-shopping-cart'></i></a>
+      <a  onClick={()=>{
+        addTocart(props.dataDetails.id,
+        props.dataDetails.DiscountedPrice.toFixed(0),
+        props.dataDetails.product_name,
+        props.dataDetails.product_imageurl,
+        props.dataDetails.bed_type,
+        props.dataDetails.product_dimensions,
+        props.dataDetails.thickness,
+        props.dataDetails.free_content,
+        props.dataDetails.discount_percentage,
+        props.dataDetails.product_price)}}><i style={{color:"#982876" ,fontWeight:'bold',fontSize:18}} class='fa fa-shopping-cart'></i></a>
       </div>
       <span className='spanText'>( inclusive of all taxes )</span>
 
@@ -48,7 +75,7 @@ export const MobileProductCard = (props) => {
 
         </div>
 
-        <p className='descriptionMarketting'>Designed for a two-way use, utility of the mattress is doubled and also made economically viable.</p>
+        <p className='descriptionMarketting'>{ props.dataDetails.marketing_description}.</p>
         <a href="#"><div className='shopNowContainer'>
             <a className='shopNow' style={{fontSize:14}}>shop now</a>
             <i class='fa fa-angle-right' style={{marginLeft:5,fontSize:14}}></i>
