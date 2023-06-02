@@ -28,11 +28,11 @@ export default function Checkout() {
   } = useForm();
 
   const [cart, setCart] = useContext(CartContext);
-  var subtotal = cart.reduce((prev, next) => parseInt(prev) + parseInt(next.amount), 0);
+  var total = cart.reduce((prev, next) => parseInt(prev) + parseInt(next.amount), 0);
 
-  var total = cart.reduce((prev, next) => parseInt(prev) + parseInt(next.price_original), 0);
+  var subtotal = cart.reduce((prev, next) => parseInt(prev) + parseInt(next.product_count) * parseInt(next.price_original), 0);
 
-  var disAmount=0;
+  var product_count_all= cart.reduce((prev, next) => parseInt(prev) + parseInt(next.product_count), 0);;
 
   const [selectedState, setSelectedState] = useState();
   const [selectedCity, setSelectedCity] = useState();
@@ -180,8 +180,9 @@ export default function Checkout() {
     var cart_data = sessionStorage.getItem("poppy-cart");
     console.log(cart_data);
     setCart(JSON.parse(cart_data));
-    total = cart.reduce((prev, next) => parseInt(prev) + parseInt(next.price_original), 0);
-     subtotal = cart.reduce((prev, next) => parseInt(prev) + parseInt(next.amount), 0);
+    subtotal = cart.reduce((prev, next) => parseInt(prev) + parseInt(next.product_count) * parseInt(next.price_original), 0);
+     total = cart.reduce((prev, next) => parseInt(prev) + parseInt(next.amount), 0);
+      product_count_all= cart.reduce((prev, next) => parseInt(prev) + parseInt(next.product_count), 0);;
 
   }, []);
 
@@ -617,13 +618,13 @@ export default function Checkout() {
             </p> */}
 
             <div>
-              <div style={{display:'flex', justifyContent:"space-between"}}><p style={{fontSize:16}}> Price ({cart.length !== 0 && cart.length} Items) </p>
-              <b style={{fontSize:16}}>₹ {parseInt(total)} </b></div>
+              <div style={{display:'flex', justifyContent:"space-between"}}><p style={{fontSize:16}}> Price ({product_count_all} Items) </p>
+              <b style={{fontSize:16}}>₹ {parseInt(subtotal)} </b></div>
             </div>
 
             <div>
               <div style={{display:'flex', justifyContent:"space-between",marginTop:15}}><p style={{fontSize:16}}> Discount </p>
-              <b style={{fontSize:16}}>₹ {parseInt(total)-parseInt(subtotal)} </b></div>
+              <b style={{fontSize:16}}>₹ {parseInt(subtotal)-parseInt(total)} </b></div>
             </div>
 
             <div>
@@ -633,7 +634,7 @@ export default function Checkout() {
             <hr />
             <div>
               <div style={{display:'flex', justifyContent:"space-between",marginTop:15}}><p style={{fontSize:16}}> Total Price<br /> <small>Inclusive of taxes</small> </p>
-              <b style={{fontSize:20}}>₹ {parseInt(subtotal)} </b></div>
+              <b style={{fontSize:20}}>₹ {parseInt(total)} </b></div>
             </div>
             
           </div>

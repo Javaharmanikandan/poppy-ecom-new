@@ -28,7 +28,7 @@ export const MobileProductCard = (props) => {
     toast.success("product Added Successfully ");
 
     setCart(
-      cartSection.addCart(id, amt, title, image, bed_type, dimension, thickness,free_content,"Stock Color",discount_per,product_price)
+      cartSection.addCart(id, parseInt(amt), title, image, bed_type, dimension, thickness,free_content,"Stock Color",discount_per,product_price)
     );
   };
 

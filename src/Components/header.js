@@ -735,7 +735,7 @@ export default function Header() {
                                    <div>
                              
                                     <span class="product-price" style={{display:"flex",gap:15}}>
-                                     Qty {cartval.product_count} x <b style={{fontFamily:'system-ui',fontWeight:600}}>₹ { cartval.amount/cartval.product_count}</b> 
+                                     Qty {cartval.product_count} x <b style={{fontFamily:'system-ui',fontWeight:600}}>₹ { cartval.amount}</b> 
                                     </span>
                                   </div> 
 
