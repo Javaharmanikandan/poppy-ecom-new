@@ -10,6 +10,7 @@ import Related_product from "../Components/related_products";
 import axios from 'axios';
 import cartSection from "../Helper/Cart";
 import {toast} from "react-toastify";
+import CoupenPng from "./MobileComponents/images/badge.png";
 
 const imgurl = process.env.REACT_APP_IMG_URL;
 const  baseurl = process.env.REACT_APP_BASE_URL;
@@ -95,7 +96,7 @@ const customer_review = () => {
   const [bot_img, setbot_img] = useState("pr10.jpg");
   const [top_img, settop_img] = useState("pr10.jpg");
   const [description_image,setdescriptionimage]=useState("pr10.jpg");
-  const [id,setId]=useState(1);
+  const [id,setId]=useState(null);
   const { acc_name } = useParams();  
 
   useEffect(() => {
@@ -292,14 +293,15 @@ else
   };
   
   const toggleCouponButton = () => {
-    var element = document.getElementById("coupon-section");
-    
+    var element = document.getElementById("coupon-section1");
+
     if (element.hasAttribute("hidden")) {
       element.removeAttribute("hidden");
     } else {
       element.setAttribute("hidden", true);
     }
   };
+
   
   
   
@@ -310,7 +312,7 @@ else
     
     
     
-    setCart(cartSection.addCart(id, amt, title,image,bed_type,dimension,thickness));
+    setCart(cartSection.addCart(id, amt, title,image,bed_type,singlesize,thickness,"None","Stock Color",Product_Details.discount,amt));
     
   }
   
@@ -695,7 +697,7 @@ src={imgurl+image2}
                   
                   
                   
-                                  <div class="has-border ">
+                                  <div class="has-border " style={{marginTop:25}}>
                                       <label>DIMENTION IN INCHES</label>
                                       <div
                                         style={{
@@ -784,8 +786,34 @@ src={imgurl+image2}
 
 
                                     <div className="pr-coupon desktop-responisve">
-                                      <label>APPLY COUPON CODE</label>
-                                      <div className="coupon-section" >
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          cursor: "pointer",
+                                        }}
+                                        onClick={() => toggleCouponButton()}
+                                      >
+                                        <img
+                                          src={CoupenPng}
+                                          alt={"Coupen"}
+                                          width={20}
+                                          height={20}
+                                        />
+
+                                        <label
+                                          style={{
+                                            cursor: "pointer",
+                                            marginLeft: 10,
+                                          }}
+                                        >
+                                          APPLY COUPON CODE
+                                        </label>
+                                      </div>
+                                      <div
+                                        id="coupon-section1"
+                                        className="coupon-section"
+                                        hidden
+                                      >
                                         <textarea
                                           onChange={(event) =>
                                             set_newcoupen(event.target.value)
@@ -801,7 +829,7 @@ src={imgurl+image2}
                                     </div>
                             
 
-                                    <div className="product-price-container desktop-responisve">
+                                    <div className="product-price-container desktop-responisve" style={{marginTop:20}}>
                                       <div>
                                         <div class="price-info">
                                           <div
@@ -836,7 +864,7 @@ src={imgurl+image2}
                                           </div>
                                         </div>
                                       </div>
-                                      <div class="current-amt">
+                                      <div class="current-amt" style={{paddingLeft:50}}>
                                         <a href="#">
                                           <i
                                             class="fa fa-inr"

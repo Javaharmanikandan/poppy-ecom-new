@@ -255,15 +255,15 @@ function LoginSignUp(props) {
           <div id="login-signup" class="login-signup">
           <div class="forms-container">
           <div class="signin-signup">
-          <form action="#" class="sign-in-form">
+          <form autocomplete="off" action="#" class="sign-in-form">
           <h2 class="title">Sign in</h2>
           <div class="input-field">
           <i class="fas fa-user"></i>
-          <input onChange={(event)=> setUsername(event.target.value)} type="text" placeholder="Email or Mobile" value={userName}/>
+          <input onChange={(event)=> setUsername(event.target.value)} type="text" placeholder="Email or Mobile"  autocomplete="false" value={userName}/>
           </div>
           <div class="input-field">
           <i class="fas fa-lock"></i>
-          <input onChange={(event)=> setPassword(event.target.value)} type="password" placeholder="Password" value={password} />
+          <input onChange={(event)=> setPassword(event.target.value)} type="password" placeholder="Password" autocomplete="false" value={password} />
           </div>
           <input onClick={loginCheck}  type="button" value="Login" class="btn solid" />
           <p class="social-text">Or Sign in with social platforms</p>
@@ -302,25 +302,25 @@ cookiePolicy={'single_host_origin'}
 
 </div>
 </form>
-<form  class="sign-up-form">
+<form autocomplete="off"  class="sign-up-form">
 <h2 class="title">Sign up</h2>
 <div class="input-field">
 <i class="fas fa-user"></i>
-<input onChange={(event)=> setName(event.target.value)} type="text" placeholder="Name" value={name} />
+<input autocomplete="off" onChange={(event)=> setName(event.target.value)} type="text" placeholder="Name" value={name} />
 </div>
 <div class="input-field">
 <i class="fas fa-envelope"></i>
-<input onChange={(event)=> setEmail(event.target.value)} type="email" placeholder="Email" value={email} />
+<input autocomplete="off" onChange={(event)=> setEmail(event.target.value)} type="email" placeholder="Email" value={email} />
 </div>
 <div class="input-field">
 <i class="fas fa-phone"></i>
-<input onChange={(event)=> setMobile(event.target.value)} onKeyPress={(event)=> commonJs.mobileValidation(event.target.value)}  type="text" maxlength="10" placeholder="Mobile" value={mobile} />
+<input  autocomplete="off" onChange={(event)=> setMobile(event.target.value)} onKeyPress={(event)=> commonJs.mobileValidation(event.target.value)}  type="text" maxlength="10" placeholder="Mobile" value={mobile} />
 </div>
 <div class="input-field">
 <i class="fas fa-lock"></i>
-<input onChange={(event)=> setRegPassword(event.target.value)} type="password" placeholder="Password" value={regPassword}/>
+<input  autocomplete="off" onChange={(event)=> setRegPassword(event.target.value)} type="password" placeholder="Password" value={regPassword}/>
 </div>
-<input onClick={registerCheck}  type="button" class="btn" value="Sign up" />
+<input autocomplete="off" onClick={registerCheck}  type="button" class="btn" value="Sign up" />
 <p class="social-text">Or Sign up with social platforms</p>
 <div class="social-media">
 {/* <a href="#" class="social-icon">

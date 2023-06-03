@@ -481,13 +481,15 @@ export default function ProductDetail() {
   const addTocart = (id, amt, title, image, bed_type, dimension, thickness, freeSection,color,dis,pri) => {
 
 var dim=custom_height === "" || custom_width==="" ?dimension:custom_height+" x "+custom_width;
+var bdtype=custom_height === "" || custom_width==="" ?bed_type:"Custom";
+
     // alert(freeSection)
     // return 0;
     //TODO METHOD ACTION FOR ADD
     toast.success("Product Added Successfully ");
 
     setCart(
-      cartSection.addCart(id, parseInt(amt), title, image, bed_type, dim, thickness,freeSection,color,dis,pri)
+      cartSection.addCart(id, parseInt(amt), title, image, bdtype, dim, thickness,freeSection,color,dis,pri)
     );
   };
 
@@ -876,7 +878,7 @@ var dim=custom_height === "" || custom_width==="" ?dimension:custom_height+" x "
                                         style={{ color: "#982876" }}
                                       >
                                         * Price of{" "}
-                                        {custom_height === "" || custom_width==="" ? local + " " +  Dimen   + " X " + height :local + " " +  custom_height+ " x " +custom_width   + " X " + height}
+                                        {custom_height === "" || custom_width==="" ? local + " " +  Dimen   + " X " + height :"Custom" + " " +  custom_height+ " x " +custom_width   + " X " + height}
                                       </p>
                                     </div>
 
@@ -886,7 +888,7 @@ var dim=custom_height === "" || custom_width==="" ?dimension:custom_height+" x "
                                       </p>
                                       <p className="product-dcp">
                                         * Price of{" "}
-                                        {custom_height === "" || custom_width==="" ? local + " " +  Dimen   + " X " + height :local + " " +  custom_height+ " x " +custom_width   + " X " + height}
+                                        {custom_height === "" || custom_width==="" ? local + " " +  Dimen   + " X " + height :"Custom" + " " +  custom_height+ " x " +custom_width   + " X " + height}
                                       </p>
                                     </div>
 

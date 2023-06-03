@@ -577,9 +577,10 @@ export default function Checkout() {
 
             {cart
               ? cart.map((ad) => (
+                <>
                   <div className="Checkout-products ">
-                    <div style={{ display: "flex" }}>
-                      <img src={imgurl + ad.image} alt={ad.title} />
+                    <div className="checkout-item-layout">
+                      <img className="checkout-item-image" src={imgurl + ad.image} alt={ad.title} />
                       <div style={{ marginLeft: 20, marginTop: 4 }}>
                         <p style={{ fontSize: 18, color: "black" }}>
                           {ad.title}
@@ -656,14 +657,20 @@ export default function Checkout() {
                         </p>
                       </div>
                     </div>
+
+                    
                     {/* <div>
                       <span className="price" style={{ marginTop: 10 }}>
                         {" "}
                         ₹ {ad.amount} /-
                       </span>
                     </div> */}
+                    
                   </div>
-                ))
+
+<hr style={{ marginTop: 5, marginBottom: 2,border:'dashed 0.8px #982876' }} />
+                   
+</>    ))
               : null}
 
             <hr />

@@ -1,4 +1,14 @@
 @media screen and (min-width: 767px){
+
+    .checkout-item-layout{
+        display: flex;
+    }
+    .checkout-item-image{
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    }
+
     .product-image{
         width: 230px;
         height: 230px;
@@ -359,6 +369,16 @@ background: none !important;
 
 /*for Mobile */
 @media screen and (max-width: 767px){
+
+
+    .checkout-item-image{
+        width: 300px !important;
+        height: 300px !important;
+        object-fit: contain;
+        }
+    .checkout-item-layout{
+        display: block;
+    }
 
     .content_contact{
       display: flex;
