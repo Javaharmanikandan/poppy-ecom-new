@@ -15,6 +15,7 @@ import swiper_img_3 from "./../images/slide-banner-c-.jpg";
 import swiper_img_4 from "./../images/slide-banner-d-.jpg";
 import swiper_img_5 from "./../images/slide-banner-e-.jpg";
 import { bottom_list } from "../../../data/API";
+import { useNavigate } from "react-router-dom";
 const imgurl = process.env.REACT_APP_IMG_URL;
 const baseurl = process.env.REACT_APP_BASE_URL;
 function BottomBannerNew() {
@@ -33,7 +34,7 @@ const bottom_banner = async () => {
   setBottom(response.data.data);
 };
  
-
+const navigate = useNavigate();
 
 
   
@@ -81,9 +82,10 @@ const bottom_banner = async () => {
         {banner_bottom.map((data,index) => (
 
      
-        <SwiperSlide key={index}>
+        <SwiperSlide key={index} onClick={()=>navigate(data.url)}>
         <div className="swiper_image ">
           <img
+          onClick={()=>navigate(data.url)}
             src={imgurl+data.banner_image}
             className="swiper_img"
             alt="swiper_image"

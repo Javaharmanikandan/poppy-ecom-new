@@ -28,11 +28,22 @@ export default function Checkout() {
   } = useForm();
 
   const [cart, setCart] = useContext(CartContext);
-  var total = cart.reduce((prev, next) => parseInt(prev) + parseInt(next.amount), 0);
+  var total = cart.reduce(
+    (prev, next) => parseInt(prev) + parseInt(next.amount),
+    0
+  );
 
-  var subtotal = cart.reduce((prev, next) => parseInt(prev) + parseInt(next.product_count) * parseInt(next.price_original), 0);
+  var subtotal = cart.reduce(
+    (prev, next) =>
+      parseInt(prev) +
+      parseInt(next.product_count) * parseInt(next.price_original),
+    0
+  );
 
-  var product_count_all= cart.reduce((prev, next) => parseInt(prev) + parseInt(next.product_count), 0);;
+  var product_count_all = cart.reduce(
+    (prev, next) => parseInt(prev) + parseInt(next.product_count),
+    0
+  );
 
   const [selectedState, setSelectedState] = useState();
   const [selectedCity, setSelectedCity] = useState();
@@ -180,10 +191,20 @@ export default function Checkout() {
     var cart_data = sessionStorage.getItem("poppy-cart");
     console.log(cart_data);
     setCart(JSON.parse(cart_data));
-    subtotal = cart.reduce((prev, next) => parseInt(prev) + parseInt(next.product_count) * parseInt(next.price_original), 0);
-     total = cart.reduce((prev, next) => parseInt(prev) + parseInt(next.amount), 0);
-      product_count_all= cart.reduce((prev, next) => parseInt(prev) + parseInt(next.product_count), 0);;
-
+    subtotal = cart.reduce(
+      (prev, next) =>
+        parseInt(prev) +
+        parseInt(next.product_count) * parseInt(next.price_original),
+      0
+    );
+    total = cart.reduce(
+      (prev, next) => parseInt(prev) + parseInt(next.amount),
+      0
+    );
+    product_count_all = cart.reduce(
+      (prev, next) => parseInt(prev) + parseInt(next.product_count),
+      0
+    );
   }, []);
 
   const removeProduct = () => {
@@ -283,7 +304,7 @@ export default function Checkout() {
             )
             .then(function (response) {
               removeProduct();
-              onOpenModal()
+              onOpenModal();
               let url_redirect = "/order_track/" + o_id;
 
               // navigate(url_redirect);
@@ -561,35 +582,78 @@ export default function Checkout() {
                       <img src={imgurl + ad.image} alt={ad.title} />
                       <div style={{ marginLeft: 20, marginTop: 4 }}>
                         <p style={{ fontSize: 18, color: "black" }}>
-                          {ad.title} 
+                          {ad.title}
                         </p>
-                        <hr style={{marginTop:5,marginBottom:2}}/>
-                        <span style={{ fontSize: 14, marginTop: 5,display:"flex",gap:30 }}>
+                        <hr style={{ marginTop: 5, marginBottom: 2 }} />
+                        <span
+                          style={{
+                            fontSize: 14,
+                            marginTop: 5,
+                            display: "flex",
+                            gap: 30,
+                          }}
+                        >
                           {ad.bed_type} | {ad.dimension} | {ad.thickness}{" "}
                           <span> Qty - {ad.product_count}</span>
                         </span>
                         {/*  */}
                         {/* <div style={{display:"flex",gap:10,marginTop: 5}}>
                         <img src={imgurl + ad.image} alt={ad.title} style={{width:30,height:30,borderRadius:50,border:'1px solid rgba(0, 0, 0, 0.15)'}} /> */}
-                        <span style={{display:"flex", fontSize: 12, marginTop: 5 }}>
-                        <b>Selected Color -  {ad.color}</b></span>
+                        <span
+                          style={{
+                            display: "flex",
+                            fontSize: 12,
+                            marginTop: 5,
+                          }}
+                        >
+                          <b>Selected Color - {ad.color}</b>
+                        </span>
                         {/* </div> */}
 
-                        <hr style={{marginTop:5,marginBottom:2}}/>
+                        <hr style={{ marginTop: 5, marginBottom: 2 }} />
 
-                        <p style={{fontSize:11}}>M.R.P <span style={{marginLeft:10,fontFamily:'system-ui',textDecoration:"line-through"}}>
-                        {" "}
-                        ₹ {ad.price_original} /-
-                      </span> <span>{ad.percentage} %</span> <span style={{fontSize:16,marginLeft:20,fontFamily:'system-ui',fontWeight:500}}><b>₹ {parseInt(ad.amount)}</b>/-</span></p>
-                        
-                        <p style={{ fontSize: 10,fontStyle:"italic", marginTop: 10 ,border:'1px solid rgba(0, 0, 0, 0.15)',padding:10,borderRadius:10}}>
-                         Free Gift -  {ad.free}
+                        <p style={{ fontSize: 11 }}>
+                          M.R.P{" "}
+                          <span
+                            style={{
+                              marginLeft: 10,
+                              fontFamily: "system-ui",
+                              textDecoration: "line-through",
+                            }}
+                          >
+                            {" "}
+                            <i class="fa fa-inr" aria-hidden="true"></i>{" "}
+                            {ad.price_original} /-
+                          </span>{" "}
+                          <span>{ad.percentage} %</span>{" "}
+                          <span
+                            style={{
+                              fontSize: 16,
+                              marginLeft: 20,
+                              fontFamily: "system-ui",
+                              fontWeight: 500,
+                            }}
+                          >
+                            <b>
+                              <i class="fa fa-inr" aria-hidden="true"></i>{" "}
+                              {parseInt(ad.amount)}
+                            </b>
+                            /-
+                          </span>
                         </p>
 
-                
-                      
-
-                  
+                        <p
+                          style={{
+                            fontSize: 10,
+                            fontStyle: "italic",
+                            marginTop: 10,
+                            border: "1px solid rgba(0, 0, 0, 0.15)",
+                            padding: 10,
+                            borderRadius: 10,
+                          }}
+                        >
+                          Free Gift - {ad.free}
+                        </p>
                       </div>
                     </div>
                     {/* <div>
@@ -618,42 +682,71 @@ export default function Checkout() {
             </p> */}
 
             <div>
-              <div style={{display:'flex', justifyContent:"space-between"}}><p style={{fontSize:16}}> Price ({product_count_all} Items) </p>
-              <b style={{fontSize:16}}>₹ {parseInt(subtotal)} </b></div>
+              <div style={{ display: "flex", justifyContent: "space-between" }}>
+                <p style={{ fontSize: 16 }}>
+                  {" "}
+                  Price ({product_count_all} Items){" "}
+                </p>
+                <b style={{ fontSize: 16, fontFamily: "system-ui", }}> <i class="fa fa-inr" aria-hidden="true"></i> {parseInt(subtotal)} </b>
+              </div>
             </div>
 
             <div>
-              <div style={{display:'flex', justifyContent:"space-between",marginTop:15}}><p style={{fontSize:16}}> Discount </p>
-              <b style={{fontSize:16}}>₹ {parseInt(subtotal)-parseInt(total)} </b></div>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  marginTop: 15,
+                }}
+              >
+                <p style={{ fontSize: 16 }}> Discount </p>
+                <b style={{ fontSize: 16 , fontFamily: "system-ui",}}>
+                <i class="fa fa-inr" aria-hidden="true"></i> {parseInt(subtotal) - parseInt(total)}{" "}
+                </b>
+              </div>
             </div>
 
             <div>
-              <div style={{display:'flex', justifyContent:"space-between",marginTop:15}}><p style={{fontSize:16}}> Shipping </p>
-              <b style={{fontSize:16}}>Free </b></div>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  marginTop: 15,
+                }}
+              >
+                <p style={{ fontSize: 16 }}> Shipping </p>
+                <b style={{ fontSize: 16 }}>Free </b>
+              </div>
             </div>
             <hr />
             <div>
-              <div style={{display:'flex', justifyContent:"space-between",marginTop:15}}><p style={{fontSize:16}}> Total Price<br /> <small>Inclusive of taxes</small> </p>
-              <b style={{fontSize:20}}>₹ {parseInt(total)} </b></div>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  marginTop: 15,
+                }}
+              >
+                <p style={{ fontSize: 16 }}>
+                  {" "}
+                  Total Price
+                  <br /> <small>Inclusive of taxes</small>{" "}
+                </p>
+                <b style={{ fontSize: 20, fontFamily: "system-ui", }}> <i class="fa fa-inr" aria-hidden="true"></i> {parseInt(total)} </b>
+              </div>
             </div>
-            
           </div>
-
-      
         </div>
       </div>
 
-
-    <div className="CheckoutImgContainer">
-            <img
-              // onClick={onOpenModal}
-              style={{ maxWidth:"100%",paddingTop: 20 ,marginBottom:20}}
-              src={sec_img1}
-              // width="100%"
-            />
-
-                
-          </div> 
+      <div className="CheckoutImgContainer">
+        <img
+          // onClick={onOpenModal}
+          style={{ maxWidth: "100%", paddingTop: 20, marginBottom: 20 }}
+          src={sec_img1}
+          // width="100%"
+        />
+      </div>
       <Modal
         open={open}
         onClose={onCloseModal}
