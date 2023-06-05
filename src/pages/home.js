@@ -233,7 +233,7 @@ function Home() {
                 <div style={{ marginBottom: "50px" ,marginTop:"50px"}}>
         <Contactus />
       </div>
-                <div
+                {/* <div
                   className="demo-video desktop-responisve"
                   style={{
                     display: "flex",
@@ -249,7 +249,7 @@ function Home() {
                   >
                     {" "}
                   </iframe>
-                </div>
+                </div> */}
 
               </section>
             </div>

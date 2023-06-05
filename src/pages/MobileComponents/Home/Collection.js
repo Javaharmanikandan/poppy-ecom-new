@@ -82,10 +82,10 @@ function Collections() {
             </div>
             </div>
         </div>
-        <div className='demo-video mobile-responisve'>
+        {/* <div className='demo-video mobile-responisve'>
         <iframe src="https://www.youtube.com/embed/OKKXnKwAPwc" width="853"
       height="480"> </iframe>
-        </div>
+        </div> */}
         <div className='highlights mobile-responisve  '>
             <div className='highlight-contents'>
             <img src={costumer} className="heighlight-icon" alt="Icons" />
