@@ -161,9 +161,9 @@ function Home() {
                 <div className="desktop-responisve">
                   <Slider />
                 </div>
-                {/* <div className="mobile-responisve">
+                <div className="mobile-responisve">
                   <Topslider />
-                </div> */}
+                </div>
                 {/* <div className="mobile-rsponisve"> <BottomBannerNew /> </div>   */}
 
                 {/* <CusProduct /> */}
