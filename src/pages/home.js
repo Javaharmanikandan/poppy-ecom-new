@@ -43,11 +43,8 @@ function Home() {
   const [testimonial, settestimonials] = useState([]);
   const [loader, isLoad] = useState(false);
   const category_list_fun = async () => {
-    isLoad(true)
     let response = await category_list();
     response && setCategory(response.data.data);
-
-    isLoad(false)
   };
 
   const godetails = (id) => {
@@ -55,12 +52,10 @@ function Home() {
   };
 
   const bannerVisbleCheck = async () => {
-    isLoad(true)
     let response_return = await festivebanner_settings();
     let visible = await response_return.data.data[0].visible;
 
     setbannerSettings(visible);
-    isLoad(false)
   };
 
   const toggle = (index) => {
@@ -75,7 +70,6 @@ function Home() {
 
 
   useEffect(() => {
-
     category_list_fun().then(product_list_fun("Grand Series"));
   }, []);
 
@@ -87,18 +81,14 @@ function Home() {
   },[]);
 
   const bestSellersList = async () => {
-    isLoad(true)
     let response = await axios
       .get(baseurl + "user/best_sellers")
       .then((result) => {
         setBestProduct(result.data.data);
-        isLoad(false)
       });
   };
 
   const product_list_fun = async (id) => {
-
-    isLoad(true)
     const requestBody = {
       category_id: id.replace(/-/g, " "),
     };
@@ -107,8 +97,10 @@ function Home() {
       .post(baseurl + "user/product_list", requestBody)
       .then((result) => {
         setProduct(result.data.data);
-       isLoad(false)
-       
+        console.log(result.data.data, "Data");
+        setTimeout(() => {
+          isLoad(false);
+        }, 100);
       });
   };
 
@@ -141,11 +133,11 @@ function Home() {
   });
 
   const filter_cat = (id) => {
-    
+    isLoad(false);
     setTimeout(() => {
       product_list_fun(id.replace(/ /g, "-"));
 
-      
+      isLoad(true);
     }, 100);
   };
 
@@ -156,10 +148,6 @@ function Home() {
     justifyContent: "center",
     alignItems: "center",
   };
-
-   if(loader){
-    return <Loader />
-  }
 
   //TODO: CHANGE BODY TAG ID FOR CONTACT
   return (
