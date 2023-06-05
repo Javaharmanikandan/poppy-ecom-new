@@ -25,7 +25,7 @@ function TestimonialSingle(props) {
       <div class="card-test ">
         <div class="card-image" style={{position:"relative"}}>
         
-        <img src="https://img.freepik.com/free-photo/man-wearing-t-shirt-gesturing_23-2149393645.jpg"  />  
+        <img src={imgurl+props.img}  />  
         <img src={feedLogo} style={{width:65,position:"absolute",bottom:-30,left:15}}/>        
         </div>
         <div>

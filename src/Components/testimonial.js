@@ -4,7 +4,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import React, { Component, useContext, useEffect, useState } from "react";
-import starfall from "./banners.gif"
+import starfall from "./dd.webp"
 import { Carousel } from "react-responsive-carousel";
 import TestimonialSingle from "./testimonials_single";
 import { testimonials } from "../data/API";

@@ -26,6 +26,7 @@ import { ProductCardCommon } from "./Components/ProductCardCommon";
 import ProductSlider from "./MobileComponents/Home/BestSellers";
 import BlogCard from "./Components/BlogCard";
 import Contactus from "./Components/Contactus";
+import youtube from "./MobileComponents/images/yf1.webp";
 
 
 
@@ -108,6 +109,12 @@ function Home() {
   const navigation = async (url) => {
     navigate(url);
   };
+
+
+  const redirect_Data=(url)=>{
+    // window.location.href = url
+    const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
+  }
 
   // console.log("Entered");
   const product_with_data = product_li.map((data) => {
@@ -233,7 +240,7 @@ function Home() {
                 <div style={{ marginBottom: "50px" ,marginTop:"50px"}}>
         <Contactus />
       </div>
-                {/* <div
+               <div
                   className="demo-video desktop-responisve"
                   style={{
                     display: "flex",
@@ -241,15 +248,17 @@ function Home() {
                     paddingTop: 80,
                   }}
                 >
-                  <iframe
+                 {/*   <iframe
                     src="https://www.youtube.com/embed/OKKXnKwAPwc"
                     width="90%"
                     height="450px"
                     style={{ borderRadius: 25 }}
                   >
                     {" "}
-                  </iframe>
-                </div> */}
+                  </iframe>*/}
+
+                  <img onClick={()=>{redirect_Data("https://www.youtube.com/watch?v=yipFMcNU2yY&list=RDMMyipFMcNU2yY&start_radio=1")}}  width="90%" src={youtube}   style={{cursor:"pointer"}}/>
+                </div> 
 
               </section>
             </div>

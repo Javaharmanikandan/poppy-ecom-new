@@ -1,12 +1,13 @@
 import React from 'react';
 import "./../styles/collection.css";
 
-import collection_img_1 from "./../images/collection-1.jpg";
-import collection_img_2 from "./../images/collection-2.jpg";
-import collection_img_3 from "./../images/collection-3.jpg";
-import collection_img_4 from "./../images/collection-4.jpg";
-import collection_img_5 from "./../images/collection-5.jpg";
-import collection_img_6 from "./../images/collection-6.jpg";
+import collection_img_1 from "./../images/bf1.webp";
+import collection_img_2 from "./../images/mf1.webp";
+import collection_img_3 from "./../images/sf1.webp";
+import collection_img_4 from "./../images/lf1.webp";
+import collection_img_5 from "./../images/pf1.webp";
+import collection_img_6 from "./../images/cf1.webp";
+import youtube from "./../images/yf1.webp";
 
 
 import india from "./../images/india.png";
@@ -82,10 +83,11 @@ function Collections() {
             </div>
             </div>
         </div>
-        {/* <div className='demo-video mobile-responisve'>
-        <iframe src="https://www.youtube.com/embed/OKKXnKwAPwc" width="853"
-      height="480"> </iframe>
-        </div> */}
+        <div className='demo-video mobile-responisve' style={{display:'flex',alignItems:"center",justifyContent:"center"}}>
+       {/*  <iframe src="https://www.youtube.com/embed/OKKXnKwAPwc" width="853"
+      height="480"> </iframe>*/}
+      <img src={youtube} style={{width:"90%"}}/>
+        </div> 
         <div className='highlights mobile-responisve  '>
             <div className='highlight-contents'>
             <img src={costumer} className="heighlight-icon" alt="Icons" />
