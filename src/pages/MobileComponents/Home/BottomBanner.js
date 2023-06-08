@@ -29,7 +29,7 @@ useEffect(() => {
 const bottom_banner = async () => {
   let response = await bottom_list();
 
-  console.log(response.data.data,"Banner Bottom")
+  // console.log(response.data.data,"Banner Bottom")
 
   setBottom(response.data.data);
 };

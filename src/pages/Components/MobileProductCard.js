@@ -23,12 +23,12 @@ export const MobileProductCard = (props) => {
   }
   
 
-  const addTocart = (id, amt, title, image, bed_type, dimension, thickness,free_content,discount_per,product_price) => {
+  const addTocart = (id, amt, title, image, bed_type, dimension, thickness,free_content,discount_per,product_price,subdivision) => {
     //TODO METHOD ACTION FOR ADD
     toast.success("product Added Successfully ");
 
     setCart(
-      cartSection.addCart(id, parseInt(amt), title, image, bed_type, dimension, thickness,free_content,"Stock Color",discount_per,product_price)
+      cartSection.addCart(id, parseInt(amt), title, image, bed_type, dimension, thickness,free_content,"Stock Color",discount_per,product_price,subdivision)
     );
   };
 
@@ -67,7 +67,8 @@ export const MobileProductCard = (props) => {
         props.dataDetails.thickness,
         props.dataDetails.free_content,
         props.dataDetails.discount_percentage,
-        props.dataDetails.product_price)}}><i style={{color:"#982876" ,fontWeight:'bold',fontSize:18}} class='fa fa-shopping-cart'></i></a>
+        props.dataDetails.product_price,
+        props.dataDetails.subdivision)}}><i style={{color:"#982876" ,fontWeight:'bold',fontSize:18}} class='fa fa-shopping-cart'></i></a>
       </div>
       <span className='spanText'>( inclusive of all taxes )</span>
 

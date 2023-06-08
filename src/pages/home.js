@@ -39,9 +39,12 @@ function Home() {
   let navigate = useNavigate();
 
   const [category, setCategory] = useState([]);
+  const [youtube_ban, setYoutubeBanner] = useState([]);
+  
   const [bannerSettings, setbannerSettings] = useState("");
   const [testimonial, settestimonials] = useState([]);
   const [loader, isLoad] = useState(false);
+
   const category_list_fun = async () => {
     let response = await category_list();
     response && setCategory(response.data.data);
@@ -76,8 +79,13 @@ function Home() {
   useEffect(() => {
     bannerVisbleCheck();
   }, []);
+
   useEffect(() => {
     bestSellersList();
+  },[]);
+
+  useEffect(() => {
+    youtube_banner()
   },[]);
 
   const bestSellersList = async () => {
@@ -85,6 +93,15 @@ function Home() {
       .get(baseurl + "user/best_sellers")
       .then((result) => {
         setBestProduct(result.data.data);
+      });
+  };
+
+  const youtube_banner = async () => {
+    let response = await axios
+      .get(baseurl + "user/youtube_banner")
+      .then((result) => {
+        console.log(result.data.data,"Youtube")
+        setYoutubeBanner(result.data.data[0]);
       });
   };
 
@@ -234,7 +251,7 @@ function Home() {
 
                 <div style={{marginTop:50}}>
                   {" "}
-                  <Collections />{" "}
+                  <Collections  dataShare={youtube_ban && youtube_ban} />{" "}
                 </div>
 
                 <div style={{ marginBottom: "50px" ,marginTop:"50px"}}>
@@ -257,7 +274,7 @@ function Home() {
                     {" "}
                   </iframe>*/}
 
-                  <img onClick={()=>{redirect_Data("https://www.youtube.com/watch?v=yipFMcNU2yY&list=RDMMyipFMcNU2yY&start_radio=1")}}  width="90%" src={youtube}   style={{cursor:"pointer"}}/>
+                  <img onClick={()=>{redirect_Data(youtube_ban && youtube_ban.youtube_url)}}  width="90%" src={youtube_ban && imgurl+youtube_ban.youtube_image}   style={{cursor:"pointer"}}/>
                 </div> 
 
               </section>

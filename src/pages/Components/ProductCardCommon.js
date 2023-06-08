@@ -33,12 +33,12 @@ export const ProductCardCommon = (props) => {
  
 
 
-  const addTocart = (id, amt, title, image, bed_type, dimension, thickness,free_content,discount_per,product_price) => {
+  const addTocart = (id, amt, title, image, bed_type, dimension, thickness,free_content,discount_per,product_price,dev) => {
     //TODO METHOD ACTION FOR ADD
     toast.success("Product Added Successfully ");
 
     setCart(
-      cartSection.addCart(id, parseInt(amt), title, image, bed_type, dimension, thickness,free_content,"Stock Color",discount_per,product_price)
+      cartSection.addCart(id, parseInt(amt), title, image, bed_type, dimension, thickness,free_content,"Stock Color",discount_per,product_price,dev)
     );
   };
 
@@ -73,7 +73,8 @@ export const ProductCardCommon = (props) => {
         props.dataDetails.thickness,
         props.dataDetails.free_content,
         props.dataDetails.discount_percentage,
-        props.dataDetails.product_price)}}
+        props.dataDetails.product_price,
+        props.dataDetails.subdivision)}}
         ><i class='fa fa-shopping-cart'></i></a>
     </div>
     <p className='product-description'>{props.dataDetails.marketing_description}</p>

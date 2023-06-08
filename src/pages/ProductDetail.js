@@ -37,7 +37,7 @@ export default function ProductDetail() {
   const[pickedColorImg,setPickedColorImg]=useState("")
    const[pickedColorId,setPicketColorId]=useState("")
   const[pickedColor,setPickedColor]=useState("Stock Color")
-
+  const [discount_less,setDiscountLess]=useState(0);
   const onOpenModal = async (data) => {
     setOpen(true)
    setPickedColorImg(data.img)
@@ -62,6 +62,8 @@ export default function ProductDetail() {
 
   const [comments, set_comments] = useState("");
   const [coupenDis, set_coupenDis] = useState(0);
+
+  const[share,setShare]=useState(0);
   //End Customer
 
   //Function For Insert Comments
@@ -124,7 +126,8 @@ export default function ProductDetail() {
   const [description_image, setdescriptionimage] = useState("pr10.jpg");
   // const location = useLocation();
   const { product_name_param } = useParams();
-
+  const [discount, set_discount_percentage] = useState(0);
+  
   //CUSTOMISE HEIGHT AND WIDTH
 
   const [custom_height, set_custom_height] = useState("");
@@ -197,15 +200,22 @@ export default function ProductDetail() {
 
         set_dbcoupen(response.data.data[0].coupen_code);
         set_coupenDisPer(response.data.data[0].discount_percentage);
+
+      
       });
   };
 
   const copenApply = () => {
     if (new_dbcoupen == new_coupen) {
       toast.success("Coupon Applied");
-      const discount_less = percentageCalculation(share, coupenDisPer);
-      set_coupenDis(discount_less);
       setcoupenstatus(true);
+      set_discount_percentage(coupenDisPer);
+
+     // const discount_less = percentageCalculation(price, coupenDisPer);
+      DiscountCalculations(price,coupenDisPer)
+     
+     // set_coupenDis(discount_less);
+      
     } else {
       toast.error("Invalide Coupon Code");
       setcoupenstatus(false);
@@ -245,7 +255,7 @@ export default function ProductDetail() {
         set_dimention(response.data.dimentions);
 
         set_localdimen(response.data.dimentions[0].product_dimensions);
-
+        set_discount_percentage(response.data.product_data[0].discount_percentage)
         // set_localdimen(response.data.dimentions[0].product_dimensions)
 
         //TO SET THICKNESS BED TYPE
@@ -327,6 +337,9 @@ export default function ProductDetail() {
       });
   };
 
+
+
+
   //TODO THIRD FUNCTION
 
   const dimentionMethod = async (index, height_get) => {
@@ -371,7 +384,10 @@ export default function ProductDetail() {
       .post(baseurl + "user/price_data/", requestBody)
       .then(function (response) {
         response && set_price(response.data.data[0].product_price);
+        DiscountCalculations(response.data.data[0].product_price,discount)
       });
+
+      
   };
 
   var desc = Product_Details.product_description;
@@ -403,7 +419,7 @@ export default function ProductDetail() {
 
   var bottom_header = Product_Details.description_bottom_header;
 
-  var discount = Product_Details.discount_percentage;
+  // var discount = Product_Details.discount_percentage;
 
   //Type Subdivision click
 
@@ -429,29 +445,24 @@ export default function ProductDetail() {
 
   const toggleButton2 = (index, height_get) => {
     setHegihtmenu2(index);
-
     set_height(height_get);
   };
 
   const toggleButton3 = (index, size_get) => {
     setHegihtmenu3(index);
-
     set_localbed(size_get);
-
     getProduct_price();
   };
 
   const diment_click = (di) => {
     set_custom_height("");
     set_custom_width("");
-
     document.getElementById("create-course-form").reset();
     set_localdimen(di);
   };
 
   const toggleCustomsize = () => {
     var element = document.getElementById("custom-size");
-
     if (element.hasAttribute("hidden")) {
       element.removeAttribute("hidden");
     } else {
@@ -489,21 +500,18 @@ var bdtype=custom_height === "" || custom_width==="" ?bed_type:"Custom";
     toast.success("Product Added Successfully ");
 
     setCart(
-      cartSection.addCart(id, parseInt(amt), title, image, bdtype, dim, thickness,freeSection,color,dis,pri)
+      cartSection.addCart(id, parseInt(amt), title, image, bdtype, dim, thickness,freeSection,color,dis,pri,type_sub_devision)
     );
   };
 
   //Discouted Price Here
 
-  const discount_less = percentageCalculation(price, discount);
 
-  const share = price - discount_less;
-
-  const default_discount = Default_discount(share, coupen_code);
 
   //TO CALL CUTOMISE HEIGHT AND WIDTH
 
   const customise_pricelist = async () => {
+
     const requestBody = {
       product_id: id,
       bed_type: local,
@@ -518,7 +526,10 @@ var bdtype=custom_height === "" || custom_width==="" ?bed_type:"Custom";
       .post(baseurl + "user/price_customise_data/", requestBody)
       .then(function (response) {
         set_price(response.data.data[0].product_price);
+       
       });
+
+      
   };
 
   if (
@@ -549,6 +560,22 @@ var bdtype=custom_height === "" || custom_width==="" ?bed_type:"Custom";
       product_height
     );
   };
+
+
+  const DiscountCalculations =(pri,perc)=>{
+   
+    var percent = (perc / 100) * pri;
+    var lessedAmt=Math.round(percent);
+    setDiscountLess(lessedAmt)
+     
+    // const share1 = price - discount_less;
+    //setShare(share1)
+  
+    // const default_discount = Default_discount(share1, coupen_code);
+  }
+
+
+
 
   const related = () => {
     return <Related_product category={cate_name} />;
@@ -922,7 +949,7 @@ var bdtype=custom_height === "" || custom_width==="" ?bed_type:"Custom";
                                                 class="fa fa-inr"
                                                 aria-hidden="true"
                                               ></i>{" "}
-                                              {discount_less + default_discount}
+                                              {discount_less }
                                             </a>
                                           </div>
                                         </div>
@@ -936,7 +963,7 @@ var bdtype=custom_height === "" || custom_width==="" ?bed_type:"Custom";
                                             class="fa fa-inr"
                                             aria-hidden="true"
                                           ></i>{" "}
-                                          {share - coupenDis}
+                                          {price - discount_less}
                                         </a>
                                         <p>( inclusive of all taxes )</p>
                                       </div>
@@ -972,7 +999,7 @@ var bdtype=custom_height === "" || custom_width==="" ?bed_type:"Custom";
                                                 class="fa fa-inr"
                                                 aria-hidden="true"
                                               ></i>{" "}
-                                              {discount_less + default_discount}
+                                              {discount_less }
                                             </a>
                                           </div>
                                         </div>
@@ -983,7 +1010,7 @@ var bdtype=custom_height === "" || custom_width==="" ?bed_type:"Custom";
                                             class="fa fa-inr"
                                             aria-hidden="true"
                                           ></i>{" "}
-                                          {share - coupenDis}
+                                          {price - discount_less}
                                         </a>
                                         <p>( inclusive of all taxes )</p>
                                       </div>
@@ -1316,7 +1343,7 @@ var bdtype=custom_height === "" || custom_width==="" ?bed_type:"Custom";
                                         onClick={() =>
                                           addTocart(
                                             id,
-                                            share - coupenDis,
+                                            price - discount_less,
                                             Product_Details.product_name,
                                             Product_Details.product_imageurl,
                                             local,
@@ -1341,7 +1368,7 @@ var bdtype=custom_height === "" || custom_width==="" ?bed_type:"Custom";
                                         onClick={() => {
                                           addTocart(
                                             id,
-                                            share - coupenDis,
+                                            price - discount_less,
                                             Product_Details.product_name,
                                             Product_Details.product_imageurl,
                                             local,
@@ -1378,7 +1405,7 @@ var bdtype=custom_height === "" || custom_width==="" ?bed_type:"Custom";
                                           <p>{discount}% Discounted</p>
                                           <p>
                                             You Save ₹{" "}
-                                            {discount_less + default_discount}
+                                            {discount_less }
                                           </p>
                                         </div>
 
@@ -1396,7 +1423,7 @@ var bdtype=custom_height === "" || custom_width==="" ?bed_type:"Custom";
                                             Selling Price
                                           </p>
                                           <div className="spl-pri-wraper heart">
-                                            ₹ {share - coupenDis}
+                                            ₹ {price - discount_less}
                                           </div>
                                         </div>
                                       </div>
@@ -1412,7 +1439,7 @@ var bdtype=custom_height === "" || custom_width==="" ?bed_type:"Custom";
                                                 onClick={() =>
                                                   addTocart(
                                                     id,
-                                                    share - coupenDis,
+                                                    price - discount_less,
                                                     Product_Details.product_name,
                                                     Product_Details.product_imageurl,
                                                     local,
@@ -1437,7 +1464,7 @@ var bdtype=custom_height === "" || custom_width==="" ?bed_type:"Custom";
                                                 onClick={() =>
                                                   wishlist_add(
                                                     id,
-                                                    share - coupenDis,
+                                                    price - discount_less,
                                                     Product_Details.product_name,
                                                     Product_Details.product_imageurl,
                                                     local,
@@ -1457,7 +1484,7 @@ var bdtype=custom_height === "" || custom_width==="" ?bed_type:"Custom";
                                               onClick={() => {
                                                 addTocart(
                                                   id,
-                                                  share - coupenDis,
+                                                  price - discount_less,
                                                   Product_Details.product_name,
                                                   Product_Details.product_imageurl,
                                                   local,
@@ -1588,7 +1615,7 @@ var bdtype=custom_height === "" || custom_width==="" ?bed_type:"Custom";
                                               onClick={() =>
                                                 addTocart(
                                                   id,
-                                                  share - coupenDis,
+                                                  price - discount_less,
                                                   Product_Details.product_name,
                                                   Product_Details.product_imageurl,
                                                   local,
@@ -1616,7 +1643,7 @@ var bdtype=custom_height === "" || custom_width==="" ?bed_type:"Custom";
                                             onClick={() => {
                                               addTocart(
                                                 id,
-                                                share - coupenDis,
+                                                price - discount_less,
                                                 Product_Details.product_name,
                                                 Product_Details.product_imageurl,
                                                 local,
@@ -1860,14 +1887,14 @@ var bdtype=custom_height === "" || custom_width==="" ?bed_type:"Custom";
                 </i>
               </p>
               <a href="#">
-                <i class="fa fa-inr"></i> {share - coupenDis}
+                <i class="fa fa-inr"></i> {price - discount_less}
               </a>
             </div>
             <a
               onClick={() =>
                 addTocart(
                   id,
-                  share - coupenDis,
+                  price - discount_less,
                   Product_Details.product_name,
                   Product_Details.product_imageurl,
                   local,

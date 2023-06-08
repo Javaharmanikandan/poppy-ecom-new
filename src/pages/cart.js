@@ -257,7 +257,8 @@ const buy_func = ()=> {
                                     href="product-detail.html"
                                     data-id_customization="0"
                                   >
-                                    {ad.title}
+                                    {ad.title}<br />
+                                    {ad.sub_devision !=0 &&  <span style={{color:"#982876",fontSize:10}}> {ad.sub_devision}</span>}
                                   </a>
                                 </div>
                                 <div class="product-line-info product-price">

@@ -1,11 +1,11 @@
 //TODO ADD CART
-exports.addCart = (id, amt, title,image,bed_type,dimension,thickness,freesection,color,percentage,price_original) =>{
+exports.addCart = (id, amt, title,image,bed_type,dimension,thickness,freesection,color,percentage,price_original,sub_devision) =>{
     //TODO CHECK SESSION STORAGE
     var cart_data = sessionStorage.getItem("poppy-cart"); //TODO GET CART DATA 
     
     if(cart_data === null){
         //TODO CART ADDING
-        var cart_value = [{product_id: id, amount: parseInt(amt), product_count: 1, title: title,image:image,bed_type:bed_type,dimension:dimension,thickness:thickness,free:freesection,color:color,percentage:percentage,price_original:price_original}];
+        var cart_value = [{product_id: id, amount: parseInt(amt), product_count: 1, title: title,image:image,bed_type:bed_type,dimension:dimension,thickness:thickness,free:freesection,color:color,percentage:percentage,price_original:price_original,sub_devision:sub_devision}];
         sessionStorage.setItem("poppy-cart", JSON.stringify(cart_value));
     }else{
         //TODO CART UPDATE
@@ -19,7 +19,7 @@ exports.addCart = (id, amt, title,image,bed_type,dimension,thickness,freesection
                 }
               }
         }else{
-            var cart_value = {product_id: id, amount: amt, product_count: 1, title: title,image:image,bed_type:bed_type,dimension:dimension,thickness:thickness,free:freesection,color:color,percentage:percentage,price_original:price_original};
+            var cart_value = {product_id: id, amount: amt, product_count: 1, title: title,image:image,bed_type:bed_type,dimension:dimension,thickness:thickness,free:freesection,color:color,percentage:percentage,price_original:price_original,sub_devision:sub_devision};
             copyCart.push(cart_value);
         }
 

@@ -237,7 +237,7 @@ export default function Checkout() {
       alert("Razorpay SDK failed to load. Are you online?");
       return;
     }
-    const tot = total * 100;
+    const tot = 1 * 100;
 
     const requestBody = {
       payment: tot,
@@ -299,7 +299,7 @@ export default function Checkout() {
           e.target.reset();
           const send = await axios
             .post(
-              "https://poppyindia.com/Ecom-Admin/admin/order_mail",
+              "https://admin.poppyindia.com/admin/order_mail",
               requestBody
             )
             .then(function (response) {
@@ -583,7 +583,8 @@ export default function Checkout() {
                       <img className="checkout-item-image" src={imgurl + ad.image} alt={ad.title} />
                       <div style={{ marginLeft: 20, marginTop: 4 }}>
                         <p style={{ fontSize: 18, color: "black" }}>
-                          {ad.title}
+                          {ad.title} <br />
+                          {ad.sub_devision !=0 &&  <span style={{color:"#982876",fontSize:10}}> {ad.sub_devision}</span>}
                         </p>
                         <hr style={{ marginTop: 5, marginBottom: 2 }} />
                         <span

@@ -312,7 +312,7 @@ else
     
     
     
-    setCart(cartSection.addCart(id, amt, title,image,bed_type,singlesize,thickness,"None","Stock Color",Product_Details.discount,amt));
+    setCart(cartSection.addCart(id, amt, title,image,bed_type,singlesize,thickness,"None","Stock Color",Product_Details.discount,amt,0));
     
   }
   

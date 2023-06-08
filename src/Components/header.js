@@ -727,7 +727,10 @@ export default function Header() {
                                 <td>
                                   <div class="product-name">
                                     <a >
-                                      {cartval.title}
+                                      {cartval.title}<br />
+
+                                      {cartval.sub_devision !=0 &&  <span style={{color:"#982876",fontSize:10}}> {cartval.sub_devision}</span>}
+
                                     </a>
 
                                    
@@ -735,7 +738,7 @@ export default function Header() {
                                    <div>
                              
                                     <span class="product-price" style={{display:"flex",gap:15}}>
-                                     Qty {cartval.product_count} x <b style={{fontFamily:'system-ui',fontWeight:600}}>₹ { cartval.amount}</b> 
+                                     Qty {cartval.product_count} x <b style={{fontFamily:'system-ui',fontWeight:600}}>  <i class="fa fa-inr" aria-hidden="true"></i>{cartval.amount}</b> 
                                     </span>
                                   </div> 
 

@@ -18,9 +18,18 @@ import { useNavigate } from 'react-router-dom';
 /*icon-import*/
 /*--- -import Waranty from '../../warranty';
 --*/
+const baseurl = process.env.REACT_APP_BASE_URL;
+
+const imgurl = process.env.REACT_APP_IMG_URL;
 
 
-function Collections() {
+function Collections(props) {
+
+    
+  const redirect_Data=(url)=>{
+    // window.location.href = url
+    const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
+  }
 
     const navigate = useNavigate();
     return (
@@ -34,7 +43,7 @@ function Collections() {
             <p className='collection-description'>Based From<br></br>Bonnel Spring</p>
             <div className='price-details'>
                 <p>Mattress Range<br></br>Starts From</p>
-                <a href='New-product' className='price-btn'><i class="fa fa-inr"></i> 7,762</a>
+                <a href='New-product' className='price-btn'><i class="fa fa-inr"></i> 9,960</a>
             </div>
             </div>
             <div className='collection'  onClick={()=>navigate('/productlist/Medico-Series')}>
@@ -43,7 +52,7 @@ function Collections() {
             <p className='collection-description'>Specially Constructed for <br></br> Spine’s natural curves</p>
             <div className='price-details'>
                 <p>Mattress Range<br></br>Starts From</p>
-                <a href='#' className='price-btn'><i class="fa fa-inr"></i> 8,626</a>
+                <a href='#' className='price-btn'><i class="fa fa-inr"></i> 9,585</a>
             </div>
             </div>
             <div className='collection' onClick={()=>navigate('/productlist/Grand-Series')}>
@@ -52,7 +61,7 @@ function Collections() {
             <p className='collection-description'>Based From Pocketed Spring<br></br>inducing Luxury Sleep</p>
             <div className='price-details'>
                 <p>Mattress Range<br></br>Starts From</p>
-                <a href='#' className='price-btn'><i class="fa fa-inr"></i> 11,097</a>
+                <a href='#' className='price-btn'><i class="fa fa-inr"></i> 12,330</a>
             </div>
             </div>
             <div className='collection' onClick={()=>navigate('/productlist/Latex-Series')}>
@@ -61,7 +70,7 @@ function Collections() {
             <p className='collection-description'>Based From Nature's<br></br>Pin core banked Latex</p>
             <div className='price-details'>
                 <p>Mattress Range<br></br>Starts From</p>
-                <a href='#' className='price-btn'><i class="fa fa-inr"></i> 16,038</a>
+                <a href='#' className='price-btn'><i class="fa fa-inr"></i> 17,820</a>
             </div>
             </div>
             <div className='collection' onClick={()=>navigate('/productlist/PU-Foam-Series')}>
@@ -70,7 +79,7 @@ function Collections() {
             <p className='collection-description'>Based From High Quality<br></br>Foam Materials</p>
             <div className='price-details'>
                 <p>Mattress Range<br></br>Starts From</p>
-                <a href='#' className='price-btn'><i class="fa fa-inr"></i> 7,924</a>
+                <a href='#' className='price-btn'><i class="fa fa-inr"></i> 6,225</a>
             </div>
             </div>
             <div className='collection' onClick={()=>navigate('/productlist/Rubberized-Coir-Series')}>
@@ -79,14 +88,14 @@ function Collections() {
             <p className='collection-description'>Based From Heritage<br></br>Natural Coir</p>
             <div className='price-details'>
                 <p>Mattress Range<br></br>Starts From</p>
-                <a href='#' className='price-btn'><i class="fa fa-inr"></i> 5,049</a>
+                <a href='#' className='price-btn'><i class="fa fa-inr"></i> 6,705</a>
             </div>
             </div>
         </div>
         <div className='demo-video mobile-responisve' style={{display:'flex',alignItems:"center",justifyContent:"center"}}>
        {/*  <iframe src="https://www.youtube.com/embed/OKKXnKwAPwc" width="853"
       height="480"> </iframe>*/}
-      <img src={youtube} style={{width:"90%"}}/>
+      <img onClick={()=>{redirect_Data(props.dataShare && props.dataShare.youtube_url)}} src={props.dataShare && imgurl+props.dataShare.youtube_image}  style={{width:"90%"}}/>
         </div> 
         <div className='highlights mobile-responisve  '>
             <div className='highlight-contents'>

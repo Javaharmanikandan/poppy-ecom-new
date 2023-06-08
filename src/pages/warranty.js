@@ -210,7 +210,8 @@ function Waranty() {
         },
       })
       .then((res) => {
-        toast.success("Warrenty Registered!");
+        toast.success("Warranty Registered!");
+        document.getElementById("customer-form-d").reset();
       });
   };
 
@@ -219,6 +220,8 @@ function Waranty() {
   const [customer_name_claim, setCustomerc] = useState("");
 
   const [mobile_claim, setMobilec] = useState("");
+
+  const [email_claim, setEmailc] = useState("");
 
   const [date_claim, setDobc] = useState("");
 
@@ -232,15 +235,18 @@ function Waranty() {
 
   const upload_claim = (e) => {
     e.preventDefault();
+
     let formData = new FormData();
     formData.append("val1", file1);
     formData.append("val2", file2);
     formData.append("customer_name_claim", customer_name_claim);
 
     formData.append("mobile_claim", mobile_claim);
+    formData.append("email_claim", email_claim);
     formData.append("date_claim", date_claim);
     formData.append("state_claim", selectedState);
     formData.append("district_claim", selectedCity);
+
     axios
       .post(baseurl + "upload_claim", formData, {
         headers: {
@@ -249,7 +255,7 @@ function Waranty() {
       })
       .then((res) => {
         console.log(res.data.ResponseMsg);
-        toast.success("Warrenty Claimed!");
+        toast.success("Warranty Claim Submitted!");
         document.getElementById("customer-form").reset();
       });
   };
@@ -298,6 +304,13 @@ function Waranty() {
                             Register for Warranty
                           </h1>
 
+                          <form
+                            action="#"
+                            id="customer-form-d"
+                            class="js-customer-form"
+                            method="post"
+                          >
+
                           <div id="clear">
                             <div class="form-group">
                               <div>
@@ -335,7 +348,7 @@ function Waranty() {
                                   class="form-control"
                                   name="email"
                                   type="email"
-                                  placeholder="Email"
+                                  placeholder="Email Address"
                                   onChange={(event) =>
                                     setEmail(event.target.value)
                                   }
@@ -430,6 +443,8 @@ function Waranty() {
                               </button>
                             </div>
                           </div>
+
+                          </form>
                         </div>
 
                         <div class="col-xs-12 col-sm-12, col-md-6 col-lg-6">
@@ -495,9 +510,22 @@ function Waranty() {
                                     type="text"
                                     onFocus={() => toggleType("cus-date2")}
                                     id="cus-date2"
-                                    placeholder="Select Date"
+                                    placeholder="Select Purchased Date"
                                     onChange={(event) =>
                                       setDobc(event.target.value)
+                                    }
+                                  />
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <div>
+                                  <input
+                                    class="form-control"
+                                    name="email"
+                                    type="text"
+                                    placeholder="Email Address"
+                                    onChange={(event) =>
+                                      setEmailc(event.target.value)
                                     }
                                   />
                                 </div>
