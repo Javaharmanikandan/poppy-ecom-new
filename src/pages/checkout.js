@@ -17,8 +17,8 @@ const baseurl = process.env.REACT_APP_BASE_URL;
 
 const imgurl = process.env.REACT_APP_IMG_URL;
 
-//const clientId = '853298021623-1onas4fia5fe85tniua3h0rtbvbenu1v.apps.googleusercontent.com';
-const clientId ="395798341450-c8ob29ugjgct2q4mruqq7f7t26ft0eo0.apps.googleusercontent.com";
+const clientId = '853298021623-1onas4fia5fe85tniua3h0rtbvbenu1v.apps.googleusercontent.com';
+//const clientId ="395798341450-c8ob29ugjgct2q4mruqq7f7t26ft0eo0.apps.googleusercontent.com";
 
 export default function Checkout() {
   const [open, setOpen] = useState(false);
