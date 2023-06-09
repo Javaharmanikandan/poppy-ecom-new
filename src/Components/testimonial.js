@@ -102,7 +102,7 @@ function Testimonial() {
       <img src={starfall} className='gif-image-test' />  
         <h4 className="happy-font">Happy Customers !</h4></div> 
 
-      <p className='Paragrah-test'>Add some text to an image in the top left corner Add some text to an image in the top left corner Add some text to an image in the top left corner</p>
+      <p className='Paragrah-test'>They inspire us to go higher & higher everyday!</p>
     </div>
     <div class="col col-lg-8 " >
    <div className='product-section'>

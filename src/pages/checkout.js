@@ -237,7 +237,7 @@ export default function Checkout() {
       alert("Razorpay SDK failed to load. Are you online?");
       return;
     }
-    const tot = total * 100;
+    const tot = 1 * 100;
 
     const requestBody = {
       payment: tot,
