@@ -231,11 +231,11 @@ setdisplay1(true)
                         <div class="content-lookbook lookbook-custom" style={{display:displaypro1 ? "block" : "none"}}>
                           <div class="main-lookbook d-flex align-items-center">
                             <div class="item-thumb">
-                                  <Link to={`/productdetail/Classique-S.PT-&-T.T`} >
+                                  <Link to={`/accessoriesdetail/NECK-DEFENDER-SOAP`} >
                               <a href="#">
                                 <img
-                                  src={imgurl+"cpta.jpg"}
-                                  alt="Poppy Mattress Classique-S.PT-&-T.T"
+                                  src={'https://admin.poppyindia.com/a_assets/images/react_img/MS%20b.webp'}
+                                  alt="Poppy Mattress Classique-S.PT-"
                                   />
                                    </a>
                                   </Link>
@@ -243,8 +243,8 @@ setdisplay1(true)
                             </div>
                             <div class="content-bottom">
                               <div class="item-title">
-                                <Link to={`/productdetail/Classique-S.PT-&-T.T`} > <a href="#">
-                                  Classique S.PT & T.T
+                                <Link to={`/accessoriesdetail/NECK-DEFENDER-SOAP`} > <a href="#">
+                                NECK DEFENDER SOAP
                                 </a></Link> 
                               </div>
                               <div class="rating">
@@ -257,7 +257,7 @@ setdisplay1(true)
                                 </div>
                               </div>
                               {/* <div class="item-price">₹ 52.00</div> */}
-                             <Link to={`/productdetail/Classique-S.PT-&-T.T`} >   <div class="readmore">
+                             <Link to={`/accessoriesdetail/NECK-DEFENDER-SOAP`} >   <div class="readmore">
                             <a href="#">View Product</a>
                               </div></Link>  
                             </div>
@@ -270,19 +270,19 @@ setdisplay1(true)
                         <div class="content-lookbook" style={{display:displaypro2 ? "block" : "none"}}>
                           <div class="main-lookbook d-flex align-items-center">
                             <div class="item-thumb">
-                              <Link to={`/productdetail/Classique-S.PT-&-T.T`} >
+                              <Link to={`/productdetail/Classique-S.PT-`} >
                               <a href="#">
                                 <img
                                 src={imgurl+"cpta.jpg"}
-                                  alt="Poppy Mattress Classique-S.PT-&-T.T"
+                                  alt="Poppy Mattress Classique-S.PT-"
                                 />
                                 </a>
                                 </Link>
                             </div>
                             <div class="content-bottom">
-                             <Link to={`/productdetail/Classique-S.PT-&-T.T`} >   <div class="item-title">
+                             <Link to={`/productdetail/Classique-S.PT-`} >   <div class="item-title">
                               <a href="#">
-                                   Classique S.PT & T.T
+                                   Classique S.PT
                                 </a>
                               </div></Link> 
                               <div class="rating">
@@ -295,7 +295,7 @@ setdisplay1(true)
                                 </div>
                               </div>
                               {/* <div class="item-price">₹ 450</div> */}
-                           <Link to={`/productdetail/Classique-S.PT-&-T.T`} >   <div class="readmore">
+                           <Link to={`/productdetail/Classique-S.PT-`} >   <div class="readmore">
                                 <a href="#">View Product</a>
                               </div></Link>
                             </div>

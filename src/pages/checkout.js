@@ -10,22 +10,87 @@ import { toast } from "react-toastify";
 import sec_img from "../assets/img/footer/paymant.png";
 import sec_img1 from "../assets/img/footer/secure.png";
 import { Modal } from "react-responsive-modal";
+import { gapi } from "gapi-script";
+import { GoogleLogin } from "react-google-login";
 
 const baseurl = process.env.REACT_APP_BASE_URL;
 
 const imgurl = process.env.REACT_APP_IMG_URL;
 
+//const clientId = '853298021623-1onas4fia5fe85tniua3h0rtbvbenu1v.apps.googleusercontent.com';
+const clientId ="395798341450-c8ob29ugjgct2q4mruqq7f7t26ft0eo0.apps.googleusercontent.com";
+
 export default function Checkout() {
   const [open, setOpen] = useState(false);
-
+  const [userInfo, setUserInfo] = useState({});
   const onOpenModal = () => setOpen(true);
   const onCloseModal = () => setOpen(false);
 
   const {
     register,
+    setValue,
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+
+  useEffect(() => {
+    const initClient = () => {
+      gapi.client.init({
+        clientId: clientId,
+        scope: "",
+      });
+    };
+    gapi.load("client:auth2", initClient);
+  });
+
+
+  
+  
+  //Google Login Area
+
+  const onSuccess = async (res) => {
+    //toast.success("Login Success");
+
+
+    setValue('firstName', res.profileObj.name);
+    setValue('email', res.profileObj.email);
+    
+     const user_details = {
+       uname: res.profileObj.name,
+       email: res.profileObj.email,
+     };
+     localStorage.setItem("userInfo", JSON.stringify(user_details));
+ 
+     setUserInfo(user_details);
+ 
+     await registerCheckGoogle(res.profileObj.name, res.profileObj.email);
+   };
+ 
+   //TODO REGISTER With Google 
+   const registerCheckGoogle = (nameG, emailG) => {
+     const requestBody = {
+       name: nameG,
+       email: emailG,
+     };
+ 
+     axios
+       .post(baseurl + "user/google_register", requestBody)
+       .then(function (response) {
+         if (response.data.ResponseCode === 200) {
+           toast.success(response.data.ResponseMsg);
+         } else {
+           toast.error(response.data.ResponseMsg);
+         }
+       });
+   };
+ 
+   const onFailure = (err) => {
+     console.log("failed:", err);
+   };
+
+
+
 
   const [cart, setCart] = useContext(CartContext);
   var total = cart.reduce(
@@ -336,9 +401,22 @@ export default function Checkout() {
       {/* <div className="headingContent">
         <h4 style={{ color: "#992876" }}>Shipping details </h4>
       </div> */}
-
       <div className="Check-row">
+   
+
         <div className="col-75">
+        {Object.keys(userInfo).length === 0 && <div ><p> <span> <GoogleLogin
+                  clientId={clientId}
+                  render={(renderProps) => (
+                    <a  style={{color:"#992876",cursor:"pointer"}} onClick={renderProps.onClick} disabled={renderProps.disabled}>
+                      Login with Google 
+                    </a>
+                  )}
+                  buttonText="Sign in with Google"
+                  onSuccess={onSuccess}
+                  onFailure={onFailure}
+                  cookiePolicy={"single_host_origin"}
+                /></span>  <span>/ Continue as Guest</span> </p></div>}
           <h4 className="headingContent" style={{ color: "#992876" }}>
             Shipping details{" "}
           </h4>
