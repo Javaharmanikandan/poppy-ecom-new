@@ -8,6 +8,7 @@ import axios from "axios";
 import { category_list } from "../data/API";
 import logo_text from "../assets/loader.gif";
 import { p_data_list_api } from "../data/product_data";
+import { ScrolltoTop } from "../utility";
 
 const baseurl = process.env.REACT_APP_BASE_URL;
 function Accessories() {
@@ -31,6 +32,12 @@ function Accessories() {
   //   setCategory(response.data.data);
 
   // };
+
+  useEffect(() => {
+    ScrolltoTop()
+}, [])
+
+
 
   useEffect(() => {
     product_category_list().then(product_list_view(id));

@@ -6,6 +6,7 @@ import Loader from "../Components/loader";
 import Sidebar from "../Components/sidebar-desktop";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { ScrolltoTop } from "../utility";
 
 const baseurl = process.env.REACT_APP_BASE_URL;
 //FOR STATE BAESED DISTRICT
@@ -159,6 +160,13 @@ function Waranty() {
   const availableCities = availableState?.states?.find(
     (s) => s.name === selectedState
   );
+
+
+  useEffect(() => {
+    ScrolltoTop()
+}, [])
+
+
 
   const toggleText = (inputId, eleId) => {
     var element = document.getElementById(eleId);

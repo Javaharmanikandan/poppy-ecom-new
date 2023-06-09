@@ -8,6 +8,7 @@ import Header from "../Components/header";
 import Loader from "../Components/loader";
 import axios from 'axios';
 import moment from 'moment'
+import { ScrolltoTop } from '../utility';
 
 // English.
 
@@ -37,7 +38,9 @@ navigate('/blogdetails/'+id);
     
       }
 
-
+      useEffect(() => {
+        ScrolltoTop()
+    }, [])
   useEffect(() => {
     
     blog_list()

@@ -27,6 +27,7 @@ import ProductSlider from "./MobileComponents/Home/BestSellers";
 import BlogCard from "./Components/BlogCard";
 import Contactus from "./Components/Contactus";
 import youtube from "./MobileComponents/images/yf1.webp";
+import { ScrolltoTop } from "../utility";
 
 
 
@@ -71,6 +72,9 @@ function Home() {
   const [product_li, setProduct] = useState([]);
   const [bestSellers, setBestProduct] = useState([]);
 
+  useEffect(() => {
+    ScrolltoTop()
+}, [])
 
   useEffect(() => {
     category_list_fun().then(product_list_fun("Grand Series"));

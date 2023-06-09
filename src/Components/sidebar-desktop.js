@@ -71,7 +71,7 @@ function Sidebar() {
                   </li>
 
                    <li class="item parent">
-                  <a  style={{cursor:'pointer'}} class="hasicon" title="SIDE TABLE" href="https://vegroute.com/poppy/a_assets/catelog/Catalog.pdf" target="_blank" >
+                  <a  style={{cursor:'pointer'}} class="hasicon" title="SIDE TABLE" href="https://admin.poppyindia.com/a_assets/catelog/Catalog.pdf" target="_blank" >
 
                       <img src={require("../assets/img/home/bed.png")} alt="img" />
                       Catelogue

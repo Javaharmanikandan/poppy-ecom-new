@@ -108,10 +108,15 @@ if(mailcheck)
                        
                         
                           <li key={id} >
-                          <Link to={`/productlist/${items_cat.category_id}`} >  
+                          <Link   to={`/productlist/${items_cat.category_name.replace(
+                                      / /g,
+                                      "-"
+                                    )}`} >  
                              {items_cat.category_name}
                          
                            </Link>
+
+                        
                           </li>
 
                              ))}
@@ -250,7 +255,7 @@ if(mailcheck)
                  <div class="block m-top1">
                     <div class="block-content">
                       <div class="payment-content">
-                        <div class="title-block "><a href="https://poppyindia.com/Ecom-Admin/a_assets/catelog/Catalog.pdf" target="_blank" class="download_pdf"><i class="fa fa-download" aria-hidden="true"></i> Download Poppy Mattress Catalogue</a></div>
+                        <div class="title-block "><a href="https://admin.poppyindia.com/a_assets/catelog/Catalog.pdf" target="_blank" class="download_pdf"><i class="fa fa-download" aria-hidden="true"></i> Download Poppy Mattress Catalogue</a></div>
                         
                       </div>
                     </div>

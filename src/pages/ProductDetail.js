@@ -17,6 +17,7 @@ import { addtoWishlist } from "../Helper/Wishlist";
 import Lottie from "react-lottie";
 import CoupenPng from "./MobileComponents/images/badge.png";
 import * as animationData from "./gift.json";
+import { ScrolltoTop } from "../utility";
 
 const imgurl = process.env.REACT_APP_IMG_URL;
 const baseurl = process.env.REACT_APP_BASE_URL;
@@ -45,6 +46,13 @@ export default function ProductDetail() {
     setPicketColorId(data.id)
   };
   const onCloseModal = () => setOpen(false);
+
+
+  useEffect(() => {
+    ScrolltoTop()
+}, [])
+
+
 
 
 

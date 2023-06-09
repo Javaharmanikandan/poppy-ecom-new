@@ -12,6 +12,7 @@ import sec_img1 from "../assets/img/footer/secure.png";
 import { Modal } from "react-responsive-modal";
 import { gapi } from "gapi-script";
 import { GoogleLogin } from "react-google-login";
+import { ScrolltoTop } from "../utility";
 
 const baseurl = process.env.REACT_APP_BASE_URL;
 
@@ -45,7 +46,9 @@ export default function Checkout() {
   });
 
 
-  
+  useEffect(() => {
+    ScrolltoTop()
+}, [])
   
   //Google Login Area
 

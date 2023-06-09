@@ -11,6 +11,7 @@ import axios from 'axios';
 import cartSection from "../Helper/Cart";
 import {toast} from "react-toastify";
 import CoupenPng from "./MobileComponents/images/badge.png";
+import { ScrolltoTop } from "../utility";
 
 const imgurl = process.env.REACT_APP_IMG_URL;
 const  baseurl = process.env.REACT_APP_BASE_URL;
@@ -98,6 +99,11 @@ const customer_review = () => {
   const [description_image,setdescriptionimage]=useState("pr10.jpg");
   const [id,setId]=useState(null);
   const { acc_name } = useParams();  
+
+
+  useEffect(() => {
+    ScrolltoTop()
+}, [])
 
   useEffect(() => {
      

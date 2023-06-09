@@ -128,7 +128,7 @@ navigate('/login');
                                 </li>
 
                                   <li class="item ">
-                  <a  style={{cursor:'pointer'}} class="hasicon" title="SIDE TABLE" href="https://vegroute.com/poppy/a_assets/catelog/Catalog.pdf" target="_blank" >
+                  <a  style={{cursor:'pointer'}} class="hasicon" title="SIDE TABLE" href="https://admin.poppyindia.com/a_assets/catelog/Catalog.pdf" target="_blank" >
 <i class="fa fa-book" aria-hidden="true" style={{marginRight:"15px"}}></i>
                       
                       Catelogue
