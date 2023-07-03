@@ -83,7 +83,7 @@ const navigate = useNavigate();
 
      
         <SwiperSlide key={index} onClick={()=>navigate(data.url)}>
-        <div className="swiper_image ">
+        <div className="swiper_image " style={{cursor:'pointer'}}>
           <img
           onClick={()=>navigate(data.url)}
             src={imgurl+data.banner_image}

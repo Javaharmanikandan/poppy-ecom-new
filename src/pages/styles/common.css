@@ -517,3 +517,13 @@ background: none !important;
         font-size: 1em;
     }
 }
+
+
+.collection_img { 
+    transition: all .2s ease-in-out; 
+    
+    }
+    
+    .collection_img:hover { 
+    transform: scale(1.2); 
+    }

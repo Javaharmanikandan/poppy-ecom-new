@@ -1,20 +1,17 @@
-import React from 'react'
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import React from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
-import { ProductCardCommon } from '../../Components/ProductCardCommon';
+import { ProductCardCommon } from "../../Components/ProductCardCommon";
 
-
-
-export default function ProductSlider(props){
- 
+export default function ProductSlider(props) {
   var settings = {
-    arrows:false,
+    arrows: false,
     dots: false,
     infinite: false,
     speed: 500,
-    centerPadding: '10px',
+    centerPadding: "10px",
     // slidesToShow: 1.5,
     // slidesToScroll: 1,
     autoplay: true,
@@ -25,10 +22,10 @@ export default function ProductSlider(props){
         breakpoint: 2200,
         settings: {
           slidesToShow: 4,
-          slidesToScroll: 1,
+          slidesToScroll: 4,
           infinite: true,
-          dots: true
-        }
+          dots: true,
+        },
       },
       {
         breakpoint: 600,
@@ -37,7 +34,7 @@ export default function ProductSlider(props){
           slidesToScroll: 1,
           initialSlide: 1.5,
           infinite: true,
-        }
+        },
       },
       {
         breakpoint: 480,
@@ -45,26 +42,32 @@ export default function ProductSlider(props){
           infinite: true,
           initialSlide: 1,
           slidesToShow: 1.25,
-          slidesToScroll: 1
-        }
-      }
-    ]
-
-
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
-    return (
-        <div className='product-cart'>
-          <h3>{"- "+props.title+" -"} </h3>
-          <div className='product-section'>
-           <Slider {...settings}>
-  {props.detailsData.map(item => {
-    
-    return   <ProductCardCommon dataDetails={item} img={"https://poppyindia.com/Ecom-Admin/a_assets/images/react_img/sdlxtt.jpg"}/>
-  
-})}
-  </Slider>
-        </div>
-        </div>
-    );
+  return (
+    <div
+      className="product-cart"
+      style={{  backgroundImage: `url("background.webp")` ,backgroundRepeat:'no-repeat',backgroundSize:'contain' }}
+    >
+      <h3>{"- " + props.title + " -"} </h3>
+      <div className="product-section">
+        <Slider {...settings}>
+          {props.detailsData.map((item) => {
+            return (
+              <ProductCardCommon
+                dataDetails={item}
+                img={
+                  "https://poppyindia.com/Ecom-Admin/a_assets/images/react_img/sdlxtt.jpg"
+                }
+              />
+            );
+          })}
+        </Slider>
+      </div>
+    </div>
+  );
 }

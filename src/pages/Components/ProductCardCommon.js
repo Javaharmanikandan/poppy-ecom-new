@@ -48,7 +48,7 @@ export const ProductCardCommon = (props) => {
 
   return (
     
-    <div className='product_card' >
+    <div className='product_card'  style={{cursor:'pointer'}} >
     <div className='product-img'>
         <img  onClick={() =>{movepage(props.dataDetails.product_name)}} className='product-image' src={imgurl+props.dataDetails.product_imageurl} alt='Product_image' />
         <a  onClick={()=>{

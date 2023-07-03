@@ -148,20 +148,9 @@ export default function Header() {
       <header>
         <div className={topSec ? "top_active" : "top-section"}>
           <div class="top-first">
-            <ul>
-              <li>
-                <a href="tel:+919054848481">
-                  <i class="fa fa-phone" aria-hidden="true"></i> +91 90548 48481
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div class="top-second">
-            <ul>
-              <li>{slogans}</li>
-            </ul>
-          </div>
-          <div class="top-third">
+           
+
+
             <ul>
               {/* <li  style={{display: userData !="" || userData ==="undefined" ? 'none' : 'block'}}>
                 <NavLink to="/login">
@@ -181,6 +170,20 @@ export default function Header() {
 
               <li style={{ display: userData === "" ? "none" : "block" }}>
                 <b> Hello {userData.uname}</b>
+              </li>
+            </ul>
+          </div>
+          <div class="top-second">
+            <ul>
+              <li>{slogans}</li>
+            </ul>
+          </div>
+          <div class="top-third">
+          <ul>
+              <li>
+                <a href="tel:+919054848481" style={{color:"white"}}>
+                  <i class="fa fa-phone" aria-hidden="true"></i> +91 90548 48481
+                </a>
               </li>
             </ul>
           </div>

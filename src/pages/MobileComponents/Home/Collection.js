@@ -35,12 +35,12 @@ function Collections(props) {
     return (
         
         <div className='collection-container'>
-            <h2>Collections</h2>
+            <h2>Shop By Series</h2>
             <div className='collections'>
             <div className='collection' onClick={()=>navigate('/productlist/Premium-Series')}>
-            <img src={collection_img_1} className="collection_img" alt="collection_image" />
+            <img src={collection_img_1} className="collection_img " alt="collection_image" />
             <h5 className='collection-title'>Premium Series</h5>
-            <p className='collection-description'>Based From<br></br>Bonnel Spring</p>
+            <p className='collection-description'>Mattresses infused <br></br>with Bonnell spring</p>
             <div className='price-details'>
                 <p>Mattress Range<br></br>Starts From</p>
                 <a href='New-product' className='price-btn'><i class="fa fa-inr"></i> 9,960</a>
@@ -49,7 +49,7 @@ function Collections(props) {
             <div className='collection'  onClick={()=>navigate('/productlist/Medico-Series')}>
             <img src={collection_img_2} className="collection_img" alt="collection_image" />
             <h5 className='collection-title'>Medico Series</h5>
-            <p className='collection-description'>Specially Constructed for <br></br> Spine’s natural curves</p>
+            <p className='collection-description'>Crafted with love for  <br></br> your neck and spine</p>
             <div className='price-details'>
                 <p>Mattress Range<br></br>Starts From</p>
                 <a href='#' className='price-btn'><i class="fa fa-inr"></i> 9,585</a>
@@ -58,7 +58,7 @@ function Collections(props) {
             <div className='collection' onClick={()=>navigate('/productlist/Grand-Series')}>
             <img src={collection_img_3} className="collection_img" alt="collection_image" />
             <h5 className='collection-title'>Grand Series</h5>
-            <p className='collection-description'>Based From Pocketed Spring<br></br>inducing Luxury Sleep</p>
+            <p className='collection-description'> Pocketed springs for <br></br>luxurious sleep</p>
             <div className='price-details'>
                 <p>Mattress Range<br></br>Starts From</p>
                 <a href='#' className='price-btn'><i class="fa fa-inr"></i> 12,330</a>
@@ -67,7 +67,7 @@ function Collections(props) {
             <div className='collection' onClick={()=>navigate('/productlist/Latex-Series')}>
             <img src={collection_img_4} className="collection_img" alt="collection_image" />
             <h5 className='collection-title'>Latex Series</h5>
-            <p className='collection-description'>Based From Nature's<br></br>Pin core banked Latex</p>
+            <p className='collection-description'>Crafted with Nature’s <br></br>Pin core blanketed latex</p>
             <div className='price-details'>
                 <p>Mattress Range<br></br>Starts From</p>
                 <a href='#' className='price-btn'><i class="fa fa-inr"></i> 17,820</a>
@@ -76,7 +76,7 @@ function Collections(props) {
             <div className='collection' onClick={()=>navigate('/productlist/PU-Foam-Series')}>
             <img src={collection_img_5} className="collection_img" alt="collection_image" />
             <h5 className='collection-title'>PU Foam Series</h5>
-            <p className='collection-description'>Based From High Quality<br></br>Foam Materials</p>
+            <p className='collection-description'>Made with only the best quality <br></br>foam out there</p>
             <div className='price-details'>
                 <p>Mattress Range<br></br>Starts From</p>
                 <a href='#' className='price-btn'><i class="fa fa-inr"></i> 6,225</a>
@@ -85,7 +85,7 @@ function Collections(props) {
             <div className='collection' onClick={()=>navigate('/productlist/Rubberized-Coir-Series')}>
             <img src={collection_img_6} className="collection_img" alt="collection_image" />
             <h5 className='collection-title'>Rubberized Coir</h5>
-            <p className='collection-description'>Based From Heritage<br></br>Natural Coir</p>
+            <p className='collection-description'>Mattresses crafted from <br></br>natural heritage of coir</p>
             <div className='price-details'>
                 <p>Mattress Range<br></br>Starts From</p>
                 <a href='#' className='price-btn'><i class="fa fa-inr"></i> 6,705</a>

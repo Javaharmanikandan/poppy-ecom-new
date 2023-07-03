@@ -179,7 +179,7 @@ function Home() {
             <div id="main">
               <section class="page-home">
                 {bannerSettings === "Enable" ? <BannerSlide /> : null}
-                <div className="desktop-responisve">
+                <div className="desktop-responisve" style={{display:'none'}}>
                   <Slider />
                 </div>
                 <div className="mobile-responisve">
