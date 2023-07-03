@@ -239,7 +239,7 @@ function Home() {
                   </div>
                 </div>
 
-                <div>
+                <div    style={{  backgroundImage: `url("background.webp")` ,backgroundRepeat:'no-repeat',backgroundPosition:'bottom'}}>
                   <center>
                     {" "}
                     <ProductSlider

@@ -51,7 +51,7 @@ export default function ProductSlider(props) {
   return (
     <div
       className="product-cart"
-      style={{  backgroundImage: `url("background.webp")` ,backgroundRepeat:'no-repeat',backgroundSize:'contain' }}
+   
     >
       <h3>{"- " + props.title + " -"} </h3>
       <div className="product-section">
