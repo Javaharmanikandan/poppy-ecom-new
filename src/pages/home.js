@@ -179,8 +179,8 @@ function Home() {
             <div id="main">
               <section class="page-home">
                 {bannerSettings === "Enable" ? <BannerSlide /> : null}
-                <div className="desktop-responisve" style={{display:'none'}}>
-                  <Slider />
+                <div className="desktop-responisve" >
+                  {/* <Slider /> */}
                 </div>
                 <div className="mobile-responisve">
                   <Topslider />
@@ -239,7 +239,7 @@ function Home() {
                   </div>
                 </div>
 
-                <div    style={{  backgroundImage: `url("background.webp")` ,backgroundRepeat:'no-repeat',backgroundPosition:'bottom'}}>
+                <div>
                   <center>
                     {" "}
                     <ProductSlider
@@ -258,7 +258,7 @@ function Home() {
                   <Collections  dataShare={youtube_ban && youtube_ban} />{" "}
                 </div>
 
-                <div style={{ marginBottom: "50px" ,marginTop:"50px"}}>
+                <div style={{ paddingBottom: "50px" ,paddingTop:"50px",background:'#992876'}}>
         <Contactus />
       </div>
                <div

@@ -17,7 +17,7 @@
 }
 
 .product-title i{
-    color: #982876;
+    color: #AEAEAE;
     font-size: 20px;
     padding-right: 15px;
 }
@@ -65,8 +65,8 @@
 }
 .mrp-price .mrp-rate{
     font-size: 10px;
-    font-weight: bold;
-    color: #000000;
+    /* font-weight: bold; */
+    color: #aeaeae;
     
 }
 .mrp-rate s{

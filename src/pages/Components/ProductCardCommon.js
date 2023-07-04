@@ -22,8 +22,9 @@ export const ProductCardCommon = (props) => {
 
 
   const movepage = (id_get) =>{
+
     //TODO NAVIGATE TO ERROR PAGE
-    navigate('/redirect/'+id_get.replace(/ /g, "-"));
+    navigate('/productdetail/'+id_get.replace(/ /g, "-"));
   }
 
   const addWish= async(p_id,total_amount,product_name, product_image,product_size,product_dimen, product_height)=>{
@@ -84,8 +85,10 @@ export const ProductCardCommon = (props) => {
       <a href='#'><i class="fa fa-inr"></i> {props.dataDetails.DiscountedPrice.toFixed(0)}</a>
       </div>
       <div className='mrp-price'>
+      {/* {props.dataDetails.discount_percentage!="0" ? <p className='mrp-rate'>M.R.P  <i class="fa fa-inr" style={{marginLeft:5}}> <s > {props.dataDetails.product_price.toFixed(0)}</s></i></p>:null} */}
+
         <p className='mrp-rate'>M.R.P  <i class="fa fa-inr" style={{marginLeft:5}}> <s > {props.dataDetails.product_price.toFixed(0)}</s></i></p>
-        <p className='offer-percentage'>{props.dataDetails.discount_percentage} %</p>
+        <p className='offer-percentage'>{props.dataDetails.discount_percentage!="0" ? props.dataDetails.discount_percentage+" %":null} </p>
       </div>
     </div>
     </div>

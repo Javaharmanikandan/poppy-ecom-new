@@ -1,4 +1,5 @@
 import "./index.css";
+ import "./style/tailwind.css";
 
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 

@@ -148,9 +148,6 @@ export default function Header() {
       <header>
         <div className={topSec ? "top_active" : "top-section"}>
           <div class="top-first">
-           
-
-
             <ul>
               {/* <li  style={{display: userData !="" || userData ==="undefined" ? 'none' : 'block'}}>
                 <NavLink to="/login">
@@ -311,7 +308,7 @@ export default function Header() {
                     <a href="#" class="parent">
                       Mattress
                     </a>
-                    <div class="dropdown-menu mega-container" style={{width: "750px",borderRadius:25}}>
+                    <div class="dropdown-menu mega-container" style={{width: "850px",borderRadius:25}}>
                       {/* <ul>
 
                          {category.map(items_cat =>(
@@ -336,7 +333,7 @@ export default function Header() {
                           <div className="mega-matreess-items">
                             <ul>
                               {category.map((items_cat) => (
-                                <li class="item">
+                                <li class="item" style={{width:300}}>
                                   
                                   <Link
                                     to={`/productlist/${items_cat.category_name.replace(
@@ -344,7 +341,8 @@ export default function Header() {
                                       "-"
                                     )}`}
                                   >
-                                    {items_cat.category_name}
+                                    {items_cat.category_name}<br />
+                                    <span style={{fontSize:11,color:'#4a4848'}} > {items_cat.description} </span>
                                   </Link>
                                 </li>
                               ))}
