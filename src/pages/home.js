@@ -41,7 +41,7 @@ function Home() {
 
   const [category, setCategory] = useState([]);
   const [youtube_ban, setYoutubeBanner] = useState([]);
-  
+
   const [bannerSettings, setbannerSettings] = useState("");
   const [testimonial, settestimonials] = useState([]);
   const [loader, isLoad] = useState(false);
@@ -74,7 +74,7 @@ function Home() {
 
   useEffect(() => {
     ScrolltoTop()
-}, [])
+  }, [])
 
   useEffect(() => {
     category_list_fun().then(product_list_fun("Grand Series"));
@@ -86,11 +86,11 @@ function Home() {
 
   useEffect(() => {
     bestSellersList();
-  },[]);
+  }, []);
 
   useEffect(() => {
     youtube_banner()
-  },[]);
+  }, []);
 
   const bestSellersList = async () => {
     let response = await axios
@@ -104,7 +104,7 @@ function Home() {
     let response = await axios
       .get(baseurl + "user/youtube_banner")
       .then((result) => {
-        console.log(result.data.data,"Youtube")
+        console.log(result.data.data, "Youtube")
         setYoutubeBanner(result.data.data[0]);
       });
   };
@@ -132,7 +132,7 @@ function Home() {
   };
 
 
-  const redirect_Data=(url)=>{
+  const redirect_Data = (url) => {
     // window.location.href = url
     const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
   }
@@ -181,6 +181,23 @@ function Home() {
                 {bannerSettings === "Enable" ? <BannerSlide /> : null}
                 <div className="desktop-responisve" >
                   {/* <Slider /> */}
+
+                  <div className=" px-5 py-5">
+                    <div className="tw-h-[500px] tw-bg-gray-400 w-full tw-rounded-[50px] tw-relative tw-overflow-hidden tw-bg-[url('https://images.unsplash.com/photo-1632829401795-2745c905ac77?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1932&q=80')] tw-bg-cover tw-bg-center ">
+                      <div className="tw-absolute tw-inset-0 tw-flex w-full tw-justify-start tw-items-center px-5">
+                        <div className="tw-flex tw-flex-col tw-gap-5 tw-bg-black/20 tw-backdrop-blur-sm tw-px-5 tw-py-5 tw-rounded-lg">
+                          <p className="tw-text-white tw-font-bold tw-text-[30px]">Title</p>
+                          <p className="tw-text-white">Content</p>
+                          <button className=" active:tw-opacity-50 tw-cursor-pointer tw-border-none tw-px-5 tw-py-3 tw-bg-white tw-rounded-lg tw-capitalize tw-font-bold ">
+                            click here
+                          </button>
+                        </div>
+
+                      </div>
+                    </div>
+
+                  </div>
+
                 </div>
                 <div className="mobile-responisve">
                   <Topslider />
@@ -250,18 +267,18 @@ function Home() {
                 </div>
                 <div className="mobile">
                   {" "}
-                   <BottomBannerNew />{" "}
+                  <BottomBannerNew />{" "}
                 </div>
 
-                <div style={{marginTop:50}}>
+                <div style={{ marginTop: 50 }}>
                   {" "}
-                  <Collections  dataShare={youtube_ban && youtube_ban} />{" "}
+                  <Collections dataShare={youtube_ban && youtube_ban} />{" "}
                 </div>
 
-                <div style={{ paddingBottom: "50px" ,paddingTop:"50px",background:'#992876'}}>
-        <Contactus />
-      </div>
-               <div
+                <div style={{ paddingBottom: "50px", paddingTop: "50px", background: '#992876' }}>
+                  <Contactus />
+                </div>
+                <div
                   className="demo-video desktop-responisve"
                   style={{
                     display: "flex",
@@ -269,7 +286,7 @@ function Home() {
                     paddingTop: 80,
                   }}
                 >
-                 {/*   <iframe
+                  {/*   <iframe
                     src="https://www.youtube.com/embed/OKKXnKwAPwc"
                     width="90%"
                     height="450px"
@@ -278,8 +295,8 @@ function Home() {
                     {" "}
                   </iframe>*/}
 
-                  <img onClick={()=>{redirect_Data(youtube_ban && youtube_ban.youtube_url)}}  width="90%" src={youtube_ban && imgurl+youtube_ban.youtube_image}   style={{cursor:"pointer"}}/>
-                </div> 
+                  <img onClick={() => { redirect_Data(youtube_ban && youtube_ban.youtube_url) }} width="90%" src={youtube_ban && imgurl + youtube_ban.youtube_image} style={{ cursor: "pointer" }} />
+                </div>
 
               </section>
             </div>
@@ -289,20 +306,20 @@ function Home() {
       </div>
 
 
-     
 
 
 
-      <div style={{ marginBottom: "50px",marginTop:"50px" }}>
+
+      <div style={{ marginBottom: "50px", marginTop: "50px" }}>
         <Testimonial />
       </div>
-     
+
 
       <div style={{ marginBottom: "50px" }}>
         <BlogCard />
       </div>
 
-     
+
     </>
   );
 }
