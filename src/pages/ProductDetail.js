@@ -498,6 +498,7 @@ export default function ProductDetail() {
     }
   };
   const addTocart = (id, amt, title, image, bed_type, dimension, thickness, freeSection,color,dis,pri) => {
+    
 
 var dim=custom_height === "" || custom_width==="" ?dimension:custom_height+" x "+custom_width;
 var bdtype=custom_height === "" || custom_width==="" ?bed_type:"Custom";
@@ -1438,9 +1439,10 @@ var bdtype=custom_height === "" || custom_width==="" ?bed_type:"Custom";
 
                                       <div class="product-quantity">
                                         <div class="qty">
-                                          <div class="input-group input-group-cus">
+                                          <div class="input-group input-group-cus" >
                                             <span class="add">
                                               <button
+                                              style={{cursor:'pointer'}}
                                                 class="btn btn-primary add-to-cart add-item"
                                                 data-button-action="add-to-cart"
                                                 type="submit"
@@ -1647,7 +1649,7 @@ var bdtype=custom_height === "" || custom_width==="" ?bed_type:"Custom";
                                           </span>
                                           <button
                                             className="buynow"
-                                            style={{ background: "black" }}
+                                            style={{ background: "black",marginLeft:15 }}
                                             onClick={() => {
                                               addTocart(
                                                 id,

@@ -313,7 +313,7 @@
 }
 
 .input-group-cus .buynow {
-    width: 20vw;
+    width: 15vw;
     min-width: -moz-fit-content;
     min-width: fit-content;
     padding: 5px 15px;
@@ -329,7 +329,7 @@
 
 .input-group-cus {
     display: flex !important;
-    justify-content: space-between;
+    justify-content: start;
     align-items: flex-end;
 
 }

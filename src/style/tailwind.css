@@ -164,20 +164,24 @@
   display: flex
 }
 
-.tw-h-screen {
-  height: 100vh
-}
-
-.tw-h-1\/2 {
-  height: 50%
-}
-
-.tw-h-\[\] {
-  height: 
-}
-
 .tw-h-\[500px\] {
   height: 500px
+}
+
+.tw-w-3\/12 {
+  width: 25%
+}
+
+.tw-w-5\/12 {
+  width: 41.666667%
+}
+
+.tw-w-2\/12 {
+  width: 16.666667%
+}
+
+.tw-w-4\/12 {
+  width: 33.333333%
 }
 
 .tw-cursor-pointer {
@@ -188,20 +192,12 @@
   flex-direction: column
 }
 
-.tw-items-start {
-  align-items: flex-start
-}
-
 .tw-items-center {
   align-items: center
 }
 
 .tw-justify-start {
   justify-content: flex-start
-}
-
-.tw-justify-center {
-  justify-content: center
 }
 
 .tw-gap-5 {
@@ -224,17 +220,13 @@
   border-style: none
 }
 
+.tw-bg-black\/20 {
+  background-color: rgb(0 0 0 / 0.2)
+}
+
 .tw-bg-gray-400 {
   --tw-bg-opacity: 1;
   background-color: rgb(156 163 175 / var(--tw-bg-opacity))
-}
-
-.tw-bg-\[\] {
-  background-color: 
-}
-
-.tw-bg-\[url\] {
-  background-color: url
 }
 
 .tw-bg-white {
@@ -242,44 +234,20 @@
   background-color: rgb(255 255 255 / var(--tw-bg-opacity))
 }
 
-.tw-bg-black\/20 {
-  background-color: rgb(0 0 0 / 0.2)
-}
-
-.tw-bg-\[url\(\)\] {
-  background-image: url()
-}
-
 .tw-bg-\[url\(\'https\:\/\/images\.unsplash\.com\/photo-1632829401795-2745c905ac77\?ixlib\=rb-4\.0\.3\&ixid\=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA\%3D\%3D\&auto\=format\&fit\=crop\&w\=1932\&q\=80\'\)\] {
   background-image: url('https://images.unsplash.com/photo-1632829401795-2745c905ac77?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1932&q=80')
 }
 
-.tw-bg-contain {
-  background-size: contain
+.tw-bg-\[url\(\'https\:\/\/images\.unsplash\.com\/photo-1582582621959-48d27397dc69\?ixlib\=rb-4\.0\.3\&ixid\=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA\%3D\%3D\&auto\=format\&fit\=crop\&w\=1738\&q\=80\'\)\] {
+  background-image: url('https://images.unsplash.com/photo-1582582621959-48d27397dc69?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1738&q=80')
 }
 
 .tw-bg-cover {
   background-size: cover
 }
 
-.tw-bg-top {
-  background-position: top
-}
-
 .tw-bg-center {
   background-position: center
-}
-
-.tw-object-contain {
-  object-fit: contain
-}
-
-.tw-object-cover {
-  object-fit: cover
-}
-
-.tw-object-fill {
-  object-fit: fill
 }
 
 .tw-px-5 {
@@ -297,12 +265,24 @@
   padding-bottom: 1.25rem
 }
 
-.tw-text-\[20px\] {
-  font-size: 20px
+.tw-text-center {
+  text-align: center
 }
 
 .tw-text-\[30px\] {
   font-size: 30px
+}
+
+.tw-text-\[16px\] {
+  font-size: 16px
+}
+
+.tw-text-\[20px\] {
+  font-size: 20px
+}
+
+.tw-text-\[18px\] {
+  font-size: 18px
 }
 
 .tw-font-bold {
@@ -316,10 +296,6 @@
 .tw-text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity))
-}
-
-.tw-text-\[\] {
-  color: 
 }
 
 .tw-backdrop-blur-sm {

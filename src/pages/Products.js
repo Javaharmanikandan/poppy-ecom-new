@@ -14,7 +14,7 @@ const baseurl = process.env.REACT_APP_BASE_URL;
 function Products() {
   const [category, setCategory] = useState([]);
   const [isActive, setActive] = useState(false);
-
+  const [collectionType, setCollectionType] = useState("Series");
   const toggleClass = () => {
     setActive(!isActive);
   };
@@ -31,43 +31,71 @@ function Products() {
 
   const navigate = useNavigate();
 
+
+
   const category_list_fun = async () => {
     let response = await category_list();
 
     setCategory(response.data.data);
   };
 
+  useEffect(() => {
+    ScrolltoTop();
+  }, []);
 
   useEffect(() => {
-    ScrolltoTop()
-}, [])
-
-
-  useEffect(() => {
-
-    
-    if(id==="best_seller" || id==="budget_friendly" || id==="motion_disturbance")
-    {
-      
-     
+    if (
+      id === "best_seller" ||
+      id === "budget_friendly" ||
+      id === "motion_disturbance"
+    ) {
       category_list_fun().then(assetsLoader(id));
-    }
-    else{
+    } else {
       category_list_fun().then(product_list_view(id));
     }
 
+    if (
+      category_str === "Grand-Series" ||
+      category_str === "Premium-Series" ||
+      category_str === "Medico-Series" ||
+      category_str === "Latex-Seriess" ||
+      category_str === "PU-Foam-Series" ||
+      category_str === "Rubberized-coir-Series"
+    ) {
+      setCollectionType("Series");
+    } else if (
+      category_str === "Soft" ||
+      category_str === "Hard" ||
+      category_str === "Medium-Soft" ||
+      category_str === "Medium-Hard" ||
+      category_str === "Dual-Comfort"
+    ) {
+      setCollectionType("Firmness");
+    } else if (
+      category_str === "motion_disturbance" ||
+      category_str === "budget_friendly" ||
+      category_str === "best_seller"
+    ) {
+      setCollectionType("Category");
+    }
+    else if(category_str ==="Spring-Mattress" || category_str ==="Pocketed-Spring" || category_str ==="Bonnell-Spring" || category_str ==="Natural-Latex" || category_str ==="Coir-mattress" || category_str ==="Foam-mattress"){
+      setCollectionType("Material");
+    }
+    else if(category_str ==="all"){
+      setCollectionType("Series");
+    }
   }, [id]);
 
   const product_list_view = async (id) => {
-
     // console.log(category[0].id);
     const requestBody = {
       category_id: id,
     };
+    
     let response = await axios
       .post(baseurl + "user/product_list", requestBody)
       .then((result) => {
-        console.log(result)
+        console.log(result);
         setProduct_li(result.data.data);
         setTimeout(() => {
           isLoad(true);
@@ -75,29 +103,26 @@ function Products() {
       });
   };
   const filter_cat = async (category_name_pass) => {
-      isLoad(false);
-      setTimeout(() => {
-        navigate("/productlist/" + category_name_pass.replace(/ /g, "-"));
-      }, 100);
+    isLoad(false);
+    setTimeout(() => {
+      navigate("/productlist/" + category_name_pass.replace(/ /g, "-"));
+    }, 100);
   };
 
-
-  const assetsLoader= async()=>{
+  const assetsLoader = async () => {
     const requestBody = {
       assetsName: id,
     };
     let response = await axios
       .post(baseurl + "user/assetsFilter", requestBody)
       .then((result) => {
-        console.log(result)
+        console.log(result);
         setProduct_li(result.data.data);
         setTimeout(() => {
           isLoad(true);
         }, 1000);
       });
-  }
-
-
+  };
 
   const product_list_ = product_list.map((data) => {
     return (
@@ -167,15 +192,24 @@ function Products() {
                   </nav>
 
                   <div class="container containerRes">
-                    <div class="content">
+                    <div class="content" style={{ marginTop: "2rem" }}>
+                      <div className="productslist_lable">
+                        <p style={{ fontSize: 32 }}>
+                          {collectionType +
+                            " - " +
+                            category_str
+                              .replace(/[^a-zA-Z0-9 ]/g, " ")
+                              .charAt(0)
+                              .toUpperCase() +
+                            category_str.replace(/[^a-zA-Z0-9 ]/g, " ").slice(1)}
+                        </p>
+                      </div>
                       <div class="row">
                         <div class="sidebar-3 sidebar-collection col-lg-4 col-md-4 col-sm-4  desktop-responisve">
                           <div class="sidebar-block">
-                         
                             <div className="desktop-responisve cardFilter">
-                            <div className="filter-section">
-
-                            {/* <div className="pr-filter-name">
+                              <div className="filter-section">
+                                {/* <div className="pr-filter-name">
                               <h4>
                                 Showing <span>All Mattress</span>
                               </h4>
@@ -189,191 +223,289 @@ function Products() {
                               </a>
                             </div> */}
 
-                     
-                            <div
-                              id={"product-filter"}
-                            >
-                              <div className="all-mattress-section"></div>
+                                <div id={"product-filter"}>
+                                  <div className="all-mattress-section"></div>
+                                  <div className="Main-filterContainer">
+                                    <div className="filters Grid-item">
+                                      <div>
+                                        <input
+                                          type={"radio"}
+                                          onClick={() => {
+                                            filter_cat("all");
+                                          }}
+                                          name="radio_button"
+                                          value="all"
+                                        />{" "}
+                                        <lable>All Matress</lable>
+                                      </div>
+                                    </div>
 
-                              <div className="Main-filterContainer">
-                                <div className="filters Grid-item">
-
-                                  
-                                  <div>
-                                    <input
-                                      type={"radio"}
-                                      onClick={() => {
-                                        filter_cat("all");
-                                      }}
-                                      name="radio_button"
-                                      value="all"
-                                    />{" "}
-                                    <lable>All Matress</lable>
+                                    {/* <lable>All Matress</lable> */}
+                                    <div className="Main-filterGrid">
+                                      {category
+                                        .filter(
+                                          (view) =>
+                                            view.category_id !== "7" &&
+                                            view.category_id !== "8"
+                                        )
+                                        .map((items_cat, index) => (
+                                          <div className="filters Grid-item">
+                                            <div>
+                                              <input
+                                                type={"radio"}
+                                                onClick={() => {
+                                                  filter_cat(
+                                                    items_cat.category_name
+                                                  );
+                                                }}
+                                                name="radio_button"
+                                                value={items_cat.category_name}
+                                              />{" "}
+                                              {items_cat.category_name}
+                                            </div>
+                                          </div>
+                                        ))}
+                                    </div>
                                   </div>
-                                </div>
 
-                                {/* <lable>All Matress</lable> */}
-                                <div className="Main-filterGrid">
-                                  {category
-                                    .filter(
-                                      (view) =>
-                                        view.category_id !== "7" &&
-                                        view.category_id !== "8"
-                                    )
-                                    .map((items_cat, index) => (
+                                  <div className="Main-filterContainer">
+                                    <div className="filters Grid-item">
+                                      <div>
+                                        <input
+                                          style={{ visibility: "hidden" }}
+                                          type={"radio"}
+                                          onClick={() => {
+                                            filter_cat("all");
+                                          }}
+                                          name="radio_button"
+                                          value="all"
+                                        />{" "}
+                                        <lable>Firmness</lable>
+                                      </div>
+                                    </div>
+                                    <div className="Main-filterGrid">
                                       <div className="filters Grid-item">
                                         <div>
                                           <input
                                             type={"radio"}
                                             onClick={() => {
-                                              filter_cat(
-                                                items_cat.category_name
-                                              );
+                                              filter_cat("Soft");
                                             }}
                                             name="radio_button"
-                                            value={items_cat.category_name}
+                                            value="Soft"
                                           />{" "}
-                                          {items_cat.category_name}
+                                          Soft
                                         </div>
                                       </div>
-                                    ))}
+
+                                      <div className="filters Grid-item">
+                                        <div>
+                                          <input
+                                            type={"radio"}
+                                            onClick={() => {
+                                              filter_cat("Hard");
+                                            }}
+                                            name="radio_button"
+                                            value="Hard"
+                                          />{" "}
+                                          Hard
+                                        </div>
+                                      </div>
+
+                                      <div className="filters Grid-item">
+                                        <div>
+                                          <input
+                                            type={"radio"}
+                                            onClick={() => {
+                                              filter_cat("Medium Soft");
+                                            }}
+                                            name="radio_button"
+                                            value="Medium Soft"
+                                          />{" "}
+                                          Medium Soft
+                                        </div>
+                                      </div>
+
+                                      <div className="filters Grid-item">
+                                        <div>
+                                          <input
+                                            type={"radio"}
+                                            onClick={() => {
+                                              filter_cat("Medium Hard");
+                                            }}
+                                            name="radio_button"
+                                            value="Medium Hard"
+                                          />{" "}
+                                          Medium Hard
+                                        </div>
+                                      </div>
+                                      <div className="filters Grid-item">
+                                        <div>
+                                          <input
+                                            type={"radio"}
+                                            onClick={() => {
+                                              filter_cat("Dual Comfort");
+                                            }}
+                                            name="radio_button"
+                                            value="Dual Comfort"
+                                          />{" "}
+                                          Dual Comfort
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+
+
+
+                                  <div className="Main-filterContainer">
+                                    <div className="filters Grid-item">
+                                      <div>
+                                        <input
+                                          style={{ visibility: "hidden" }}
+                                          type={"radio"}
+                                          onClick={() => {
+                                            filter_cat("all");
+                                          }}
+                                          name="radio_button"
+                                          value="all"
+                                        />{" "}
+                                        <lable>Materials</lable>
+                                      </div>
+                                    </div>
+                                    <div className="Main-filterGrid">
+                                    <div className="filters Grid-item">
+                                        <div>
+                                          <input
+                                            type={"radio"}
+                                            onClick={() => {
+                                              filter_cat("Spring Mattress");
+                                            }}
+                                            name="radio_button"
+                                            value="Spring Mattress"
+                                          />{" "}
+                                          Spring Mattress
+                                        </div>
+                                      </div>
+                                      <div className="filters Grid-item">
+                                        <div>
+                                          <input
+                                            type={"radio"}
+                                            onClick={() => {
+                                              filter_cat("Pocketed Spring");
+                                            }}
+                                            name="radio_button"
+                                            value="Pocketed Spring"
+                                          />{" "}
+                                          Pocketed Spring
+                                        </div>
+                                      </div>
+
+                                      <div className="filters Grid-item">
+                                        <div>
+                                          <input
+                                            type={"radio"}
+                                            onClick={() => {
+                                              filter_cat("Bonnell Spring");
+                                            }}
+                                            name="radio_button"
+                                            value="Bonnell Spring"
+                                          />{" "}
+                                          Bonnell Spring
+                                        </div>
+                                      </div>
+
+                                      <div className="filters Grid-item">
+                                        <div>
+                                          <input
+                                            type={"radio"}
+                                            onClick={() => {
+                                              filter_cat("Natural Latex");
+                                            }}
+                                            name="radio_button"
+                                            value="Natural Latex"
+                                          />{" "}
+                                         Natural Latex
+                                        </div>
+                                      </div>
+
+                                      <div className="filters Grid-item">
+                                        <div>
+                                          <input
+                                            type={"radio"}
+                                            onClick={() => {
+                                              filter_cat("Foam mattress");
+                                            }}
+                                            name="radio_button"
+                                            value="Foam mattress"
+                                          />{" "}
+                                          Foam mattress
+                                        </div>
+                                      </div>
+
+                                      <div className="filters Grid-item">
+                                        <div>
+                                          <input
+                                            type={"radio"}
+                                            onClick={() => {
+                                              filter_cat("Coir mattress");
+                                            }}
+                                            name="radio_button"
+                                            value="Coir mattress"
+                                          />{" "}
+                                          Coir mattress
+                                        </div>
+                                      </div>
+                                     
+                                    </div>
+                                  </div>
+
+
+
+                                  <div className="Main-filterContainer">
+                                    <div className="filters Grid-item">
+                                      <div>
+                                        <input
+                                          type={"radio"}
+                                          onClick={() => {
+                                            filter_cat("motion_disturbance");
+                                          }}
+                                          name="radio_button"
+                                          value="motion_disturbance"
+                                        />{" "}
+                                        <lable>Zero Motion Disturbance</lable>
+                                      </div>
+                                    </div>
+
+                                    <div className="filters Grid-item">
+                                      <div>
+                                        <input
+                                          type={"radio"}
+                                          onClick={() => {
+                                            filter_cat("budget_friendly");
+                                          }}
+                                          name="radio_button"
+                                          value="budget_friendly"
+                                        />{" "}
+                                        <lable>Budget Friendly</lable>
+                                      </div>
+                                    </div>
+
+                                    <div className="filters Grid-item">
+                                      <div>
+                                        <input
+                                          type={"radio"}
+                                          onClick={() => {
+                                            filter_cat("best_seller");
+                                          }}
+                                          name="radio_button"
+                                          value="Best Sellers"
+                                        />{" "}
+                                        <lable>Best Sellers</lable>
+                                      </div>
+                                    </div>
+                                  </div>
                                 </div>
                               </div>
-
-                              <div className="Main-filterContainer">
-                                <div className="filters Grid-item">
-                                  <div>
-                                    <input
-                                      style={{ visibility: "hidden" }}
-                                      type={"radio"}
-                                      onClick={() => {
-                                        filter_cat("all");
-                                      }}
-                                      name="radio_button"
-                                      value="all"
-                                    />{" "}
-                                    <lable>Firmness</lable>
-                                  </div>
-                                </div>
-                                <div className="Main-filterGrid">
-                                  <div className="filters Grid-item">
-                                    <div>
-                                      <input
-                                        type={"radio"}
-                                        onClick={() => {
-                                          filter_cat("Soft");
-                                        }}
-                                        name="radio_button"
-                                        value="Soft"
-                                      />{" "}
-                                      Soft
-                                    </div>
-                                  </div>
-
-                                  <div className="filters Grid-item">
-                                    <div>
-                                      <input
-                                        type={"radio"}
-                                        onClick={() => {
-                                          filter_cat("Hard");
-                                        }}
-                                        name="radio_button"
-                                        value="Hard"
-                                      />{" "}
-                                      Hard
-                                    </div>
-                                  </div>
-
-                                  <div className="filters Grid-item">
-                                    <div>
-                                      <input
-                                        type={"radio"}
-                                        onClick={() => {
-                                          filter_cat("Medium Soft");
-                                        }}
-                                        name="radio_button"
-                                        value="Medium Soft"
-                                      />{" "}
-                                      Medium Soft
-                                    </div>
-                                  </div>
-
-                                  <div className="filters Grid-item">
-                                    <div>
-                                      <input
-                                        type={"radio"}
-                                        onClick={() => {
-                                          filter_cat("Medium Hard");
-                                        }}
-                                        name="radio_button"
-                                        value="Medium Hard"
-                                      />{" "}
-                                      Medium Hard
-                                    </div>
-                                  </div>
-                                  <div className="filters Grid-item">
-                                    <div>
-                                      <input
-                                        type={"radio"}
-                                        onClick={() => {
-                                          filter_cat("Dual Comfort");
-                                        }}
-                                        name="radio_button"
-                                        value="Dual Comfort"
-                                      />{" "}
-                                     Dual Comfort
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-
-
-
-                              <div className="Main-filterContainer">
-                                <div className="filters Grid-item">
-                                  <div>
-                                    <input
-                                      type={"radio"}
-                                      onClick={() => {
-                                        filter_cat("motion_disturbance");
-                                      }}
-                                      name="radio_button"
-                                      value="motion_disturbance"
-                                    />{" "}
-                                    <lable>Zero Motion Disturbance</lable>
-                                  </div>
-                                </div>
-
-                                <div className="filters Grid-item">
-                                  <div>
-                                    <input
-                                      type={"radio"}
-                                      onClick={() => {
-                                        filter_cat("budget_friendly");
-                                      }}
-                                      name="radio_button"
-                                      value="budget_friendly"
-                                    />{" "}
-                                    <lable>Budget Friendly</lable>
-                                  </div>
-                                </div>
-
-                                <div className="filters Grid-item">
-                                  <div>
-                                    <input
-                                      type={"radio"}
-                                      onClick={() => {
-                                        filter_cat("best_seller");
-                                      }}
-                                      name="radio_button"
-                                      value="Best Sellers"
-                                    />{" "}
-                                    <lable>Best Sellers</lable>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
                             </div>
                             <div class="new-item-content mobile_res">
                               <div class="newClass">
@@ -447,7 +579,6 @@ function Products() {
                                 data-toggle="tab"
                                 href="#product-filter"
                                 className="edit-icon blink"
-
                               >
                                 <i class="fa fa-edit" onClick={toggleClass}></i>
                               </a>
@@ -585,12 +716,111 @@ function Products() {
                                       Dual Comfort
                                     </div>
                                   </div>
-
-
-                                  
                                 </div>
                               </div>
 
+
+                              <div className="Main-filterContainer">
+                                    <div className="filters Grid-item">
+                                      <div>
+                                        <input
+                                          style={{ visibility: "hidden" }}
+                                          type={"radio"}
+                                          onClick={() => {
+                                            filter_cat("all");
+                                          }}
+                                          name="radio_button"
+                                          value="all"
+                                        />{" "}
+                                        <lable>Materials</lable>
+                                      </div>
+                                    </div>
+                                    <div className="Main-filterGrid">
+                                    <div className="filters Grid-item">
+                                        <div>
+                                          <input
+                                            type={"radio"}
+                                            onClick={() => {
+                                              filter_cat("Spring Mattress");
+                                            }}
+                                            name="radio_button"
+                                            value="Spring Mattress"
+                                          />{" "}
+                                          Spring Mattress
+                                        </div>
+                                      </div>
+                                      <div className="filters Grid-item">
+                                        <div>
+                                          <input
+                                            type={"radio"}
+                                            onClick={() => {
+                                              filter_cat("Pocketed Spring");
+                                            }}
+                                            name="radio_button"
+                                            value="Pocketed Spring"
+                                          />{" "}
+                                          Pocketed Spring
+                                        </div>
+                                      </div>
+
+                                      <div className="filters Grid-item">
+                                        <div>
+                                          <input
+                                            type={"radio"}
+                                            onClick={() => {
+                                              filter_cat("Bonnell Spring");
+                                            }}
+                                            name="radio_button"
+                                            value="Bonnell Spring"
+                                          />{" "}
+                                          Bonnell Spring
+                                        </div>
+                                      </div>
+
+                                      <div className="filters Grid-item">
+                                        <div>
+                                          <input
+                                            type={"radio"}
+                                            onClick={() => {
+                                              filter_cat("Natural Latex");
+                                            }}
+                                            name="radio_button"
+                                            value="Natural Latex"
+                                          />{" "}
+                                         Natural Latex
+                                        </div>
+                                      </div>
+
+                                      <div className="filters Grid-item">
+                                        <div>
+                                          <input
+                                            type={"radio"}
+                                            onClick={() => {
+                                              filter_cat("Foam mattress");
+                                            }}
+                                            name="radio_button"
+                                            value="Foam mattress"
+                                          />{" "}
+                                          Foam mattress
+                                        </div>
+                                      </div>
+
+                                      <div className="filters Grid-item">
+                                        <div>
+                                          <input
+                                            type={"radio"}
+                                            onClick={() => {
+                                              filter_cat("Coir mattress");
+                                            }}
+                                            name="radio_button"
+                                            value="Coir mattress"
+                                          />{" "}
+                                          Coir mattress
+                                        </div>
+                                      </div>
+                                     
+                                    </div>
+                                  </div>
 
 
                               <div className="Main-filterContainer">
@@ -642,7 +872,7 @@ function Products() {
 
                         <div class="col-sm-8 col-lg-8 col-md-8 product-container">
                           {/* <h1>OUR MATTRESS</h1> */}
-                          <div class="js-product-list-top firt nav-top">
+                          {/* <div class="js-product-list-top firt nav-top">
                             <div class="d-flex justify-content-around row">
                               <div class="col col-xs-12">
                                 <ul class="nav nav-tabs">
@@ -653,13 +883,7 @@ function Products() {
                                       class="active show fa fa-th-large"
                                     ></a>
                                   </li>
-                                  {/* <li>
-                                <a
-                                  href="#list"
-                                  data-toggle="tab"
-                                  class="fa fa-list-ul"
-                                ></a>
-                              </li> */}
+                            
                                 </ul>
                                 <div class="hidden-sm-down total-products">
                                   <p>
@@ -668,7 +892,7 @@ function Products() {
                                 </div>
                               </div>
                             </div>
-                          </div>
+                          </div> */}
                           <div class="tab-content product-items">
                             <div
                               id="grid"

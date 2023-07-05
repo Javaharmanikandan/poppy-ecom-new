@@ -39,7 +39,7 @@ function TestimonialSingle(props) {
               {isReadMore ? props.review.slice(0, 100): props.review }
     
  {props.review.length > 100 && 
-        <span style={{color:"black"}} onClick={toggleReadMore}>
+        <span style={{color:"black",cursor:'pointer'}} onClick={toggleReadMore}>
           {isReadMore ? '...read more' : ' -show less'}
           
         </span>

@@ -28,6 +28,7 @@ import BlogCard from "./Components/BlogCard";
 import Contactus from "./Components/Contactus";
 import youtube from "./MobileComponents/images/yf1.webp";
 import { ScrolltoTop } from "../utility";
+import FirstBanner from "../Components/FirstBanner";
 
 
 
@@ -182,21 +183,7 @@ function Home() {
                 <div className="desktop-responisve" >
                   {/* <Slider /> */}
 
-                  <div className=" px-5 py-5">
-                    <div className="tw-h-[500px] tw-bg-gray-400 w-full tw-rounded-[50px] tw-relative tw-overflow-hidden tw-bg-[url('https://images.unsplash.com/photo-1632829401795-2745c905ac77?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1932&q=80')] tw-bg-cover tw-bg-center ">
-                      <div className="tw-absolute tw-inset-0 tw-flex w-full tw-justify-start tw-items-center px-5">
-                        <div className="tw-flex tw-flex-col tw-gap-5 tw-bg-black/20 tw-backdrop-blur-sm tw-px-5 tw-py-5 tw-rounded-lg">
-                          <p className="tw-text-white tw-font-bold tw-text-[30px]">Title</p>
-                          <p className="tw-text-white">Content</p>
-                          <button className=" active:tw-opacity-50 tw-cursor-pointer tw-border-none tw-px-5 tw-py-3 tw-bg-white tw-rounded-lg tw-capitalize tw-font-bold ">
-                            click here
-                          </button>
-                        </div>
-
-                      </div>
-                    </div>
-
-                  </div>
+                 <FirstBanner />
 
                 </div>
                 <div className="mobile-responisve">

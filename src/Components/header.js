@@ -308,7 +308,7 @@ export default function Header() {
                     <a href="#" class="parent">
                       Mattress
                     </a>
-                    <div class="dropdown-menu mega-container" style={{width: "850px",borderRadius:25}}>
+                    <div class="dropdown-menu mega-container" style={{width: "970px",borderRadius:25}}>
                       {/* <ul>
 
                          {category.map(items_cat =>(
@@ -342,7 +342,7 @@ export default function Header() {
                                     )}`}
                                   >
                                     {items_cat.category_name}<br />
-                                    <span style={{fontSize:11,color:'#4a4848'}} > {items_cat.description} </span>
+                                    <span style={{fontSize:12,color:'#992876'}} > {items_cat.description} </span>
                                   </Link>
                                 </li>
                               ))}
@@ -403,6 +403,76 @@ export default function Header() {
                                   )}`}
                                 >
                                   {"Dual Comfort"}
+                                </Link>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+
+                        <div className="mega-firms">
+                          <p>Shop by Materials</p>
+                          <div className="mega-firms-items">
+                            <ul>
+                              <li class="item">
+                                <Link
+                                  to={`/productlist/${"Spring Mattress".replace(
+                                    / /g,
+                                    "-"
+                                  )}`}
+                                >
+                                  {"Spring Mattress"}
+                                </Link>
+                              </li>
+                              <li class="item">
+                                <Link
+                                  to={`/productlist/${"Pocketed Spring".replace(
+                                    / /g,
+                                    "-"
+                                  )}`}
+                                >
+                                  {"Pocketed Spring"}
+                                </Link>
+                              </li>
+                              <li class="item">
+                                <Link
+                                  to={`/productlist/${"Bonnell Spring".replace(
+                                    / /g,
+                                    "-"
+                                  )}`}
+                                >
+                                  {"Bonnell Spring"}
+                                </Link>
+                              </li>
+
+                              <li class="item">
+                                <Link
+                                  to={`/productlist/${"Natural Latex".replace(
+                                    / /g,
+                                    "-"
+                                  )}`}
+                                >
+                                  {"Natural Latex"}
+                                </Link>
+                              </li>
+
+                              <li class="item">
+                                <Link
+                                  to={`/productlist/${"Foam mattress".replace(
+                                    / /g,
+                                    "-"
+                                  )}`}
+                                >
+                                  {"Foam mattress"}
+                                </Link>
+                              </li>
+                              <li class="item">
+                                <Link
+                                  to={`/productlist/${"Coir mattress".replace(
+                                    / /g,
+                                    "-"
+                                  )}`}
+                                >
+                                  {"Coir mattress"}
                                 </Link>
                               </li>
                             </ul>
@@ -696,7 +766,7 @@ export default function Header() {
                 </div>
               </div>
               <div class="desktop_cart d-flex align-items-center">
-                <div class="blockcart block-cart cart-preview tiva-toggle">
+                <div class="blockcart block-cart cart-preview tiva-toggle" id="dropdown-content1">
                   <div class="header-cart tiva-toggle-btn">
                     {/* <span class="cart-products-count">{cart_count !== 0 ? cart_count: 0}</span> */}
 
