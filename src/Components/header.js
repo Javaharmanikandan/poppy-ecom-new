@@ -8,6 +8,7 @@ import { CartContext } from "../Context/Ecomcontext";
 import axios from "axios";
 import cartSection from "../Helper/Cart";
 import logo from "../assets/img/logo.png";
+import { CommonContext } from "../Context/CommonContext";
 const imgurl = process.env.REACT_APP_IMG_URL;
 const baseurl = process.env.REACT_APP_BASE_URL;
 export default function Header() {
@@ -21,6 +22,8 @@ export default function Header() {
   const [pid, set_product_id] = useState({});
   const [accCategoryPillow, setAccCategoryPillow] = useState([]);
   const [product_name, setproductNames] = useState([]);
+
+  const {cartModal,setCartModal} =useContext(CommonContext)
 
  
   useEffect(() => {
@@ -774,7 +777,7 @@ export default function Header() {
                       <span class="cart-products-count">{cart.length}</span>
                     )}
 
-                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                    <i onClick={()=>{setCartModal(!cartModal)}} class="fa fa-shopping-cart" aria-hidden="true"></i>
                   </div>
                   {cart.length !== 0 && (
                     <div class="dropdown-content">

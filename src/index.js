@@ -1,5 +1,5 @@
 import "./index.css";
- import "./style/tailwind.css";
+import "./style/tailwind.css";
 
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 
@@ -28,7 +28,7 @@ import ProductDetail from "./pages/ProductDetail";
 import ProductList from "./pages/Products";
 import React from "react";
 import ReactDOM from "react-dom";
-import Redirect_function  from "./Components/redirect"
+import Redirect_function from "./Components/redirect"
 import UserProfile from "./pages/UserProfile";
 import Waranty from "./pages/warranty";
 import WishList from "./pages/WishList";
@@ -36,6 +36,8 @@ import Index from "./new-pages/Home-page/Index";
 import New_Details from "./new-pages/product-page/Product_Index";
 import Product_Filter from "./new-pages/filter-page/filter";
 import Assists from './pages/assists';
+import SideCart from "./Components/UI/SideCart";
+import CommonContextProvider from "./Context/CommonContext";
 
 document.title = "Poppy India";
 
@@ -44,70 +46,73 @@ const WithHeader = () => {
 
   // console.log = function () {};
 
-  return(
-  <>
-  <Header />
-    <Routes>
-    <Route path="/" element={<Home />} />
-    
-      <Route path="/contact" element={<Contact />}></Route>
-      <Route path="/New-home" element={<Index />}></Route>
-      <Route path="/New-product" element={<New_Details />}></Route>
-      <Route path="/New-filter" element={<Product_Filter />}></Route>
-      
-      <Route path="/productlist/:category_str" element={<ProductList />}></Route>
-      <Route path="/accessories/:id" element={<Accessories />}></Route>
-      <Route path="/about" element={<AboutUs />}></Route>
-      <Route path="/assists" element={<Assists />}></Route>
-      <Route path="/cart" element={<Cart />}></Route>
-      {/* <Route path="/checkoutNew" element={<NewCheckOutPage />}  ></Route> */}
-      <Route path="/checkout" element={<Checkout />}  ></Route>
+  return (
+    <>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
 
-      <Route path="/order_track/:id" element={<Order_track />}></Route>
+        <Route path="/contact" element={<Contact />}></Route>
+        <Route path="/New-home" element={<Index />}></Route>
+        <Route path="/New-product" element={<New_Details />}></Route>
+        <Route path="/New-filter" element={<Product_Filter />}></Route>
 
-      {/* <Route path="/edit/:id"></Route> */}
+        <Route path="/productlist/:category_str" element={<ProductList />}></Route>
+        <Route path="/accessories/:id" element={<Accessories />}></Route>
+        <Route path="/about" element={<AboutUs />}></Route>
+        <Route path="/assists" element={<Assists />}></Route>
+        <Route path="/cart" element={<Cart />}></Route>
+        {/* <Route path="/checkoutNew" element={<NewCheckOutPage />}  ></Route> */}
+        <Route path="/checkout" element={<Checkout />}  ></Route>
+
+        <Route path="/order_track/:id" element={<Order_track />}></Route>
+
+        {/* <Route path="/edit/:id"></Route> */}
         <Route path="/productdetail/:product_name_param" element={<ProductDetail />} />
         <Route path="/accessoriesdetail/:acc_name" element={<AccessoriesDetail />} />
-         <Route path="/redirect/:id" element={<Redirect_function />} />
+        <Route path="/redirect/:id" element={<Redirect_function />} />
         <Route path="/empty_cart" element={<Empty_cart />} />
-         <Route path="/profile" element={<UserProfile />} />
-      <Route path="/list" element={<WishList />} />
-      <Route path="/blog" element={<Blog />} />
-      <Route path="/blogdetails/:id" element={<BlogDetails />} />
-      <Route path="/warranty" element={<Waranty />} />
-      <Route path="/filt" element={<Filter />} />
-      <Route path="/*" element={<ErrorPage />} /> 
-    </Routes>
-    <BottomMenu />
-    <Popup />
-    <Footer /> 
-  </>);
+        <Route path="/profile" element={<UserProfile />} />
+        <Route path="/list" element={<WishList />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/blogdetails/:id" element={<BlogDetails />} />
+        <Route path="/warranty" element={<Waranty />} />
+        <Route path="/filt" element={<Filter />} />
+        <Route path="/*" element={<ErrorPage />} />
+      </Routes>
+      <BottomMenu />
+      <SideCart />
+      <Popup />
+      <Footer />
+    </>);
 };
 
 const ErrorPage = () => {
 
   // console.log = function () {};
 
-  
+
   return (
     <>
-  <Routes>
-    <Route exact path="*" element={<NotFound />} />
-  </Routes>
-  </>
+      <Routes>
+        <Route exact path="*" element={<NotFound />} />
+      </Routes>
+    </>
   );
 };
 
 ReactDOM.render(
   <CartProvider>
-  <Router>
-    <Routes>
-      <Route path="/login" element={<LoginSignUp data={"login"} />}></Route>
-      <Route path="/register" element={<LoginSignUp data={"register"} />}/>    
-      <Route path="/*" element={<WithHeader />} />
-      <Route path="*" element={<ErrorPage />} />    
-    </Routes>
-  </Router>
+    <CommonContextProvider>
+      <Router>
+        <Routes>
+          <Route path="/login" element={<LoginSignUp data={"login"} />}></Route>
+          <Route path="/register" element={<LoginSignUp data={"register"} />} />
+          <Route path="/*" element={<WithHeader />} />
+          <Route path="*" element={<ErrorPage />} />
+        </Routes>
+      </Router>
+    </CommonContextProvider>
   </CartProvider>,
   document.getElementById("root")
 );
