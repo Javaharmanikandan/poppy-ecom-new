@@ -6,16 +6,19 @@ import { CartContext } from '../../Context/Ecomcontext';
 import { toast } from "react-toastify";
 
 import cartSection from "../../Helper/Cart";
+import { CommonContext } from '../../Context/CommonContext';
 
 const imgurl = process.env.REACT_APP_IMG_URL;
 
 export const ProductCardCommon = (props) => {
 
-   console.log(props.dataDetails)
+
 
   let navigate = useNavigate();
 
   const [cart, setCart] = useContext(CartContext);
+  const {cartModal,setCartModal} =useContext(CommonContext)
+  
 
   toast.configure();
 
@@ -35,12 +38,16 @@ export const ProductCardCommon = (props) => {
 
 
   const addTocart = (id, amt, title, image, bed_type, dimension, thickness,free_content,discount_per,product_price,dev) => {
+
+   
     //TODO METHOD ACTION FOR ADD
-    toast.success("Product Added Successfully ");
+   // toast.success("Product Added Successfully ");
 
     setCart(
       cartSection.addCart(id, parseInt(amt), title, image, bed_type, dimension, thickness,free_content,"Stock Color",discount_per,product_price,dev)
     );
+
+    setCartModal(true)
   };
 
 

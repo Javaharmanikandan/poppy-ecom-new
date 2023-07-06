@@ -35,6 +35,7 @@ const[FirstBanner,setFirstBanner]=useState([]);
 
 
     const settings = {
+        arrows:false,
         dots: false,
         infinite: true,
         // speed: 500,
@@ -43,6 +44,7 @@ const[FirstBanner,setFirstBanner]=useState([]);
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 3000,
+        
       };
 
 

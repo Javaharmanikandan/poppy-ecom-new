@@ -30,6 +30,7 @@ function Productlist(props) {
   var original_image=base+props.img;
 
   const addTocart = (id, amt, title) => {
+    
     setCart(cartSection.addCart(id, amt, title));
     toast.success("product Added Successfully ");
   }

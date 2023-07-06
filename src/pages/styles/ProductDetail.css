@@ -325,6 +325,8 @@
     height: 45px;
     font-size: 1.2rem;
     margin-bottom: 5px;
+    cursor: pointer;
+
 }
 
 .input-group-cus {

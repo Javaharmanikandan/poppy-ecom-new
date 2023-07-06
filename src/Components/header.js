@@ -3,16 +3,18 @@ import "./styles/header.css";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import React, { useContext, useEffect, useState } from "react";
 import { category_list, name_list } from "../data/API";
-
+import { CommonContext } from "../Context/CommonContext";
 import { CartContext } from "../Context/Ecomcontext";
 import axios from "axios";
 import cartSection from "../Helper/Cart";
 import logo from "../assets/img/logo.png";
-import { CommonContext } from "../Context/CommonContext";
 const imgurl = process.env.REACT_APP_IMG_URL;
 const baseurl = process.env.REACT_APP_BASE_URL;
 export default function Header() {
   let navigate = useNavigate();
+
+  const {cartModal,setCartModal} =useContext(CommonContext)
+
   const [category, setCategory] = useState([]);
   const [category_ass, setCategoryass] = useState([]);
 
@@ -22,8 +24,6 @@ export default function Header() {
   const [pid, set_product_id] = useState({});
   const [accCategoryPillow, setAccCategoryPillow] = useState([]);
   const [product_name, setproductNames] = useState([]);
-
-  const {cartModal,setCartModal} =useContext(CommonContext)
 
  
   useEffect(() => {
@@ -223,7 +223,7 @@ export default function Header() {
                 {/* <span class="cart-products-count">{cart_count !== 0 ? cart_count: 0}</span> */}
                 <Link to="/cart">
                   {" "}
-                  <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                  <i class="fa fa-shopping-cart" aria-hidden="true" ></i>
                 </Link>
 
                 {cart.length !== 0 && (
@@ -428,54 +428,54 @@ export default function Header() {
                               </li>
                               <li class="item">
                                 <Link
-                                  to={`/productlist/${"Pocketed Spring".replace(
+                                  to={`/productlist/${"Pocketed Spring Mattress".replace(
                                     / /g,
                                     "-"
                                   )}`}
                                 >
-                                  {"Pocketed Spring"}
+                                  {"Pocketed Spring Mattress"}
                                 </Link>
                               </li>
                               <li class="item">
                                 <Link
-                                  to={`/productlist/${"Bonnell Spring".replace(
+                                  to={`/productlist/${"Bonnell Spring Mattress".replace(
                                     / /g,
                                     "-"
                                   )}`}
                                 >
-                                  {"Bonnell Spring"}
-                                </Link>
-                              </li>
-
-                              <li class="item">
-                                <Link
-                                  to={`/productlist/${"Natural Latex".replace(
-                                    / /g,
-                                    "-"
-                                  )}`}
-                                >
-                                  {"Natural Latex"}
+                                  {"Bonnell Spring Mattress"}
                                 </Link>
                               </li>
 
                               <li class="item">
                                 <Link
-                                  to={`/productlist/${"Foam mattress".replace(
+                                  to={`/productlist/${"Natural Latex Mattress".replace(
                                     / /g,
                                     "-"
                                   )}`}
                                 >
-                                  {"Foam mattress"}
+                                  {"Natural Latex Mattress"}
+                                </Link>
+                              </li>
+
+                              <li class="item">
+                                <Link
+                                  to={`/productlist/${"Foam Mattress ".replace(
+                                    / /g,
+                                    "-"
+                                  )}`}
+                                >
+                                  {"Foam Mattress"}
                                 </Link>
                               </li>
                               <li class="item">
                                 <Link
-                                  to={`/productlist/${"Coir mattress".replace(
+                                  to={`/productlist/${"Coir Mattress".replace(
                                     / /g,
                                     "-"
                                   )}`}
                                 >
-                                  {"Coir mattress"}
+                                  {"Coir Mattress"}
                                 </Link>
                               </li>
                             </ul>
@@ -769,7 +769,7 @@ export default function Header() {
                 </div>
               </div>
               <div class="desktop_cart d-flex align-items-center">
-                <div class="blockcart block-cart cart-preview tiva-toggle" id="dropdown-content1">
+                <div class="blockcart block-cart cart-preview " >
                   <div class="header-cart tiva-toggle-btn">
                     {/* <span class="cart-products-count">{cart_count !== 0 ? cart_count: 0}</span> */}
 
@@ -777,7 +777,7 @@ export default function Header() {
                       <span class="cart-products-count">{cart.length}</span>
                     )}
 
-                    <i onClick={()=>{setCartModal(!cartModal)}} class="fa fa-shopping-cart" aria-hidden="true"></i>
+                    <i class="fa fa-shopping-cart" aria-hidden="true" onClick={()=>{setCartModal(!cartModal)}}></i>
                   </div>
                   {cart.length !== 0 && (
                     <div class="dropdown-content">

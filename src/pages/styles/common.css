@@ -578,3 +578,13 @@
     padding-top: 35px;
     padding-bottom: 35px;
 }
+
+.blink_me_lab {
+    animation: blinker 1s linear infinite;
+  }
+  
+  @keyframes blinker {
+    50% {
+      opacity: 0.2;
+    }
+  }
