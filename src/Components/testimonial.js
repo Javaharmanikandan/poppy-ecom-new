@@ -12,12 +12,12 @@ import { testimonials } from "../data/API";
 const baseurl = process.env.REACT_APP_BASE_URL;
 function Testimonial() {
 
- const [testimonial, settestimonials] = useState([]);
+  const [testimonial, settestimonials] = useState([]);
 
-  
+
   useEffect(() => {
 
- 
+
     testimonials_get();
 
 
@@ -25,11 +25,11 @@ function Testimonial() {
 
 
   const settings = {
-    arrows:false,
+    arrows: false,
     dots: true,
     infinite: false,
     speed: 500,
-     slidesToShow: 1,
+    slidesToShow: 1,
     // slidesToScroll: 1,
     // autoplay: true,
     // autoplaySpeed: 3000,
@@ -82,10 +82,10 @@ function Testimonial() {
 
 
 
-  
+
   const test_single = testimonial.map((data, inde) => {
     return (
-      <TestimonialSingle name={data.t_name} img={data.img} review={data.review} index={inde}/>
+      <TestimonialSingle name={data.t_name} img={data.img} review={data.review} index={inde} />
     )
 
   })
@@ -94,28 +94,28 @@ function Testimonial() {
 
   return (
     <>
-    <div class="container">
-  <div class="row justify-content-md-center">
-    <div class="col col-lg-4" >
-    <div className='Font-container'>
+      <div class="container">
+        <div class="row justify-content-md-center">
+          <div class="col col-lg-4" >
+            <div className='Font-container'>
 
-      <img src={starfall} className='gif-image-test' />  
-        <h4 className="happy-font">Happy Customers !</h4></div> 
+              <img src={starfall} className='gif-image-test' />
+              <h4 className="happy-font">Happy Customers !</h4></div>
 
-      <p className='Paragrah-test'>They inspire us to go higher & higher everyday!</p>
-    </div>
-    <div class="col col-lg-8 " >
-   <div className='product-section'>
-<Slider {...settings}>
-{test_single}
-  </Slider>
-  </div>  
-  </div>
-  </div>
-  </div>
+            <p className='Paragrah-test'>They inspire us to go higher & higher everyday!</p>
+          </div>
+          <div class="col col-lg-8 " >
+            <div className='product-section'>
+              <Slider {...settings}>
+                {test_single}
+              </Slider>
+            </div>
+          </div>
+        </div>
+      </div>
 
 
-    {/* <Carousel
+      {/* <Carousel
         showArrows={true}
         infiniteLoop={true}
         showThumbs={false}

@@ -176,6 +176,10 @@
   top: 0px
 }
 
+.tw-bottom-0 {
+  bottom: 0px
+}
+
 .tw-z-50 {
   z-index: 50
 }
@@ -186,6 +190,11 @@
 
 .tw-z-\[1000\] {
   z-index: 1000
+}
+
+.tw-mx-2 {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem
 }
 
 .tw-ml-3 {
@@ -200,12 +209,20 @@
   margin-top: 1.25rem
 }
 
+.tw-block {
+  display: block
+}
+
 .tw-flex {
   display: flex
 }
 
 .tw-grid {
   display: grid
+}
+
+.tw-hidden {
+  display: none
 }
 
 .tw-h-\[500px\] {
@@ -390,6 +407,11 @@
   border-color: rgb(197 193 193 / var(--tw-border-opacity))
 }
 
+.tw-border-gray-500 {
+  --tw-border-opacity: 1;
+  border-color: rgb(107 114 128 / var(--tw-border-opacity))
+}
+
 .tw-bg-gray-400 {
   --tw-bg-opacity: 1;
   background-color: rgb(156 163 175 / var(--tw-bg-opacity))
@@ -566,4 +588,26 @@
 
 .active\:tw-opacity-50:active {
   opacity: 0.5
+}
+
+@media (min-width: 768px) {
+  .md\:tw-fixed {
+    position: fixed
+  }
+
+  .md\:tw-block {
+    display: block
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:tw-block {
+    display: block
+  }
+}
+
+@media (min-width: 1280px) {
+  .xl\:tw-block {
+    display: block
+  }
 }

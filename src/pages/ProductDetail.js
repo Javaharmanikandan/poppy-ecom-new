@@ -1951,6 +1951,33 @@ var bdtype=custom_height === "" || custom_width==="" ?bed_type:"Custom";
         </footer>
       </div>
       <Loader />
+      <BottomTab />
     </>
   );
+}
+
+
+const BottomTab = () =>{
+  return(
+    <>
+
+      <div className="tw-fixed tw-hidden md:tw-block lg:tw-block xl:tw-block tw-bottom-0   tw-w-full tw-z-50 tw-bg-black tw-shadow-lg ">
+
+<div className="tw-grid tw-grid-cols-2">
+        <button className=" tw-text-black tw-py-5 tw-capitalize tw-text-xl tw-bg-white tw-border tw-border-gray-500">
+            Add to cart
+        </button>
+        <div className="tw-grid tw-grid-cols-2">
+        <button className=" tw-text-black tw-py-5 tw-capitalize tw-text-xl tw-bg-white tw-border tw-border-gray-500">
+            Add to cart
+        </button>
+        <button className=" tw-text-black tw-py-5 tw-capitalize tw-text-xl tw-bg-white tw-border tw-border-gray-500">
+            Add to cart
+        </button>
+        </div>
+</div>
+
+      </div>
+    </>
+  )
 }
