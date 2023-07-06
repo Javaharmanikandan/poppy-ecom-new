@@ -1439,10 +1439,9 @@ var bdtype=custom_height === "" || custom_width==="" ?bed_type:"Custom";
 
                                       <div class="product-quantity">
                                         <div class="qty">
-                                          <div class="input-group input-group-cus" >
+                                          <div class="input-group input-group-cus">
                                             <span class="add">
                                               <button
-                                              style={{cursor:'pointer'}}
                                                 class="btn btn-primary add-to-cart add-item"
                                                 data-button-action="add-to-cart"
                                                 type="submit"
@@ -1587,7 +1586,9 @@ var bdtype=custom_height === "" || custom_width==="" ?bed_type:"Custom";
                                           style={{
                                             cursor: "pointer",
                                             marginLeft: 10,
+                                            color:"#992876"
                                           }}
+                                          className="blink_me_lab"
                                         >
                                           APPLY COUPON CODE
                                         </label>
@@ -1613,7 +1614,7 @@ var bdtype=custom_height === "" || custom_width==="" ?bed_type:"Custom";
 
                                     <div
                                       class="product-quantity  desktop-responisve"
-                                      style={{ marginTop: 30 }}
+                                      style={{ marginTop: 15 }}
                                     >
                                       <div class="qty">
                                         <div class="input-group input-group-cus">
@@ -1673,6 +1674,7 @@ var bdtype=custom_height === "" || custom_width==="" ?bed_type:"Custom";
                                         </div>
                                       </div>
                                     </div>
+                                    <div style={{marginTop:20,marginBottom:10}}> <p style={{fontSize:14}}>Free Delivery within 2 to 5 Days across South India !</p></div>
                                   </div>
                                 </div>
                               </div>

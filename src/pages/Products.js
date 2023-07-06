@@ -391,12 +391,12 @@ function Products() {
                                           <input
                                             type={"radio"}
                                             onClick={() => {
-                                              filter_cat("Pocketed Spring");
+                                              filter_cat("Pocketed Spring Mattress");
                                             }}
                                             name="radio_button"
-                                            value="Pocketed Spring"
+                                            value="Pocketed Spring Mattress"
                                           />{" "}
-                                          Pocketed Spring
+                                          Pocketed Spring Mattress
                                         </div>
                                       </div>
 
@@ -405,12 +405,12 @@ function Products() {
                                           <input
                                             type={"radio"}
                                             onClick={() => {
-                                              filter_cat("Bonnell Spring");
+                                              filter_cat("Bonnell Spring Mattress");
                                             }}
                                             name="radio_button"
-                                            value="Bonnell Spring"
+                                            value="Bonnell Spring Mattress"
                                           />{" "}
-                                          Bonnell Spring
+                                          Bonnell Spring Mattress
                                         </div>
                                       </div>
 
@@ -419,12 +419,12 @@ function Products() {
                                           <input
                                             type={"radio"}
                                             onClick={() => {
-                                              filter_cat("Natural Latex");
+                                              filter_cat("Natural Latex Mattress");
                                             }}
                                             name="radio_button"
-                                            value="Natural Latex"
+                                            value="Natural Latex Mattress"
                                           />{" "}
-                                         Natural Latex
+                                         Natural Latex Mattress
                                         </div>
                                       </div>
 
@@ -433,12 +433,12 @@ function Products() {
                                           <input
                                             type={"radio"}
                                             onClick={() => {
-                                              filter_cat("Foam mattress");
+                                              filter_cat("Foam Mattress");
                                             }}
                                             name="radio_button"
-                                            value="Foam mattress"
+                                            value="Foam Mattress"
                                           />{" "}
-                                          Foam mattress
+                                          Foam Mattress
                                         </div>
                                       </div>
 
@@ -447,12 +447,12 @@ function Products() {
                                           <input
                                             type={"radio"}
                                             onClick={() => {
-                                              filter_cat("Coir mattress");
+                                              filter_cat("Coir Mattress");
                                             }}
                                             name="radio_button"
-                                            value="Coir mattress"
+                                            value="Coir Mattress"
                                           />{" "}
-                                          Coir mattress
+                                          Coir Mattress
                                         </div>
                                       </div>
                                      
@@ -754,12 +754,12 @@ function Products() {
                                           <input
                                             type={"radio"}
                                             onClick={() => {
-                                              filter_cat("Pocketed Spring");
+                                              filter_cat("Pocketed Spring Mattress");
                                             }}
                                             name="radio_button"
-                                            value="Pocketed Spring"
+                                            value="Pocketed Spring Mattress"
                                           />{" "}
-                                          Pocketed Spring
+                                          Pocketed Spring Mattress
                                         </div>
                                       </div>
 
@@ -768,12 +768,12 @@ function Products() {
                                           <input
                                             type={"radio"}
                                             onClick={() => {
-                                              filter_cat("Bonnell Spring");
+                                              filter_cat("Bonnell Spring Mattress");
                                             }}
                                             name="radio_button"
-                                            value="Bonnell Spring"
+                                            value="Bonnell Spring Mattress"
                                           />{" "}
-                                          Bonnell Spring
+                                          Bonnell Spring Mattress
                                         </div>
                                       </div>
 
@@ -782,12 +782,12 @@ function Products() {
                                           <input
                                             type={"radio"}
                                             onClick={() => {
-                                              filter_cat("Natural Latex");
+                                              filter_cat("Natural Latex Mattress");
                                             }}
                                             name="radio_button"
-                                            value="Natural Latex"
+                                            value="Natural Latex Mattress"
                                           />{" "}
-                                         Natural Latex
+                                         Natural Latex Mattress
                                         </div>
                                       </div>
 
@@ -796,12 +796,12 @@ function Products() {
                                           <input
                                             type={"radio"}
                                             onClick={() => {
-                                              filter_cat("Foam mattress");
+                                              filter_cat("Foam Mattress");
                                             }}
                                             name="radio_button"
-                                            value="Foam mattress"
+                                            value="Foam Mattress"
                                           />{" "}
-                                          Foam mattress
+                                          Foam Mattress
                                         </div>
                                       </div>
 
@@ -810,12 +810,12 @@ function Products() {
                                           <input
                                             type={"radio"}
                                             onClick={() => {
-                                              filter_cat("Coir mattress");
+                                              filter_cat("Coir Mattress");
                                             }}
                                             name="radio_button"
-                                            value="Coir mattress"
+                                            value="Coir Mattress"
                                           />{" "}
-                                          Coir mattress
+                                          Coir Mattress
                                         </div>
                                       </div>
                                      
