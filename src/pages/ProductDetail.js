@@ -18,6 +18,7 @@ import Lottie from "react-lottie";
 import CoupenPng from "./MobileComponents/images/badge.png";
 import * as animationData from "./gift.json";
 import { ScrolltoTop } from "../utility";
+import { CommonContext } from "../Context/CommonContext";
 
 const imgurl = process.env.REACT_APP_IMG_URL;
 const baseurl = process.env.REACT_APP_BASE_URL;
@@ -136,6 +137,8 @@ export default function ProductDetail() {
   const { product_name_param } = useParams();
   const [discount, set_discount_percentage] = useState(0);
   
+  const {cartModal,setCartModal} =useContext(CommonContext)
+
   //CUSTOMISE HEIGHT AND WIDTH
 
   const [custom_height, set_custom_height] = useState("");
@@ -499,18 +502,19 @@ export default function ProductDetail() {
   };
   const addTocart = (id, amt, title, image, bed_type, dimension, thickness, freeSection,color,dis,pri) => {
     
-
+ 
 var dim=custom_height === "" || custom_width==="" ?dimension:custom_height+" x "+custom_width;
 var bdtype=custom_height === "" || custom_width==="" ?bed_type:"Custom";
 
     // alert(freeSection)
     // return 0;
     //TODO METHOD ACTION FOR ADD
-    toast.success("Product Added Successfully ");
+   // toast.success("Product Added Successfully ");
 
     setCart(
       cartSection.addCart(id, parseInt(amt), title, image, bdtype, dim, thickness,freeSection,color,dis,pri,type_sub_devision)
     );
+    setCartModal(true)
   };
 
   //Discouted Price Here

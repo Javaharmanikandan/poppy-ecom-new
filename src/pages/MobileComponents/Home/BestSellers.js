@@ -39,6 +39,7 @@ export default function ProductSlider(props) {
       {
         breakpoint: 480,
         settings: {
+          dots: false,
           infinite: true,
           initialSlide: 1,
           slidesToShow: 1.25,
