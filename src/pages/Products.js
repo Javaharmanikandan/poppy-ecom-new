@@ -945,7 +945,7 @@ function Products() {
                         {categoryContent && (
                           <div
                             dangerouslySetInnerHTML={{
-                              __html: categoryContent.content,
+                              __html: categoryContent.category_content,
                             }}
                           />
                         )}
