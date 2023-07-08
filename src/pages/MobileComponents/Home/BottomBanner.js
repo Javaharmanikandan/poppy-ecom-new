@@ -41,7 +41,7 @@ const navigate = useNavigate();
 
 
   return (
-    <div className="containerSwiper  " style={{ marginTop: 60 }}>
+    <div className="containerSwiper  " style={{ marginTop: 80 }}>
 
       {banner_bottom.length >0  ?  
     <Swiper

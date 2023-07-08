@@ -6,6 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { ProductCardCommon } from "../../Components/ProductCardCommon";
 
 export default function ProductSlider(props) {
+
   var settings = {
     arrows: false,
     dots: false,
@@ -50,11 +51,8 @@ export default function ProductSlider(props) {
   };
 
   return (
-    <div
-      className="product-cart"
-   
-    >
-      <h3>{"- " + props.title + " -"} </h3>
+    <div className="product-cart">
+      <h2 className="headingSecond">{"- " + props.title + " -"} </h2>
       <div className="product-section">
         <Slider {...settings}>
           {props.detailsData.map((item) => {

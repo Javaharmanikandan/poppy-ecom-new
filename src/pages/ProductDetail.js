@@ -36,26 +36,21 @@ const userData = JSON.parse(localStorage.getItem("userInfo"));
 
 export default function ProductDetail() {
   const [open, setOpen] = useState(false);
-  const[pickedColorImg,setPickedColorImg]=useState("")
-   const[pickedColorId,setPicketColorId]=useState("")
-  const[pickedColor,setPickedColor]=useState("Stock Color")
-  const [discount_less,setDiscountLess]=useState(0);
+  const [pickedColorImg, setPickedColorImg] = useState("");
+  const [pickedColorId, setPicketColorId] = useState("");
+  const [pickedColor, setPickedColor] = useState("Stock Color");
+  const [discount_less, setDiscountLess] = useState(0);
   const onOpenModal = async (data) => {
-    setOpen(true)
-   setPickedColorImg(data.img)
-    setPickedColor(data.colour_name)
-    setPicketColorId(data.id)
+    setOpen(true);
+    setPickedColorImg(data.img);
+    setPickedColor(data.colour_name);
+    setPicketColorId(data.id);
   };
   const onCloseModal = () => setOpen(false);
 
-
   useEffect(() => {
-    ScrolltoTop()
-}, [])
-
-
-
-
+    ScrolltoTop();
+  }, []);
 
   //Image variables
   let navigate = useNavigate();
@@ -72,7 +67,7 @@ export default function ProductDetail() {
   const [comments, set_comments] = useState("");
   const [coupenDis, set_coupenDis] = useState(0);
 
-  const[share,setShare]=useState(0);
+  const [share, setShare] = useState(0);
   //End Customer
 
   //Function For Insert Comments
@@ -106,7 +101,7 @@ export default function ProductDetail() {
   const [coupen_code, set_coupen] = useState(0);
 
   const [bed_Data, set_bed] = useState({});
-  
+
   const [dimension, set_dimention] = useState({});
   const [thickness, set_thickness] = useState({});
   const [Product_Details, set_product_Details] = useState({});
@@ -136,8 +131,8 @@ export default function ProductDetail() {
   // const location = useLocation();
   const { product_name_param } = useParams();
   const [discount, set_discount_percentage] = useState(0);
-  
-  const {cartModal,setCartModal} =useContext(CommonContext)
+
+  const { cartModal, setCartModal } = useContext(CommonContext);
 
   //CUSTOMISE HEIGHT AND WIDTH
 
@@ -211,8 +206,6 @@ export default function ProductDetail() {
 
         set_dbcoupen(response.data.data[0].coupen_code);
         set_coupenDisPer(response.data.data[0].discount_percentage);
-
-      
       });
   };
 
@@ -222,11 +215,10 @@ export default function ProductDetail() {
       setcoupenstatus(true);
       set_discount_percentage(coupenDisPer);
 
-     // const discount_less = percentageCalculation(price, coupenDisPer);
-      DiscountCalculations(price,coupenDisPer)
-     
-     // set_coupenDis(discount_less);
-      
+      // const discount_less = percentageCalculation(price, coupenDisPer);
+      DiscountCalculations(price, coupenDisPer);
+
+      // set_coupenDis(discount_less);
     } else {
       toast.error("Invalide Coupon Code");
       setcoupenstatus(false);
@@ -237,7 +229,7 @@ export default function ProductDetail() {
     //  const baseurl = 'http://localhost:8002/';
 
     //  const bed_localhost=localStorage.getItem('bed_type');
-// alert(id)
+    // alert(id)
     const requestBody = {
       product_id: id,
       name: product_name_param.replace(/-/g, " "),
@@ -252,9 +244,7 @@ export default function ProductDetail() {
       .post(baseurl + "user/product_details/", requestBody)
 
       .then(function (response) {
-
-
-         response &&  setColoursOptions(response.data.colours)
+        response && setColoursOptions(response.data.colours);
 
         // console.log(response && response.data.colours,"Colors")
         // console.log(dataColor.split(","),"Coolors")
@@ -266,7 +256,9 @@ export default function ProductDetail() {
         set_dimention(response.data.dimentions);
 
         set_localdimen(response.data.dimentions[0].product_dimensions);
-        set_discount_percentage(response.data.product_data[0].discount_percentage)
+        set_discount_percentage(
+          response.data.product_data[0].discount_percentage
+        );
         // set_localdimen(response.data.dimentions[0].product_dimensions)
 
         //TO SET THICKNESS BED TYPE
@@ -294,16 +286,18 @@ export default function ProductDetail() {
         settop_img(response.data.product_data[0].description_top_image);
         setbot_img(response.data.product_data[0].description_bottom_image);
 
-        response && setdescriptionimage(
-          response.data.product_data[0].description_main_image
-        );
+        response &&
+          setdescriptionimage(
+            response.data.product_data[0].description_main_image
+          );
         //TO SET PRODUCT DETAILS
 
         response && set_subdivision(response.data.product_sub);
 
         response && set_type_sub(response.data.product_sub[0].subdivision);
 
-        response && set_coupen(response.data.coupen_code[0].discount_percentage);
+        response &&
+          set_coupen(response.data.coupen_code[0].discount_percentage);
       });
   };
 
@@ -348,9 +342,6 @@ export default function ProductDetail() {
       });
   };
 
-
-
-
   //TODO THIRD FUNCTION
 
   const dimentionMethod = async (index, height_get) => {
@@ -373,14 +364,14 @@ export default function ProductDetail() {
 
         // alert(response.data.dimensions[0].product_dimensions);
 
-        response && set_localdimen(response.data.dimentions[0].product_dimensions);
+        response &&
+          set_localdimen(response.data.dimentions[0].product_dimensions);
 
         getProduct_price();
       });
   };
 
   const getProduct_price = async () => {
-
     // alert(id);
     const requestBody = {
       product_id: id,
@@ -395,10 +386,8 @@ export default function ProductDetail() {
       .post(baseurl + "user/price_data/", requestBody)
       .then(function (response) {
         response && set_price(response.data.data[0].product_price);
-        DiscountCalculations(response.data.data[0].product_price,discount)
+        DiscountCalculations(response.data.data[0].product_price, discount);
       });
-
-      
   };
 
   var desc = Product_Details.product_description;
@@ -500,31 +489,55 @@ export default function ProductDetail() {
       element.setAttribute("hidden", true);
     }
   };
-  const addTocart = (id, amt, title, image, bed_type, dimension, thickness, freeSection,color,dis,pri) => {
-    
- 
-var dim=custom_height === "" || custom_width==="" ?dimension:custom_height+" x "+custom_width;
-var bdtype=custom_height === "" || custom_width==="" ?bed_type:"Custom";
+  const addTocart = (
+    id,
+    amt,
+    title,
+    image,
+    bed_type,
+    dimension,
+    thickness,
+    freeSection,
+    color,
+    dis,
+    pri
+  ) => {
+    var dim =
+      custom_height === "" || custom_width === ""
+        ? dimension
+        : custom_height + " x " + custom_width;
+    var bdtype =
+      custom_height === "" || custom_width === "" ? bed_type : "Custom";
 
     // alert(freeSection)
     // return 0;
     //TODO METHOD ACTION FOR ADD
-   // toast.success("Product Added Successfully ");
+    // toast.success("Product Added Successfully ");
 
     setCart(
-      cartSection.addCart(id, parseInt(amt), title, image, bdtype, dim, thickness,freeSection,color,dis,pri,type_sub_devision)
+      cartSection.addCart(
+        id,
+        parseInt(amt),
+        title,
+        image,
+        bdtype,
+        dim,
+        thickness,
+        freeSection,
+        color,
+        dis,
+        pri,
+        type_sub_devision
+      )
     );
-    setCartModal(true)
+    setCartModal(true);
   };
 
   //Discouted Price Here
 
-
-
   //TO CALL CUTOMISE HEIGHT AND WIDTH
 
   const customise_pricelist = async () => {
-
     const requestBody = {
       product_id: id,
       bed_type: local,
@@ -539,10 +552,7 @@ var bdtype=custom_height === "" || custom_width==="" ?bed_type:"Custom";
       .post(baseurl + "user/price_customise_data/", requestBody)
       .then(function (response) {
         set_price(response.data.data[0].product_price);
-       
       });
-
-      
   };
 
   if (
@@ -574,21 +584,16 @@ var bdtype=custom_height === "" || custom_width==="" ?bed_type:"Custom";
     );
   };
 
-
-  const DiscountCalculations =(pri,perc)=>{
-   
+  const DiscountCalculations = (pri, perc) => {
     var percent = (perc / 100) * pri;
-    var lessedAmt=Math.round(percent);
-    setDiscountLess(lessedAmt)
-     
+    var lessedAmt = Math.round(percent);
+    setDiscountLess(lessedAmt);
+
     // const share1 = price - discount_less;
     //setShare(share1)
-  
+
     // const default_discount = Default_discount(share1, coupen_code);
-  }
-
-
-
+  };
 
   const related = () => {
     return <Related_product category={cate_name} />;
@@ -869,10 +874,11 @@ var bdtype=custom_height === "" || custom_width==="" ?bed_type:"Custom";
                                       </div>
                                     </div>
                                   </div>
-                            
-                                 <div className="desktop-responisve"><hr /></div> 
+
+                                  <div className="desktop-responisve">
+                                    <hr />
+                                  </div>
                                   <div className="free-area-style desktop-responisve">
-                                  
                                     <Lottie
                                       options={defaultOptions}
                                       height={80}
@@ -880,9 +886,14 @@ var bdtype=custom_height === "" || custom_width==="" ?bed_type:"Custom";
                                       isStopped={false}
                                       isPaused={false}
                                     />
-                                    <div> <span>Hurray, you’ve unlocked the complementary sleep accessories !</span> 
-                                    <p>  {free_content}</p></div>
-
+                                    <div>
+                                      {" "}
+                                      <span>
+                                        Hurray, you’ve unlocked the
+                                        complementary sleep accessories !
+                                      </span>
+                                      <p> {free_content}</p>
+                                    </div>
                                   </div>
                                 </div>
                                 <div class="product-info col-xs-12 col-md-7 col-sm-7">
@@ -907,9 +918,9 @@ var bdtype=custom_height === "" || custom_width==="" ?bed_type:"Custom";
 </p> */}
 
                                     <div className="has-borders mobile-responisve">
-                                      <p className="product-title-style">
+                                      <h1 className=" product-title-style">
                                         {Product_Details.product_name}{" "}
-                                      </p>
+                                      </h1>
                                       {/* <p className="product-dcp">
                                         {Product_Details.marketing_description}
                                       </p> */}
@@ -918,17 +929,35 @@ var bdtype=custom_height === "" || custom_width==="" ?bed_type:"Custom";
                                         style={{ color: "#982876" }}
                                       >
                                         * Price of{" "}
-                                        {custom_height === "" || custom_width==="" ? local + " " +  Dimen   + " X " + height :"Custom" + " " +  custom_height+ " x " +custom_width   + " X " + height}
+                                        {custom_height === "" ||
+                                        custom_width === ""
+                                          ? local + " " + Dimen + " X " + height
+                                          : "Custom" +
+                                            " " +
+                                            custom_height +
+                                            " x " +
+                                            custom_width +
+                                            " X " +
+                                            height}
                                       </p>
                                     </div>
 
                                     <div className="has-borders desktop-responisve">
-                                      <p className="product-title-style">
+                                      <h1 className="product-title-style">
                                         {Product_Details.product_name}{" "}
-                                      </p>
+                                      </h1>
                                       <p className="product-dcp">
                                         * Price of{" "}
-                                        {custom_height === "" || custom_width==="" ? local + " " +  Dimen   + " X " + height :"Custom" + " " +  custom_height+ " x " +custom_width   + " X " + height}
+                                        {custom_height === "" ||
+                                        custom_width === ""
+                                          ? local + " " + Dimen + " X " + height
+                                          : "Custom" +
+                                            " " +
+                                            custom_height +
+                                            " x " +
+                                            custom_width +
+                                            " X " +
+                                            height}
                                       </p>
                                     </div>
 
@@ -962,7 +991,7 @@ var bdtype=custom_height === "" || custom_width==="" ?bed_type:"Custom";
                                                 class="fa fa-inr"
                                                 aria-hidden="true"
                                               ></i>{" "}
-                                              {discount_less }
+                                              {discount_less}
                                             </a>
                                           </div>
                                         </div>
@@ -1012,7 +1041,7 @@ var bdtype=custom_height === "" || custom_width==="" ?bed_type:"Custom";
                                                 class="fa fa-inr"
                                                 aria-hidden="true"
                                               ></i>{" "}
-                                              {discount_less }
+                                              {discount_less}
                                             </a>
                                           </div>
                                         </div>
@@ -1264,7 +1293,9 @@ var bdtype=custom_height === "" || custom_width==="" ?bed_type:"Custom";
                                     </div>
 
                                     <div class="has-border ">
-                                      <label>SELECTED COLOR - {pickedColor}</label>
+                                      <label>
+                                        SELECTED COLOR - {pickedColor}
+                                      </label>
                                       <div className="height-sec-container">
                                         {coloursOptions.length > 0
                                           ? coloursOptions.map(
@@ -1275,10 +1306,14 @@ var bdtype=custom_height === "" || custom_width==="" ?bed_type:"Custom";
                                                       ? "heigh-div-wraper-color-active"
                                                       : "heigh-div-wraper-color"
                                                   }
-                                                  onClick={()=>{onOpenModal(element)}}
+                                                  onClick={() => {
+                                                    onOpenModal(element);
+                                                  }}
                                                 >
                                                   <img
-                                                   onClick={()=>{onOpenModal(element)}}
+                                                    onClick={() => {
+                                                      onOpenModal(element);
+                                                    }}
                                                     src={imgurl + element.img}
                                                     alt={
                                                       Product_Details.product_imageurl_alt
@@ -1336,20 +1371,32 @@ var bdtype=custom_height === "" || custom_width==="" ?bed_type:"Custom";
                                       </div>
                                     </div>
 
-                                    <div className="mobile-responisve"><hr /></div> 
+                                    <div className="mobile-responisve">
+                                      <hr />
+                                    </div>
                                     <div className="free-area-style mobile-responisve">
-                                  
-                                  <Lottie
-                                    options={defaultOptions}
-                                    height={100}
-                                    width={150}
-                                    isStopped={false}
-                                    isPaused={false}
-                                  />
-                                  <div> <div style={{textAlign:"center",marginBottom:10}}><span>Hurray ! Free sleep accessories !</span></div> 
-                                  <p>  {free_content}</p></div>
-
-                                </div>
+                                      <Lottie
+                                        options={defaultOptions}
+                                        height={100}
+                                        width={150}
+                                        isStopped={false}
+                                        isPaused={false}
+                                      />
+                                      <div>
+                                        {" "}
+                                        <div
+                                          style={{
+                                            textAlign: "center",
+                                            marginBottom: 10,
+                                          }}
+                                        >
+                                          <span>
+                                            Hurray ! Free sleep accessories !
+                                          </span>
+                                        </div>
+                                        <p> {free_content}</p>
+                                      </div>
+                                    </div>
 
                                     <div className="buy-section mobile-responisve">
                                       <a
@@ -1366,8 +1413,6 @@ var bdtype=custom_height === "" || custom_width==="" ?bed_type:"Custom";
                                             pickedColor,
                                             discount,
                                             price
-
-
                                           )
                                         }
                                         style={{ color: "white" }}
@@ -1416,10 +1461,7 @@ var bdtype=custom_height === "" || custom_width==="" ?bed_type:"Custom";
                                           <p>MRP ₹ {price - discount_less} </p>
 
                                           <p>{discount}% Discounted</p>
-                                          <p>
-                                            You Save ₹{" "}
-                                            {discount_less }
-                                          </p>
+                                          <p>You Save ₹ {discount_less}</p>
                                         </div>
 
                                         <div className="payment-sect-right">
@@ -1460,9 +1502,8 @@ var bdtype=custom_height === "" || custom_width==="" ?bed_type:"Custom";
                                                     height,
                                                     Product_Details.free_content,
                                                     pickedColor,
-                                            discount,
-                                            price
-
+                                                    discount,
+                                                    price
                                                   )
                                                 }
                                               >
@@ -1505,10 +1546,8 @@ var bdtype=custom_height === "" || custom_width==="" ?bed_type:"Custom";
                                                   height,
                                                   Product_Details.free_content,
                                                   pickedColor,
-                                            discount,
-                                            price
-
-
+                                                  discount,
+                                                  price
                                                 );
                                                 buy_func();
                                               }}
@@ -1590,7 +1629,7 @@ var bdtype=custom_height === "" || custom_width==="" ?bed_type:"Custom";
                                           style={{
                                             cursor: "pointer",
                                             marginLeft: 10,
-                                            color:"#992876"
+                                            color: "#992876",
                                           }}
                                           className="blink_me_lab"
                                         >
@@ -1616,7 +1655,7 @@ var bdtype=custom_height === "" || custom_width==="" ?bed_type:"Custom";
                                       </div>
                                     </div>
 
-                                    <div
+                                    {/* <div
                                       class="product-quantity  desktop-responisve"
                                       style={{ marginTop: 15 }}
                                     >
@@ -1638,9 +1677,8 @@ var bdtype=custom_height === "" || custom_width==="" ?bed_type:"Custom";
                                                   height,
                                                   Product_Details.free_content,
                                                   pickedColor,
-                                            discount,
-                                            price
-
+                                                  discount,
+                                                  price
                                                 )
                                               }
                                             >
@@ -1654,7 +1692,10 @@ var bdtype=custom_height === "" || custom_width==="" ?bed_type:"Custom";
                                           </span>
                                           <button
                                             className="buynow"
-                                            style={{ background: "black",marginLeft:15 }}
+                                            style={{
+                                              background: "black",
+                                              marginLeft: 15,
+                                            }}
                                             onClick={() => {
                                               addTocart(
                                                 id,
@@ -1666,9 +1707,8 @@ var bdtype=custom_height === "" || custom_width==="" ?bed_type:"Custom";
                                                 height,
                                                 Product_Details.free_content,
                                                 pickedColor,
-                                            discount,
-                                            price
-
+                                                discount,
+                                                price
                                               );
                                               buy_func();
                                             }}
@@ -1677,8 +1717,19 @@ var bdtype=custom_height === "" || custom_width==="" ?bed_type:"Custom";
                                           </button>
                                         </div>
                                       </div>
+                                    </div> */}
+                                    <div
+                                      style={{
+                                        marginTop: 20,
+                                        marginBottom: 10,
+                                      }}
+                                    >
+                                      {" "}
+                                      <p style={{ fontSize: 14 }}>
+                                        * Free Delivery within 2 to 5 Days
+                                        across South India !
+                                      </p>
                                     </div>
-                                    <div style={{marginTop:20,marginBottom:10}}> <p style={{fontSize:14}}>Free Delivery within 2 to 5 Days across South India !</p></div>
                                   </div>
                                 </div>
                               </div>
@@ -1918,9 +1969,8 @@ var bdtype=custom_height === "" || custom_width==="" ?bed_type:"Custom";
                   height,
                   Product_Details.free_content,
                   pickedColor,
-                                            discount,
-                                            price
-
+                  discount,
+                  price
                 )
               }
               className="add-to-cart-btn"
@@ -1946,38 +1996,106 @@ var bdtype=custom_height === "" || custom_width==="" ?bed_type:"Custom";
             <img
               src={imgurl + pickedColorImg}
               style={{ width: "75%", height: "75%" }}
-            /> 
+            />
           </Modal>
         </footer>
       </div>
       <Loader />
-      <BottomTab />
+
+      {/* Bootom Tab Code Starts */}
+      <>
+        <div className="tw-fixed tw-hidden md:tw-block lg:tw-block xl:tw-block tw-bottom-0   tw-w-full tw-z-50  tw-bg-[#eee] tw-shadow-lg tw-border-t-0 tw-pt-5 tw-pb-3 tw-rounded-r-3xl ">
+          <div className="tw-grid tw-grid-cols-2">
+            <div>
+              <div className="price-view tw-flex tw-items-center tw-justify-center">
+                <div>
+                <p className="tw-font-bold tw-text-[#982876] tw-text-[18px]" >
+                  * Price of{" "}
+                  {custom_height === "" || custom_width === ""
+                    ? local + " " + Dimen + " X " + height
+                    : "Custom" +
+                      " " +
+                      custom_height +
+                      " x " +
+                      custom_width +
+                      " X " +
+                      height}
+                </p>
+                </div>
+                <div className="price-view tw-flex tw-items-center tw-justify-center tw-flex-row tw-ml-5">
+                <p className="mrp-rate tw-text-[18px] tw-text-black">
+                  M.R.P{" "}
+                  <i style={{ paddingLeft: 10 }} class="fa fa-inr">
+                    <s> {price}</s>
+                  </i>
+                </p>
+                <p
+                  className=" tw-text-[24px] tw-text-black tw-font-bold tw-ml-5 "
+                  style={{ fontFamily: "system-ui" }}
+                >
+                  <i class="fa fa-inr"></i> {price - discount_less}
+                </p>
+                </div>
+              </div>
+            </div>
+            <div className="tw-grid tw-grid-cols-2 input-group-cus">
+              <button
+                className="buynow"
+                data-button-action="add-to-cart"
+                type="submit"
+                onClick={() =>
+                  addTocart(
+                    id,
+                    price - discount_less,
+                    Product_Details.product_name,
+                    Product_Details.product_imageurl,
+                    local,
+                    Dimen,
+                    height,
+                    Product_Details.free_content,
+                    pickedColor,
+                    discount,
+                    price
+                  )
+                }
+              >
+                <i
+                  class="fa fa-shopping-cart"
+                  aria-hidden="true"
+                  style={{ marginRight: 10 }}
+                ></i>
+                <span>Add to cart</span>
+              </button>
+
+              <button
+                className="buynow"
+                style={{
+                  background: "black",
+                  marginLeft: 15,
+                }}
+                onClick={() => {
+                  addTocart(
+                    id,
+                    price - discount_less,
+                    Product_Details.product_name,
+                    Product_Details.product_imageurl,
+                    local,
+                    Dimen,
+                    height,
+                    Product_Details.free_content,
+                    pickedColor,
+                    discount,
+                    price
+                  );
+                  buy_func();
+                }}
+              >
+                Buy Now
+              </button>
+            </div>
+          </div>
+        </div>
+      </>
     </>
   );
-}
-
-
-const BottomTab = () =>{
-  return(
-    <>
-
-      <div className="tw-fixed tw-hidden md:tw-block lg:tw-block xl:tw-block tw-bottom-0   tw-w-full tw-z-50 tw-bg-black tw-shadow-lg ">
-
-<div className="tw-grid tw-grid-cols-2">
-        <button className=" tw-text-black tw-py-5 tw-capitalize tw-text-xl tw-bg-white tw-border tw-border-gray-500">
-            Add to cart
-        </button>
-        <div className="tw-grid tw-grid-cols-2">
-        <button className=" tw-text-black tw-py-5 tw-capitalize tw-text-xl tw-bg-white tw-border tw-border-gray-500">
-            Add to cart
-        </button>
-        <button className=" tw-text-black tw-py-5 tw-capitalize tw-text-xl tw-bg-white tw-border tw-border-gray-500">
-            Add to cart
-        </button>
-        </div>
-</div>
-
-      </div>
-    </>
-  )
 }

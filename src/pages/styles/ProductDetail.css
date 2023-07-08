@@ -331,8 +331,8 @@
 
 .input-group-cus {
     display: flex !important;
-    justify-content: start;
-    align-items: flex-end;
+    justify-content: center;
+    align-items: center;
 
 }
 

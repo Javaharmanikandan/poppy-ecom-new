@@ -13,6 +13,7 @@ import { Modal } from "react-responsive-modal";
 import { gapi } from "gapi-script";
 import { GoogleLogin } from "react-google-login";
 import { ScrolltoTop } from "../utility";
+import { useNavigate } from "react-router-dom";
 
 const baseurl = process.env.REACT_APP_BASE_URL;
 
@@ -26,6 +27,8 @@ export default function Checkout() {
   const [userInfo, setUserInfo] = useState({});
   const onOpenModal = () => setOpen(true);
   const onCloseModal = () => setOpen(false);
+
+  let navigate = useNavigate();
 
   const {
     register,
@@ -305,7 +308,7 @@ export default function Checkout() {
       alert("Razorpay SDK failed to load. Are you online?");
       return;
     }
-    const tot = total * 100;
+    const tot = 1 * 100;
 
     const requestBody = {
       payment: tot,
@@ -372,8 +375,9 @@ export default function Checkout() {
             )
             .then(function (response) {
               removeProduct();
-              onOpenModal();
-              let url_redirect = "/order_track/" + o_id;
+              navigate('/success')
+              // onOpenModal();
+            ///  let url_redirect = "/order_track/" + o_id;
 
               // navigate(url_redirect);
               // window.location.href =

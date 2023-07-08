@@ -38,6 +38,7 @@ import Product_Filter from "./new-pages/filter-page/filter";
 import Assists from './pages/assists';
 import SideCart from "./Components/UI/SideCart";
 import CommonContextProvider from "./Context/CommonContext";
+import Success from "./pages/Components/Success";
 
 document.title = "Poppy India";
 
@@ -51,7 +52,7 @@ const WithHeader = () => {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-
+        <Route path="/success" element={<Success />}></Route>
         <Route path="/contact" element={<Contact />}></Route>
         <Route path="/New-home" element={<Index />}></Route>
         <Route path="/New-product" element={<New_Details />}></Route>

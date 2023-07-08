@@ -35,7 +35,7 @@ function Collections(props) {
     return (
         
         <div className='collection-container'>
-            <h2>Shop By Series</h2>
+            <h2 className="headingSecond">Shop By Series</h2>
             <div className='collections'>
             <div className='collection' onClick={()=>navigate('/productlist/Premium-Series')}>
             <img src={collection_img_1} className="collection_img " alt="collection_image" />

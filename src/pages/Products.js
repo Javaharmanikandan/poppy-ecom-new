@@ -22,6 +22,7 @@ function Products() {
   const [product_list, setProduct_li] = useState([]);
 
   const [loader, isLoad] = useState(false);
+  const [categoryContent, setCategory_content] = useState(null);
 
   const { category_str } = useParams();
 
@@ -31,12 +32,21 @@ function Products() {
 
   const navigate = useNavigate();
 
-
-
   const category_list_fun = async () => {
     let response = await category_list();
 
     setCategory(response.data.data);
+
+    const requestBody = {
+      category_name: category_str,
+    };
+
+    let response2 = await axios
+      .post(baseurl + "user/category_content", requestBody)
+      .then((result) => {
+        console.log(result.data.data[0], "Category Contnent");
+        setCategory_content(result.data.data[0]);
+      });
   };
 
   useEffect(() => {
@@ -77,11 +87,16 @@ function Products() {
       category_str === "best_seller"
     ) {
       setCollectionType("Category");
-    }
-    else if(category_str ==="Spring-Mattress" || category_str ==="Pocketed-Spring" || category_str ==="Bonnell-Spring" || category_str ==="Natural-Latex" || category_str ==="Coir-mattress" || category_str ==="Foam-mattress"){
+    } else if (
+      category_str === "Spring-Mattress" ||
+      category_str === "Pocketed-Spring" ||
+      category_str === "Bonnell-Spring" ||
+      category_str === "Natural-Latex" ||
+      category_str === "Coir-mattress" ||
+      category_str === "Foam-mattress"
+    ) {
       setCollectionType("Material");
-    }
-    else if(category_str ==="all"){
+    } else if (category_str === "all") {
       setCollectionType("Series");
     }
   }, [id]);
@@ -91,7 +106,7 @@ function Products() {
     const requestBody = {
       category_id: id,
     };
-    
+
     let response = await axios
       .post(baseurl + "user/product_list", requestBody)
       .then((result) => {
@@ -194,15 +209,17 @@ function Products() {
                   <div class="container containerRes">
                     <div class="content" style={{ marginTop: "2rem" }}>
                       <div className="productslist_lable">
-                        <p style={{ fontSize: 32 }}>
+                        <h1 style={{ fontSize: 24 }}>
                           {collectionType +
                             " - " +
                             category_str
                               .replace(/[^a-zA-Z0-9 ]/g, " ")
                               .charAt(0)
                               .toUpperCase() +
-                            category_str.replace(/[^a-zA-Z0-9 ]/g, " ").slice(1)}
-                        </p>
+                            category_str
+                              .replace(/[^a-zA-Z0-9 ]/g, " ")
+                              .slice(1)}
+                        </h1>
                       </div>
                       <div class="row">
                         <div class="sidebar-3 sidebar-collection col-lg-4 col-md-4 col-sm-4  desktop-responisve">
@@ -355,8 +372,6 @@ function Products() {
                                     </div>
                                   </div>
 
-
-
                                   <div className="Main-filterContainer">
                                     <div className="filters Grid-item">
                                       <div>
@@ -373,7 +388,7 @@ function Products() {
                                       </div>
                                     </div>
                                     <div className="Main-filterGrid">
-                                    <div className="filters Grid-item">
+                                      <div className="filters Grid-item">
                                         <div>
                                           <input
                                             type={"radio"}
@@ -391,7 +406,9 @@ function Products() {
                                           <input
                                             type={"radio"}
                                             onClick={() => {
-                                              filter_cat("Pocketed Spring Mattress");
+                                              filter_cat(
+                                                "Pocketed Spring Mattress"
+                                              );
                                             }}
                                             name="radio_button"
                                             value="Pocketed Spring Mattress"
@@ -405,7 +422,9 @@ function Products() {
                                           <input
                                             type={"radio"}
                                             onClick={() => {
-                                              filter_cat("Bonnell Spring Mattress");
+                                              filter_cat(
+                                                "Bonnell Spring Mattress"
+                                              );
                                             }}
                                             name="radio_button"
                                             value="Bonnell Spring Mattress"
@@ -419,12 +438,14 @@ function Products() {
                                           <input
                                             type={"radio"}
                                             onClick={() => {
-                                              filter_cat("Natural Latex Mattress");
+                                              filter_cat(
+                                                "Natural Latex Mattress"
+                                              );
                                             }}
                                             name="radio_button"
                                             value="Natural Latex Mattress"
                                           />{" "}
-                                         Natural Latex Mattress
+                                          Natural Latex Mattress
                                         </div>
                                       </div>
 
@@ -455,11 +476,8 @@ function Products() {
                                           Coir Mattress
                                         </div>
                                       </div>
-                                     
                                     </div>
                                   </div>
-
-
 
                                   <div className="Main-filterContainer">
                                     <div className="filters Grid-item">
@@ -719,109 +737,108 @@ function Products() {
                                 </div>
                               </div>
 
-
                               <div className="Main-filterContainer">
-                                    <div className="filters Grid-item">
-                                      <div>
-                                        <input
-                                          style={{ visibility: "hidden" }}
-                                          type={"radio"}
-                                          onClick={() => {
-                                            filter_cat("all");
-                                          }}
-                                          name="radio_button"
-                                          value="all"
-                                        />{" "}
-                                        <lable>Materials</lable>
-                                      </div>
+                                <div className="filters Grid-item">
+                                  <div>
+                                    <input
+                                      style={{ visibility: "hidden" }}
+                                      type={"radio"}
+                                      onClick={() => {
+                                        filter_cat("all");
+                                      }}
+                                      name="radio_button"
+                                      value="all"
+                                    />{" "}
+                                    <lable>Materials</lable>
+                                  </div>
+                                </div>
+                                <div className="Main-filterGrid">
+                                  <div className="filters Grid-item">
+                                    <div>
+                                      <input
+                                        type={"radio"}
+                                        onClick={() => {
+                                          filter_cat("Spring Mattress");
+                                        }}
+                                        name="radio_button"
+                                        value="Spring Mattress"
+                                      />{" "}
+                                      Spring Mattress
                                     </div>
-                                    <div className="Main-filterGrid">
-                                    <div className="filters Grid-item">
-                                        <div>
-                                          <input
-                                            type={"radio"}
-                                            onClick={() => {
-                                              filter_cat("Spring Mattress");
-                                            }}
-                                            name="radio_button"
-                                            value="Spring Mattress"
-                                          />{" "}
-                                          Spring Mattress
-                                        </div>
-                                      </div>
-                                      <div className="filters Grid-item">
-                                        <div>
-                                          <input
-                                            type={"radio"}
-                                            onClick={() => {
-                                              filter_cat("Pocketed Spring Mattress");
-                                            }}
-                                            name="radio_button"
-                                            value="Pocketed Spring Mattress"
-                                          />{" "}
-                                          Pocketed Spring Mattress
-                                        </div>
-                                      </div>
-
-                                      <div className="filters Grid-item">
-                                        <div>
-                                          <input
-                                            type={"radio"}
-                                            onClick={() => {
-                                              filter_cat("Bonnell Spring Mattress");
-                                            }}
-                                            name="radio_button"
-                                            value="Bonnell Spring Mattress"
-                                          />{" "}
-                                          Bonnell Spring Mattress
-                                        </div>
-                                      </div>
-
-                                      <div className="filters Grid-item">
-                                        <div>
-                                          <input
-                                            type={"radio"}
-                                            onClick={() => {
-                                              filter_cat("Natural Latex Mattress");
-                                            }}
-                                            name="radio_button"
-                                            value="Natural Latex Mattress"
-                                          />{" "}
-                                         Natural Latex Mattress
-                                        </div>
-                                      </div>
-
-                                      <div className="filters Grid-item">
-                                        <div>
-                                          <input
-                                            type={"radio"}
-                                            onClick={() => {
-                                              filter_cat("Foam Mattress");
-                                            }}
-                                            name="radio_button"
-                                            value="Foam Mattress"
-                                          />{" "}
-                                          Foam Mattress
-                                        </div>
-                                      </div>
-
-                                      <div className="filters Grid-item">
-                                        <div>
-                                          <input
-                                            type={"radio"}
-                                            onClick={() => {
-                                              filter_cat("Coir Mattress");
-                                            }}
-                                            name="radio_button"
-                                            value="Coir Mattress"
-                                          />{" "}
-                                          Coir Mattress
-                                        </div>
-                                      </div>
-                                     
+                                  </div>
+                                  <div className="filters Grid-item">
+                                    <div>
+                                      <input
+                                        type={"radio"}
+                                        onClick={() => {
+                                          filter_cat(
+                                            "Pocketed Spring Mattress"
+                                          );
+                                        }}
+                                        name="radio_button"
+                                        value="Pocketed Spring Mattress"
+                                      />{" "}
+                                      Pocketed Spring Mattress
                                     </div>
                                   </div>
 
+                                  <div className="filters Grid-item">
+                                    <div>
+                                      <input
+                                        type={"radio"}
+                                        onClick={() => {
+                                          filter_cat("Bonnell Spring Mattress");
+                                        }}
+                                        name="radio_button"
+                                        value="Bonnell Spring Mattress"
+                                      />{" "}
+                                      Bonnell Spring Mattress
+                                    </div>
+                                  </div>
+
+                                  <div className="filters Grid-item">
+                                    <div>
+                                      <input
+                                        type={"radio"}
+                                        onClick={() => {
+                                          filter_cat("Natural Latex Mattress");
+                                        }}
+                                        name="radio_button"
+                                        value="Natural Latex Mattress"
+                                      />{" "}
+                                      Natural Latex Mattress
+                                    </div>
+                                  </div>
+
+                                  <div className="filters Grid-item">
+                                    <div>
+                                      <input
+                                        type={"radio"}
+                                        onClick={() => {
+                                          filter_cat("Foam Mattress");
+                                        }}
+                                        name="radio_button"
+                                        value="Foam Mattress"
+                                      />{" "}
+                                      Foam Mattress
+                                    </div>
+                                  </div>
+
+                                  <div className="filters Grid-item">
+                                    <div>
+                                      <input
+                                        type={"radio"}
+                                        onClick={() => {
+                                          filter_cat("Coir Mattress");
+                                        }}
+                                        name="radio_button"
+                                        value="Coir Mattress"
+                                      />{" "}
+                                      Coir Mattress
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
 
                               <div className="Main-filterContainer">
                                 <div className="filters Grid-item">
@@ -915,12 +932,23 @@ function Products() {
                             </div>
                           </div>
 
-                          <div class="pagination">
+                          {/* <div class="pagination">
                             <div class="js-product-list-top ">
                               <div class="d-flex justify-content-around row"></div>
                             </div>
-                          </div>
+                          </div> */}
                         </div>
+                      </div>
+                      <div className="container">
+                        {/* <div>Hi Hello Welocme</div> */}
+
+                        {categoryContent && (
+                          <div
+                            dangerouslySetInnerHTML={{
+                              __html: categoryContent.content,
+                            }}
+                          />
+                        )}
                       </div>
                     </div>
                   </div>

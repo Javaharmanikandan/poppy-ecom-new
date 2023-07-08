@@ -193,7 +193,7 @@ function Home() {
 
                 {/* <CusProduct /> */}
 
-                <div className="highlight-banner-container">
+                <div className="highlight-banner-container" style={{marginTop:20}}>
                   <div className="highlight-banner">
                     <div className="highlight-banner-block">
                       <div className="highlight-banner-icon">
@@ -203,14 +203,16 @@ function Home() {
                         />
                       </div>
                       <div className="highlight-banner-text">
-                        Supreme Quality
+                        <h3 className="headingThird">Supreme Quality</h3>
                       </div>
                     </div>
                     <div className="highlight-banner-block">
                       <div className="highlight-banner-icon">
                         <img src={imgurl + "Earned.png"} alt="Earned Trust" />
                       </div>
-                      <div className="highlight-banner-text">Earned Trust</div>
+                      <div className="highlight-banner-text">
+                      <h3 className="headingThird"> Earned Trust</h3>
+                        </div>
                     </div>
                     <div className="highlight-banner-block">
                       <div className="highlight-banner-icon">
@@ -220,14 +222,16 @@ function Home() {
                         />
                       </div>
                       <div className="highlight-banner-text">
-                        Hygiene Standards
+                      <h3 className="headingThird">Hygiene Standards</h3>
                       </div>
                     </div>
                     <div className="highlight-banner-block">
                       <div className="highlight-banner-icon">
                         <img src={imgurl + "india.png"} alt="Made in India" />
                       </div>
-                      <div className="highlight-banner-text">Made in India</div>
+                      <div className="highlight-banner-text">
+                      <h3 className="headingThird"> Made in India</h3>
+                      </div>
                     </div>
                     <div className="highlight-banner-block">
                       <div className="highlight-banner-icon">
@@ -237,7 +241,7 @@ function Home() {
                         />
                       </div>
                       <div className="highlight-banner-text">
-                        Support on Call
+                      <h3 className="headingThird"> Support on Call</h3>
                       </div>
                     </div>
                   </div>
@@ -257,12 +261,12 @@ function Home() {
                   <BottomBannerNew />{" "}
                 </div>
 
-                <div style={{ marginTop: 50 }}>
+                <div style={{ marginTop: 75 }}>
                   {" "}
                   <Collections dataShare={youtube_ban && youtube_ban} />{" "}
                 </div>
 
-                <div style={{ paddingBottom: "50px", paddingTop: "50px", background: '#992876' }}>
+                <div style={{ paddingBottom: "50px", paddingTop: "50px", background: '#992876',marginTop:55 }}>
                   <Contactus />
                 </div>
                 <div
@@ -291,22 +295,12 @@ function Home() {
         </div>
         <Loader />
       </div>
-
-
-
-
-
-
-      <div style={{ marginBottom: "50px", marginTop: "50px" }}>
+      <div style={{ marginBottom: "50px", marginTop: "70px" }}>
         <Testimonial />
       </div>
-
-
-      <div style={{ marginBottom: "50px" }}>
+      <div style={{ marginBottom: "20px",marginTop:75 }}>
         <BlogCard />
       </div>
-
-
     </>
   );
 }

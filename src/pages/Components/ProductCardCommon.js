@@ -58,7 +58,7 @@ export const ProductCardCommon = (props) => {
     
     <div className='product_card'  style={{cursor:'pointer'}} >
     <div className='product-img'>
-        <img  onClick={() =>{movepage(props.dataDetails.product_name)}} className='product-image' src={imgurl+props.dataDetails.product_imageurl} alt='Product_image' />
+        <img  onClick={() =>{movepage(props.dataDetails.product_name)}} className='product-image' src={imgurl+props.dataDetails.product_imageurl} alt={props.dataDetails.product_imageurl_alt} />
         <a  onClick={()=>{
           addWish(props.dataDetails.id,
           props.dataDetails.DiscountedPrice.toFixed(0),

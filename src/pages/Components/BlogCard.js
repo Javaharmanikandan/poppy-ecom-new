@@ -28,7 +28,7 @@ function BlogCard() {
     <div class="content">
         <div class="row">
             <div class="col main-blogs">
-                <h4 class="text-center col">Our Blogs</h4>
+            <h2 className="headingSecond" style={{textAlign:'center'}}>Our Blogs</h2>
                 <div class="row row_padding">
 
 
